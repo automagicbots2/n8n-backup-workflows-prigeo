@@ -1,0 +1,665 @@
+{
+  "active": true,
+  "connections": {
+    "aguardando_pagamento": {
+      "main": [
+        [
+          {
+            "node": "Consulta Venda na Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consulta Usuários na Hotmart": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consulta Venda na Hotmart": {
+      "main": [
+        [
+          {
+            "node": "Consulta Usuários na Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "dados_gerais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_gerais": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-01T14:46:29.271Z",
+  "id": "1dGiZDyvpCTYB0Aa",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[CSP] - Aguardando_Pagamento - Parte 1",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "csp-aguardando-pagamento",
+        "options": {}
+      },
+      "id": "688e6006-dd77-481b-932c-ea300ed17a7a",
+      "name": "aguardando_pagamento",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ],
+      "webhookId": "56987c06-8726-47af-8682-b57e0669641e"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Acessando o objeto JSON do webhook \"compra_cancelada\"\nconst aguardandoPagamento = $node[\"aguardando_pagamento\"].json;\nconst consultaUsers = $node[\"Consulta Usuários na Hotmart\"].json;\n\nfunction formatarDataMilissegundos(dataMilissegundos) {\n  const data = new Date(dataMilissegundos);\n  const dia = String(data.getDate()).padStart(2, '0');\n  const mes = String(data.getMonth() + 1).padStart(2, '0');\n  const ano = data.getFullYear();\n  return `${dia}/${mes}/${ano}`;\n}\n\n// Função para formatar o nome com a primeira letra de cada parte em maiúscula\nfunction formatName(str) {\n  return str\n    .split(' ')\n    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())\n    .join(' ');\n}\n\nconst nomeClienteOriginal = consultaUsers?.items?.[0]?.users?.[1]?.user?.name || '';\nconst nomeClienteFormatado = formatName(nomeClienteOriginal);\nconst emailCliente = consultaUsers?.items?.[0]?.users?.[1]?.user?.email.toLowerCase().replace(/\\s/g, '') || '';\n\n// Tratamento do número de telefone\nconst telefoneClienteOriginal = consultaUsers?.items?.[0]?.users?.[1]?.user?.phone || '';\nconst telefoneLimpo = telefoneClienteOriginal.replace(/\\D/g, \"\");\nconst DDI = '55';\nconst DDD = telefoneLimpo.slice(0, 2);\n\n// Determinar o número de telefone final\nlet telefoneFinal;\nif (parseInt(DDD) > 28) {\n  telefoneFinal = `${DDI}${DDD}${telefoneLimpo.slice(-8)}`;\n} else {\n  telefoneFinal = `${DDI}${DDD}${telefoneLimpo.slice(-9)}`;\n}\n\nconst moedaCompra = aguardandoPagamento.body.data.purchase.original_offer_price.currency_value || '';\n\n// Mapeamento das formas de pagamento em inglês para PT-BR\nconst formasPagamento = {\n  CREDIT_CARD: \"Cartão de Crédito\",\n  PIX: \"PIX\",\n  BILLET: \"Boleto\",\n  PAYPAL: \"PayPal\",\n  WALLET: \"Carteira da Hotmart\",\n  FINANCED_BILLET: \"Boleto Parcelado\",\n  CASH_PAYMENT: \"Dinheiro Vivo\",\n  DIRECT_BANK_TRANSFER: \"Transferência Bancária\",\n  DIRECT_DEBIT: \"Débito Direto\",\n  FINANCED_INSTALLMENT: \"Parcelamento Financiado\",\n  GOOGLE_PAY: \"Google Pay\",\n  HOTCARD: \"Cartão da Hotmart\",\n  HYBRID: \"Híbrido\",\n  MANUAL_TRANSFER: \"Transferência Manual\",\n  PAYPAL_INTERNACIONAL: \"PayPal Internacional\",\n  PICPAY: \"PicPay\",\n};\n\n// Mapeamento dos status de compra em inglês para PT-BR\nconst statusCompra = {\n  APPROVED: 'Compra Aprovada',\n  BLOCKED: 'Compra Bloqueada',\n  CANCELLED: 'Compra Cancelada',\n  CHARGEBACK: 'Chargeback',\n  COMPLETE: 'Compra Completa',\n  EXPIRED: 'Compra Expirada',\n  OVERDUE: 'Compra Atrasada',\n  NO_FUNDS: 'Sem Fundos',\n  PRINTED_BILLET: 'Boleto Gerado',\n  PARTIALLY_REFUNDED: 'Parcialmente Reembolsada',\n  PROCESSING_TRANSACTION: 'Processando Transação',\n  PRE_ORDER: 'Compra Reservada',\n  STARTED: 'Compra Iniciada',\n  PROTESTED: 'Compra Reclamada',\n  REFUNDED: 'Compra Reembolsada',\n  WAITING_PAYMENT: 'Aguardando Pagamento',\n  UNDER_ANALISYS: 'Em Análise',\n  CANCELED: \"Compra Cancelada\",\n  COMPLETED: \"Compra Completa\"\n};\n\n// Obtendo os dados formatados\nconst nomeProduto = aguardandoPagamento.body.data.product.name || '';\nconst comissaoGateway = aguardandoPagamento.body.data.commissions[0]?.value || '';\nconst ofertaCompra = aguardandoPagamento.body.data.purchase.offer.code || '';\nconst valorCompra = aguardandoPagamento.body.data.purchase.price.value || '';\nconst numeroParcelas = aguardandoPagamento.body.data.purchase.payment.installments_number || '';\nconst metodoPagamento = formasPagamento[aguardandoPagamento.body.data.purchase.payment.type] || '';\nconst idTransacao = aguardandoPagamento.body.data.purchase.transaction || '';\nconst dataPedidoFormatada = formatarDataMilissegundos(aguardandoPagamento.body.data.purchase.order_date);\nconst pix_qr_code = aguardandoPagamento.body.data.purchase.payment.pix_qrcode || '';\nconst linhadig_pix = aguardandoPagamento.body.data.purchase.payment.pix_code || '';\nconst dataVencimentoPix = formatarDataMilissegundos(aguardandoPagamento.body.data.purchase.payment.pix_expiration_date) || '';\nconst billet_url = aguardandoPagamento.body.data.purchase.payment.billet_url || '';\nconst billet_barcode = aguardandoPagamento.body.data.purchase.payment.billet_barcode || '';\n\n// Encontre o valor do documento (CPF ou CNPJ) do comprador onde o 'role' é 'BUYER'\nlet cpfcnpj_cliente = null;\nconst users = $node[\"Consulta Usuários na Hotmart\"].json[\"items\"][0][\"users\"];\n\nif (users) {\n  const buyer = users.find(user => user.role === 'BUYER');\n  if (buyer) {\n    cpfcnpj_cliente = buyer.user.documents[0]?.value || null;\n  }\n}\n\nif (cpfcnpj_cliente) {\n  if (cpfcnpj_cliente.length === 11) {\n    // Formatar CPF (11 dígitos) XXX.XXX.XXX-XX\n    cpfcnpj_cliente = cpfcnpj_cliente.replace(/(\\d{3})(\\d{3})(\\d{3})(\\d{2})/, '$1.$2.$3-$4');\n  } else if (cpfcnpj_cliente.length === 14) {\n    // Formatar CNPJ (14 dígitos) XX.XXX.XXX/0001-XX\n    cpfcnpj_cliente = cpfcnpj_cliente.replace(/(\\d{2})(\\d{3})(\\d{3})(\\d{4})(\\d{2})/, '$1.$2.$3/$4-$5');\n  }\n}\n\n// Verificar se o status da compra é \"BILLET_PRINTED\"\nif (aguardandoPagamento.body.data.purchase.status === 'BILLET_PRINTED') {\n  // Verificar o tipo de pagamento e atualizar o status da compra\n  if (aguardandoPagamento.body.data.purchase.payment.type === 'BILLET') {\n    aguardandoPagamento.body.data.purchase.status = 'Boleto Gerado';\n  } else if (aguardandoPagamento.body.data.purchase.payment.type === 'PIX') {\n    aguardandoPagamento.body.data.purchase.status = 'PIX Gerado';\n  }\n}\n\nconst status =  aguardandoPagamento.body.data.purchase.status\n\n// Resultado\nconst dadosFormatados = {\n  nomeProduto,\n  comissaoGateway,\n  ofertaCompra,\n  valorCompra,\n  numeroParcelas,\n  metodoPagamento,\n  idTransacao,\n  status,\n  dataPedidoFormatada,\n  nomeClienteFormatado,\n  emailCliente,\n  telefoneFinal,\n  cpfcnpj_cliente,\n  moedaCompra,\n  pix_qr_code,\n  linhadig_pix,\n  dataVencimentoPix,\n  billet_barcode,\n  billet_url\n};\n\n// Saída dos dados formatados\nreturn dadosFormatados;\n"
+      },
+      "id": "123c1185-9cff-433a-8f19-133eb081bc23",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://developers.hotmart.com/payments/api/v1/sales/users",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "transaction",
+              "value": "={{ $item(\"0\").$node[\"aguardando_pagamento\"].json[\"body\"][\"data\"][\"purchase\"][\"transaction\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "acfb2667-9acd-4730-aeb2-d44a2dd91b1b",
+      "name": "Consulta Usuários na Hotmart",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        860,
+        460
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "CHJqRANFoJRHVfE2",
+          "name": "[PRIGEO] - Hotmart"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://developers.hotmart.com/payments/api/v1/sales/history",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "transaction",
+              "value": "={{ $json[\"body\"][\"data\"][\"purchase\"][\"transaction\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "52e4466b-5bd6-4d35-9add-354d74faf45e",
+      "name": "Consulta Venda na Hotmart",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        660,
+        460
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "CHJqRANFoJRHVfE2",
+          "name": "[PRIGEO] - Hotmart"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "2b271ba7-2d82-4004-9b17-e37a77962fc5",
+      "name": "boleto_gerado",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        460,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "3fa7ca0b-0173-4b3a-baee-efd5c2a1431c",
+      "name": "pix_gerado",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        460,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Produto",
+              "value": "={{ $node[\"formata_dados\"].json[\"nomeProduto\"] }}"
+            },
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"nomeClienteFormatado\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"emailCliente\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefoneFinal\"] }}"
+            },
+            {
+              "name": "CPF/CNPJ do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"cpfcnpj_cliente\"] }}"
+            },
+            {
+              "name": "ID da Transação",
+              "value": "={{ $node[\"formata_dados\"].json[\"idTransacao\"] }}"
+            },
+            {
+              "name": "Oferta da Compra",
+              "value": "={{ $node[\"formata_dados\"].json[\"ofertaCompra\"] }}"
+            },
+            {
+              "name": "Moeda da Compra",
+              "value": "={{ $node[\"formata_dados\"].json[\"moedaCompra\"] }}"
+            },
+            {
+              "name": "Código da Inscrição",
+              "value": "={{ $node[\"aguardando_pagamento\"].json[\"body\"][\"data\"][\"subscription\"][\"subscriber\"][\"code\"] }}"
+            },
+            {
+              "name": "Plano",
+              "value": "={{ $node[\"aguardando_pagamento\"].json[\"body\"][\"data\"][\"subscription\"][\"plan\"][\"name\"] }}"
+            },
+            {
+              "name": "Forma de Pagamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"metodoPagamento\"] }}"
+            },
+            {
+              "name": "Status da Compra",
+              "value": "={{ $node[\"formata_dados\"].json[\"status\"] }}"
+            },
+            {
+              "name": "DDD",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefoneFinal\"].slice(2,4) }}"
+            },
+            {
+              "name": "Link do PIX",
+              "value": "={{ $node[\"formata_dados\"].json[\"pix_qr_code\"] }}"
+            },
+            {
+              "name": "Linha Digitável do PIX",
+              "value": "={{ $node[\"formata_dados\"].json[\"linhadig_pix\"] }}"
+            },
+            {
+              "name": "Link do Boleto",
+              "value": "={{ $node[\"formata_dados\"].json[\"billet_url\"] }}"
+            },
+            {
+              "name": "Linha Digitável do Boleto",
+              "value": "={{ $node[\"formata_dados\"].json[\"billet_barcode\"] }}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "6f2ad020-2909-475d-bcc6-a2b9e6cd9131"
+            },
+            {
+              "name": "id_campo_linha_dig_boleto",
+              "value": "1291730"
+            },
+            {
+              "name": "id_campo_linha_dig_pix",
+              "value": "1291729"
+            },
+            {
+              "name": "id_campo_link_boleto",
+              "value": "1291727"
+            },
+            {
+              "name": "id_campo_link_pix",
+              "value": "1291728"
+            },
+            {
+              "name": "id_fluxo_pix_gerado",
+              "value": "2290487"
+            },
+            {
+              "name": "id_fluxo_boleto_gerado",
+              "value": "2290497"
+            }
+          ],
+          "number": [
+            {
+              "name": "Valor da Compra",
+              "value": "={{ $node[\"formata_dados\"].json[\"valorCompra\"] }}"
+            },
+            {
+              "name": "Data da Compra",
+              "value": "={{ $node[\"formata_dados\"].json[\"dataPedidoFormatada\"] }}"
+            },
+            {
+              "name": "Comissão Hotmart",
+              "value": "={{ $node[\"formata_dados\"].json[\"comissaoGateway\"] }}"
+            },
+            {
+              "name": "Número de Parcelas",
+              "value": "={{ $node[\"formata_dados\"].json[\"numeroParcelas\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "id": "a205afd4-2b0d-4300-84d6-cd82c8ff213b",
+      "name": "dados_gerais",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Aguardando Pagamento - CSP",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "ad9025c8-f503-486f-8518-2309e3b13ad4",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        460
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "v10PciJKjFB8gCKb",
+          "name": "[PRIGEO] - RabbitMQ"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "aguardando_pagamento": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookprigeo.amarads.com.br",
+            "user-agent": "Jodd HTTP",
+            "content-length": "1421",
+            "content-type": "application/json",
+            "x-forwarded-for": "35.172.100.6",
+            "x-forwarded-host": "n8nwebhookprigeo.amarads.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "99d022a72141",
+            "x-hotmart-hottok": "C0M0zxU3tOxl79rtObW21JucfNTfa006c2cecc-32a6-4356-b7a6-4327bf1cd88c",
+            "x-real-ip": "35.172.100.6",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "data": {
+              "product": {
+                "has_co_production": true,
+                "name": "Combo de cursos Prigeo: Sala de Professores",
+                "id": 3301754,
+                "ucode": "616b4e08-67b7-40ac-91a3-8253ab64f056"
+              },
+              "commissions": [
+                {
+                  "currency_value": "BRL",
+                  "source": "MARKETPLACE",
+                  "value": 1.39
+                },
+                {
+                  "currency_value": "BRL",
+                  "source": "PRODUCER",
+                  "value": 0.43
+                }
+              ],
+              "purchase": {
+                "offer": {
+                  "code": "aud7l0an"
+                },
+                "order_date": 1694561571000,
+                "original_offer_price": {
+                  "currency_value": "BRL",
+                  "value": 6.96
+                },
+                "price": {
+                  "currency_value": "BRL",
+                  "value": 6.96
+                },
+                "checkout_country": {
+                  "iso": "BR",
+                  "name": "Brasil"
+                },
+                "buyer_ip": "187.114.195.135",
+                "order_bump": {
+                  "is_order_bump": false
+                },
+                "payment": {
+                  "pix_qrcode": "https://customer-local-latam.ebanx.com/pix/checkout?hash=6500f523b4d5ac0cb3f24f41002df54b5b51a4db1404e11f",
+                  "pix_expiration_date": 1694734372000,
+                  "installments_number": 1,
+                  "type": "PIX",
+                  "pix_code": "00020101021226740014br.gov.bcb.pix2552pix.ebanx.com/qr/v2/23060E61174D298949678E47737DA04F5204000053039865802BR5924Launch Pad Tecnologia Se6014BELO HORIZONTE62070503***63041EB0"
+                },
+                "full_price": {
+                  "currency_value": "BRL",
+                  "value": 6.96
+                },
+                "transaction": "HP0408613005",
+                "status": "BILLET_PRINTED"
+              },
+              "affiliates": [
+                {
+                  "affiliate_code": "",
+                  "name": ""
+                }
+              ],
+              "producer": {
+                "name": "Prigeo Ensino e Tecnologia"
+              },
+              "buyer": {
+                "name": "Gabriel Amaral Mota",
+                "checkout_phone": "11968678789",
+                "email": "ferramentas@automagicbots.com.br"
+              }
+            },
+            "id": "67777835-1139-4bcb-8c3c-0c2fea4d5be4",
+            "creation_date": 1694561576120,
+            "event": "PURCHASE_BILLET_PRINTED",
+            "version": "2.0.0"
+          }
+        }
+      }
+    ],
+    "boleto_gerado": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookprigeo.amarads.com.br",
+            "user-agent": "Jodd HTTP",
+            "content-length": "1197",
+            "content-type": "application/json",
+            "x-forwarded-for": "3.239.54.126",
+            "x-forwarded-host": "n8nwebhookprigeo.amarads.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "99d022a72141",
+            "x-hotmart-hottok": "C0M0zxU3tOxl79rtObW21JucfNTfa006c2cecc-32a6-4356-b7a6-4327bf1cd88c",
+            "x-real-ip": "3.239.54.126",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "data": {
+              "product": {
+                "has_co_production": true,
+                "name": "Combo de cursos Prigeo: Sala de Professores",
+                "id": 3301754,
+                "ucode": "616b4e08-67b7-40ac-91a3-8253ab64f056"
+              },
+              "commissions": [
+                {
+                  "currency_value": "BRL",
+                  "source": "MARKETPLACE",
+                  "value": 1.39
+                },
+                {
+                  "currency_value": "BRL",
+                  "source": "PRODUCER",
+                  "value": 0.43
+                }
+              ],
+              "purchase": {
+                "offer": {
+                  "code": "aud7l0an"
+                },
+                "order_date": 1694561495000,
+                "original_offer_price": {
+                  "currency_value": "BRL",
+                  "value": 6.96
+                },
+                "price": {
+                  "currency_value": "BRL",
+                  "value": 6.96
+                },
+                "checkout_country": {
+                  "iso": "BR",
+                  "name": "Brasil"
+                },
+                "buyer_ip": "187.114.195.135",
+                "order_bump": {
+                  "is_order_bump": false
+                },
+                "payment": {
+                  "billet_url": "https://hotm.art/bHP0716796874",
+                  "billet_barcode": "03399.54349 20378.242232 64792.201010 5 94730000000696",
+                  "installments_number": 1,
+                  "type": "BILLET"
+                },
+                "full_price": {
+                  "currency_value": "BRL",
+                  "value": 6.96
+                },
+                "transaction": "HP0716796874",
+                "status": "BILLET_PRINTED"
+              },
+              "affiliates": [
+                {
+                  "affiliate_code": "",
+                  "name": ""
+                }
+              ],
+              "producer": {
+                "name": "Prigeo Ensino e Tecnologia"
+              },
+              "buyer": {
+                "name": "Gabriel Amaral Mota",
+                "checkout_phone": "11968678789",
+                "email": "ferramentas@automagicbots.com.br"
+              }
+            },
+            "id": "a15fbe2d-f7de-4bf5-8cfa-5af952f6ce89",
+            "creation_date": 1694561500452,
+            "event": "PURCHASE_BILLET_PRINTED",
+            "version": "2.0.0"
+          }
+        }
+      }
+    ],
+    "pix_gerado": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookprigeo.amarads.com.br",
+            "user-agent": "Jodd HTTP",
+            "content-length": "1421",
+            "content-type": "application/json",
+            "x-forwarded-for": "35.172.100.6",
+            "x-forwarded-host": "n8nwebhookprigeo.amarads.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "99d022a72141",
+            "x-hotmart-hottok": "C0M0zxU3tOxl79rtObW21JucfNTfa006c2cecc-32a6-4356-b7a6-4327bf1cd88c",
+            "x-real-ip": "35.172.100.6",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "data": {
+              "product": {
+                "has_co_production": true,
+                "name": "Combo de cursos Prigeo: Sala de Professores",
+                "id": 3301754,
+                "ucode": "616b4e08-67b7-40ac-91a3-8253ab64f056"
+              },
+              "commissions": [
+                {
+                  "currency_value": "BRL",
+                  "source": "MARKETPLACE",
+                  "value": 1.39
+                },
+                {
+                  "currency_value": "BRL",
+                  "source": "PRODUCER",
+                  "value": 0.43
+                }
+              ],
+              "purchase": {
+                "offer": {
+                  "code": "aud7l0an"
+                },
+                "order_date": 1694561571000,
+                "original_offer_price": {
+                  "currency_value": "BRL",
+                  "value": 6.96
+                },
+                "price": {
+                  "currency_value": "BRL",
+                  "value": 6.96
+                },
+                "checkout_country": {
+                  "iso": "BR",
+                  "name": "Brasil"
+                },
+                "buyer_ip": "187.114.195.135",
+                "order_bump": {
+                  "is_order_bump": false
+                },
+                "payment": {
+                  "pix_qrcode": "https://customer-local-latam.ebanx.com/pix/checkout?hash=6500f523b4d5ac0cb3f24f41002df54b5b51a4db1404e11f",
+                  "pix_expiration_date": 1694734372000,
+                  "installments_number": 1,
+                  "type": "PIX",
+                  "pix_code": "00020101021226740014br.gov.bcb.pix2552pix.ebanx.com/qr/v2/23060E61174D298949678E47737DA04F5204000053039865802BR5924Launch Pad Tecnologia Se6014BELO HORIZONTE62070503***63041EB0"
+                },
+                "full_price": {
+                  "currency_value": "BRL",
+                  "value": 6.96
+                },
+                "transaction": "HP0408613005",
+                "status": "BILLET_PRINTED"
+              },
+              "affiliates": [
+                {
+                  "affiliate_code": "",
+                  "name": ""
+                }
+              ],
+              "producer": {
+                "name": "Prigeo Ensino e Tecnologia"
+              },
+              "buyer": {
+                "name": "Gabriel Amaral Mota",
+                "checkout_phone": "11968678789",
+                "email": "ferramentas@automagicbots.com.br"
+              }
+            },
+            "id": "67777835-1139-4bcb-8c3c-0c2fea4d5be4",
+            "creation_date": 1694561576120,
+            "event": "PURCHASE_BILLET_PRINTED",
+            "version": "2.0.0"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "gH1eUtgMl91jy1fn"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
+    },
+    {
+      "createdAt": "2024-05-03T20:20:38.896Z",
+      "updatedAt": "2024-05-03T20:20:38.896Z",
+      "id": "vkeEqzmarx4BYIBt",
+      "name": "CSP"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-05-03T20:23:29.846Z",
+  "versionId": "ba8bc463-4319-49e7-9207-dd3901b96d6c"
+}
