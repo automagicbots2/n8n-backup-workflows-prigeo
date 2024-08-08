@@ -1,0 +1,690 @@
+{
+  "active": true,
+  "connections": {
+    "atualiza_bd": {
+      "main": [
+        [
+          {
+            "node": "cadastrar_contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "veio_do_manychat": {
+      "main": [
+        [
+          {
+            "node": "preenche_id_transacao_manychat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "preenche_id_transacao_manychat": {
+      "main": [
+        [
+          {
+            "node": "preenche_campo_email_compra_manychat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato": {
+      "main": [
+        [
+          {
+            "node": "add_email_compra_bc",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "veio_do_manychat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add_email_compra_bc": {
+      "main": [
+        [
+          {
+            "node": "add_id_transacao_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add_id_transacao_bc": {
+      "main": [
+        [
+          {
+            "node": "add_cpf_cnpj_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add_cpf_cnpj_bc": {
+      "main": [
+        [
+          {
+            "node": "envia_fluxo_onboarding",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "segundo_ou_mais_erro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "segundo_ou_mais_erro": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "atualiza_bd",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-01T15:02:43.814Z",
+  "id": "yztlxpO8559rpHiq",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[CSP] - Compra Aprovada - Parte 2",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1N-O2fDUHUjoBpgUBc8K1eH48yRjWIFD0aJXueEMP0lo",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1292197698,
+          "mode": "list",
+          "cachedResultName": "[Geral] - Compra Aprovada",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N-O2fDUHUjoBpgUBc8K1eH48yRjWIFD0aJXueEMP0lo/edit#gid=1292197698"
+        },
+        "columnToMatchOn": "ID DA TRANSAÇÃO",
+        "valueToMatchOn": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"ID da Transação\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DA COMPRA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Data da Compra\"] }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "column": "E-MAIL",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            },
+            {
+              "column": "CÓDIGO DO ASSINANTE",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Código da Inscrição\"] }}"
+            },
+            {
+              "column": "OFERTA DA COMPRA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Oferta da Compra\"] }}"
+            },
+            {
+              "column": "COMISSÃO GATEWAY",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Comissão Hotmart\"] }}"
+            },
+            {
+              "column": "PLANO",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Plano\"] }}"
+            },
+            {
+              "column": "VALOR DA COMPRA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Valor da Compra\"] }}"
+            },
+            {
+              "column": "MOEDA DA COMPRA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Moeda da Compra\"] }}"
+            },
+            {
+              "column": "FORMA DE PAGAMENTO",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Forma de Pagamento\"] }}"
+            },
+            {
+              "column": "NÚMERO DE PARCELAS",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Número de Parcelas\"] }}"
+            },
+            {
+              "column": "STATUS DA COMPRA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Status da Compra\"] }}"
+            },
+            {
+              "column": "CPF/CNPJ",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"CPF/CNPJ do Cliente\"] }}"
+            },
+            {
+              "column": "PLATAFORMA DE ORIGEM",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Plataforma de Origem\"] }}"
+            },
+            {
+              "column": "TEMPERATURA DO PÚBLICO",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Temperatura do Público\"] }}"
+            },
+            {
+              "column": "PÚBLICO",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Público\"] }}"
+            },
+            {
+              "column": "POSICIONAMENTO",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Posicionamento\"] }}"
+            },
+            {
+              "column": "ANÚNCIO",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Anúncio\"] }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente\"] }}"
+            },
+            {
+              "column": "DATA DE VENCIMENTO DA GARANTIA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Data de Vencimento da Garantia\"] }}"
+            },
+            {
+              "column": "PRODUTO",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Nome do Produto\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "id": "60671ef7-aa64-43fb-bd8d-a36c7db727f0",
+      "name": "atualiza_bd",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        -400,
+        1140
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "renLSoeRurwGxrLn",
+          "name": "[PRIGEO] - Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Plataforma de Origem\"] }}",
+        "rules": {
+          "rules": [
+            {
+              "operation": "contains",
+              "value2": "manychat"
+            }
+          ]
+        },
+        "fallbackOutput": 1
+      },
+      "id": "5eb9d074-8131-46c5-a00e-6a7264a486bf",
+      "name": "veio_do_manychat",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        20,
+        920
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.manychat.com/fb/subscriber/setCustomField",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"chega_da_fila\"].json[\"content\"][\"TOKEN-MANYCHAT\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "subscriber_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Temperatura do Público\"] }}"
+            },
+            {
+              "name": "field_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_transacao_manychat\"] }}"
+            },
+            {
+              "name": "field_value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"ID da Transação\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "67f186ab-79df-4084-8a7c-26444d8719a2",
+      "name": "preenche_id_transacao_manychat",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        240,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.manychat.com/fb/subscriber/setCustomField",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $node[\"chega_da_fila\"].json[\"content\"][\"TOKEN-MANYCHAT\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "subscriber_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Temperatura do Público\"] }}"
+            },
+            {
+              "name": "field_id",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_email_manychat\"] }}"
+            },
+            {
+              "name": "field_value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d599da38-a116-4f07-8ddc-9691644563df",
+      "name": "preenche_campo_email_compra_manychat",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        440,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "=+{{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Nome do Cliente\"].split(' ')[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Nome do Cliente\"].split(\" \").slice(1).join(\" \")\n }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        -200,
+        1140
+      ],
+      "id": "f19da1c3-e1bd-4479-8722-59353ac2ba03"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_email_bc\"] }}/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "add_email_compra_bc",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        20,
+        1140
+      ],
+      "id": "062eeb4a-5c52-4091-b368-cf262174babd",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_transacao_bc\"] }}/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"ID da Transação\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "add_id_transacao_bc",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        240,
+        1140
+      ],
+      "id": "0b09a480-a35a-4a93-b6cf-ecaab741750c",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_cpf_cnpj\"] }}/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"CPF/CNPJ do Cliente\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "add_cpf_cnpj_bc",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        460,
+        1140
+      ],
+      "id": "e4f6fb2f-e419-4381-b693-a6b061fded92",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_fluxo_onboarding\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_fluxo_onboarding",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        660,
+        1140
+      ],
+      "id": "15db44cf-c80b-4697-9fde-c708516d84f6"
+    },
+    {
+      "parameters": {
+        "queue": "Compra Aprovada - CSP",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": "={{ true }}",
+          "parallelMessages": 3
+        }
+      },
+      "id": "4ee39acd-466a-4703-b102-9686e7f851bc",
+      "name": "chega_da_fila",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        -840,
+        1140
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "v10PciJKjFB8gCKb",
+          "name": "[PRIGEO] - RabbitMQ"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "errorMessage": "An error ocurred!"
+      },
+      "id": "3dfdafe6-dbb4-4f96-be1d-299070fde825",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"fields\"][\"redelivered\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "0b147962-0c9d-4f48-8a77-ee74c8a391ae",
+      "name": "segundo_ou_mais_erro",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        1140
+      ]
+    }
+  ],
+  "pinData": {
+    "chega_da_fila": [
+      {
+        "json": {
+          "fields": {
+            "consumerTag": "amq.ctag-6I03OdYtAduNsMAd-4ha3Q",
+            "deliveryTag": 1,
+            "redelivered": false,
+            "exchange": "",
+            "routingKey": "Compra Aprovada - CSP"
+          },
+          "properties": {
+            "headers": {
+              "x-delivery-count": 12
+            }
+          },
+          "content": {
+            "Valor da Compra": 6.96,
+            "Data da Compra": "12/09/2023",
+            "Comissão Hotmart": 1.39,
+            "Número de Parcelas": 1,
+            "Data de Vencimento da Garantia": "19/09/2023",
+            "Nome do Produto": "Combo de cursos Prigeo: Sala de Professores",
+            "Nome do Cliente": "Gabriel Amaral Mota",
+            "E-mail do Cliente": "ferramentas@automagicbots.com.br",
+            "Telefone do Cliente": "5511968678789",
+            "CPF/CNPJ do Cliente": "45.157.482/0001-26",
+            "ID da Transação": "HP0408613005",
+            "Oferta da Compra": "aud7l0an",
+            "Moeda da Compra": "BRL",
+            "Código da Inscrição": "",
+            "Plano": "",
+            "Forma de Pagamento": "PIX",
+            "Status da Compra": "Compra Aprovada",
+            "DDD": "11",
+            "Plataforma de Origem": "facebook",
+            "Temperatura do Público": "quente",
+            "Público": "ig30d",
+            "Posicionamento": "stories",
+            "Anúncio": "ad01",
+            "id_campo_email_manychat": "9802826",
+            "id_campo_transacao_manychat": "9802825",
+            "id_fluxo_onboarding": "2290507",
+            "id_campo_email_bc": "1271599",
+            "id_campo_transacao_bc": "1290192",
+            "id_campo_cpf_cnpj": "631990",
+            "API-KEY": "6f2ad020-2909-475d-bcc6-a2b9e6cd9131",
+            "TOKEN-MANYCHAT": "102286468489164:25dfa5e2010d779c2cf0923b8c86d727"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "gH1eUtgMl91jy1fn"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
+    },
+    {
+      "createdAt": "2024-05-03T20:20:38.896Z",
+      "updatedAt": "2024-05-03T20:20:38.896Z",
+      "id": "vkeEqzmarx4BYIBt",
+      "name": "CSP"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-05-03T20:22:51.740Z",
+  "versionId": "c77c8700-13f9-411e-98c0-c1e6251d703e"
+}
