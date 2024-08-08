@@ -1,0 +1,1350 @@
+{
+  "active": true,
+  "connections": {
+    "Compra Cancelada": {
+      "main": [
+        [
+          {
+            "node": "Formatação da Data do Pedido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dados do Cancelamento": {
+      "main": [
+        [
+          {
+            "node": "Atualiza BD - Compra Cancelada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar DDD>3": {
+      "main": [
+        [
+          {
+            "node": "Sem nono dígito3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nono dígito3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sem nono dígito3": {
+      "main": [
+        [
+          {
+            "node": "Dados validados3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nono dígito3": {
+      "main": [
+        [
+          {
+            "node": "Dados validados3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dados validados3": {
+      "main": [
+        [
+          {
+            "node": "Verificar na audiência3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar na audiência3": {
+      "main": [
+        [
+          {
+            "node": "Contato existe?3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contato existe?3": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cadastrar contato3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cadastrar contato3": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar na audiência3": {
+      "main": [
+        [
+          {
+            "node": "Mensagens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consulta Users na Hotmart": {
+      "main": [
+        [
+          {
+            "node": "Nomeia Forma de Pagamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatação da Data do Pedido": {
+      "main": [
+        [
+          {
+            "node": "Consulta Users na Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Forma de Pagamento": {
+      "main": [
+        [
+          {
+            "node": "Boleto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cartão de Crédito",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Paypal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nomeia Forma de Pagamento1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Boleto": {
+      "main": [
+        [
+          {
+            "node": "Nomeia Boleto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cartão de Crédito": {
+      "main": [
+        [
+          {
+            "node": "Nomeia Cartão de Crédito",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Paypal": {
+      "main": [
+        [
+          {
+            "node": "Nomeia Paypal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Forma de Pagamento1": {
+      "main": [
+        [
+          {
+            "node": "PIX",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Carteira da Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoOp",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Outros",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PIX": {
+      "main": [
+        [
+          {
+            "node": "Nomeia PIX",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carteira da Hotmart": {
+      "main": [
+        [
+          {
+            "node": "Nomeia Carteira da Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outros": {
+      "main": [
+        [
+          {
+            "node": "Segue Nomenclatura da Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Boleto": {
+      "main": [
+        [
+          {
+            "node": "Dados do Cancelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Cartão de Crédito": {
+      "main": [
+        [
+          {
+            "node": "Dados do Cancelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Paypal": {
+      "main": [
+        [
+          {
+            "node": "Dados do Cancelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia PIX": {
+      "main": [
+        [
+          {
+            "node": "Dados do Cancelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Carteira da Hotmart": {
+      "main": [
+        [
+          {
+            "node": "Dados do Cancelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Segue Nomenclatura da Hotmart": {
+      "main": [
+        [
+          {
+            "node": "Dados do Cancelamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualiza BD - Compra Cancelada": {
+      "main": [
+        [
+          {
+            "node": "Verificar DDD>3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagens": {
+      "main": [
+        [
+          {
+            "node": "Enviar Fluxo de Compra Cancelada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Condições": {
+      "main": [
+        [
+          {
+            "node": "Dá desconto para compras canceladas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dá desconto para compras canceladas": {
+      "main": [
+        [
+          {
+            "node": "Informações do Produto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Informações do Produto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Informações do Produto1": {
+      "main": [
+        [
+          {
+            "node": "Mensagens1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagens1": {
+      "main": [
+        [
+          {
+            "node": "Enviar Fluxo de Compra Cancelada1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-03T19:37:30.256Z",
+  "id": "sNEDdIz14e3fOmtH",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[PG] - TABUADA - Compra Cancelada",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "tabuada-compra-cancelada",
+        "options": {}
+      },
+      "id": "0b6c7520-0945-469b-8051-30f492468014",
+      "name": "Compra Cancelada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        700
+      ],
+      "webhookId": "efa8c7d1-7ff2-4309-b5ec-0d078b62153c"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Produto",
+              "value": "={{ $item(\"0\").$node[\"Consulta Users na Hotmart\"].json[\"items\"][\"0\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $item(\"0\").$node[\"Consulta Users na Hotmart\"].json[\"items\"][\"0\"][\"users\"][\"1\"][\"user\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $item(\"0\").$node[\"Consulta Users na Hotmart\"].json[\"items\"][\"0\"][\"users\"][\"1\"][\"user\"][\"email\"] }}"
+            },
+            {
+              "name": "ID da Transação",
+              "value": "={{ $item(\"0\").$node[\"Consulta Users na Hotmart\"].json[\"items\"][\"0\"][\"transaction\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente",
+              "value": "={{ $item(\"0\").$node[\"Consulta Users na Hotmart\"].json[\"items\"][\"0\"][\"users\"][\"1\"][\"user\"][\"phone\"] }}"
+            },
+            {
+              "name": "CPF/CNPJ do Cliente",
+              "value": "={{ $item(\"0\").$node[\"Consulta Users na Hotmart\"].json[\"items\"][\"0\"][\"users\"][\"1\"][\"user\"][\"documents\"][\"0\"][\"value\"] }}"
+            },
+            {
+              "name": "Oferta da Compra",
+              "value": "={{ $item(\"0\").$node[\"Compra Cancelada\"].json[\"body\"][\"data\"][\"purchase\"][\"offer\"][\"code\"] }}"
+            },
+            {
+              "name": "Moeda da Compra",
+              "value": "={{ $item(\"0\").$node[\"Compra Cancelada\"].json[\"body\"][\"data\"][\"purchase\"][\"original_offer_price\"][\"currency_value\"] }}"
+            },
+            {
+              "name": "Plano",
+              "value": "={{ $node[\"Compra Cancelada\"].json && $node[\"Compra Cancelada\"].json[\"body\"][\"data\"][\"subscription\"][\"plan\"][\"name\"] ? $node[\"Compra Cancelada\"].json[\"body\"][\"data\"][\"subscription\"][\"plan\"][\"name\"] : \".\" }}"
+            },
+            {
+              "name": "Forma de Pagamento",
+              "value": "={{ $json[\"Nome da Forma de Pagamento\"] }}"
+            },
+            {
+              "name": "Status da Compra",
+              "value": "=Cancelada"
+            },
+            {
+              "name": "DDD",
+              "value": "={{ $item(\"0\").$node[\"Consulta Users na Hotmart\"].json[\"items\"][\"0\"][\"users\"][\"1\"][\"user\"][\"phone\"].slice(0,2) }}"
+            }
+          ],
+          "number": [
+            {
+              "name": "Data da Compra",
+              "value": "={{ $node[\"Formatação da Data do Pedido\"].json[\"Data do Pedido Formatada\"] }}"
+            },
+            {
+              "name": "Valor da Compra",
+              "value": "={{ $item(\"0\").$node[\"Compra Cancelada\"].json[\"body\"][\"data\"][\"purchase\"][\"price\"][\"value\"] }}"
+            },
+            {
+              "name": "Comissão Hotmart",
+              "value": "={{ $item(\"0\").$node[\"Compra Cancelada\"].json[\"body\"][\"data\"][\"commissions\"][\"0\"][\"value\"] }}"
+            },
+            {
+              "name": "Número de Parcelas",
+              "value": "={{ $item(\"0\").$node[\"Compra Cancelada\"].json[\"body\"][\"data\"][\"purchase\"][\"payment\"][\"installments_number\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2ec6af87-d1ee-4488-a9b4-9afc904f2812",
+      "name": "Dados do Cancelamento",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $node[\"Dados do Cancelamento\"].json[\"DDD\"] }}",
+              "operation": "larger",
+              "value2": 28
+            }
+          ]
+        }
+      },
+      "name": "Verificar DDD>3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        700
+      ],
+      "id": "eb1c7e0d-2e98-403f-9e5d-7fa0c4958577"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "whatsapp-sem-nono",
+              "value": "=+55{{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"DDD\"] }}{{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Telefone do Cliente\"].slice(-8) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Sem nono dígito3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        480
+      ],
+      "id": "46ab97a4-cca1-4ff0-92d7-6e85443ff222"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "whatsapp-nono",
+              "value": "=+55{{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"DDD\"] }}{{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Telefone do Cliente\"].slice(-9) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Nono dígito3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        720
+      ],
+      "id": "bacd29c7-8dc8-4a78-9e97-19530b26bd40"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "whatsapp-formatado",
+              "value": "={{ $node[\"Sem nono dígito3\"].runIndex >= 0      ?   $node[\"Sem nono dígito3\"].json[\"whatsapp-sem-nono\"] : $node[\"Nono dígito3\"].json[\"whatsapp-nono\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Dados validados3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2140,
+        720
+      ],
+      "id": "5b9ba420-a2a0-4bca-b990-2243e302c1d0"
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Dados validados3\"].json[\"whatsapp-formatado\"] }}/",
+        "options": {}
+      },
+      "name": "Verificar na audiência3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2380,
+        720
+      ],
+      "id": "eb3e91bb-22ca-4c56-8506-b9db876e6719",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"id\"]}}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "name": "Contato existe?3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2620,
+        720
+      ],
+      "id": "92428734-62e0-4ab9-a72d-93abac90accb"
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "={{$node[\"Dados validados3\"].json[\"whatsapp-formatado\"]}}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].split(' ')[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].split(' ')[1] }}"
+            }
+          ]
+        }
+      },
+      "name": "Cadastrar contato3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2840,
+        880
+      ],
+      "id": "2d708bbd-6521-4b4c-a96e-085581ed6027",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Dados validados3\"].json[\"whatsapp-formatado\"]}}/",
+        "options": {}
+      },
+      "name": "Buscar na audiência3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3040,
+        700
+      ],
+      "id": "ee73760b-303a-49de-9083-aa63986f5c8c",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://developers.hotmart.com/payments/api/v1/sales/users",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "transaction",
+              "value": "={{ $json[\"body\"][\"data\"][\"purchase\"][\"transaction\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "eb4919cc-43ef-433b-9a4d-8b628ab0fdbe",
+      "name": "Consulta Users na Hotmart",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        -100,
+        700
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "CHJqRANFoJRHVfE2",
+          "name": "[PRIGEO] - Hotmart"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "value": "={{ $json[\"body\"][\"data\"][\"purchase\"][\"order_date\"]/1000 }}",
+        "dataPropertyName": "Data do Pedido Formatada",
+        "custom": true,
+        "toFormat": "DD/MM/YYYY",
+        "options": {}
+      },
+      "id": "7675ae65-7c26-4154-89d9-6a668f03d6e3",
+      "name": "Formatação da Data do Pedido",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        -340,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $item(\"0\").$node[\"Compra Cancelada\"].json[\"body\"][\"data\"][\"purchase\"][\"payment\"][\"type\"] }}",
+        "rules": {
+          "rules": [
+            {
+              "operation": "contains",
+              "value2": "BILLET"
+            },
+            {
+              "value2": "CREDIT_CARD",
+              "output": 1
+            },
+            {
+              "operation": "contains",
+              "value2": "PAYPAL",
+              "output": 2
+            }
+          ]
+        },
+        "fallbackOutput": 3
+      },
+      "id": "ab83f6a3-0b50-4024-930a-18ce146b0a1f",
+      "name": "Nomeia Forma de Pagamento",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        160,
+        700
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "72c187d7-689e-4e4e-aabd-8520392ec99b",
+      "name": "Boleto",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "21e9c48a-d5ae-4423-b30b-b9be95b52b2d",
+      "name": "Cartão de Crédito",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        460,
+        640
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "22202a1a-20dc-47a3-8755-bfb80c637355",
+      "name": "Paypal",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        460,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $item(\"0\").$node[\"Compra Cancelada\"].json[\"body\"][\"data\"][\"purchase\"][\"payment\"][\"type\"] }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "PIX"
+            },
+            {
+              "value2": "WALLET",
+              "output": 1
+            }
+          ]
+        },
+        "fallbackOutput": 3
+      },
+      "id": "f38d8229-9fa7-4c7b-89cb-cb86059d31b7",
+      "name": "Nomeia Forma de Pagamento1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        320,
+        1120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "30897c7c-6f5b-4b49-9cae-965eece2c757",
+      "name": "PIX",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        640,
+        1020
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "20b65c57-de44-44c8-9cb7-7f5c89c84acf",
+      "name": "Carteira da Hotmart",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        640,
+        1220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ea4e251c-9c7f-43d8-857e-7b375ec2eaab",
+      "name": "NoOp",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        640,
+        1400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "d817cdb7-6817-4bda-ae76-8f9e2228aeda",
+      "name": "Outros",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        640,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "Boleto"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "89b004cd-b97d-44e1-b01c-eae477908764",
+      "name": "Nomeia Boleto",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        680,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "Cartão de Crédito"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a57a6b3b-8508-45ee-83e7-3fc0df9a233a",
+      "name": "Nomeia Cartão de Crédito",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        680,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "Paypal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c9feba5c-2ad0-4655-b939-4afdd296d438",
+      "name": "Nomeia Paypal",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        680,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "PIX"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1486a5a2-98dc-4963-9c99-60b8f8957d67",
+      "name": "Nomeia PIX",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        860,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "Carteira da Hotmart"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cdd455bc-cd01-4bf0-91e3-bf2a92e6750c",
+      "name": "Nomeia Carteira da Hotmart",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        860,
+        1220
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "={{ $item(\"0\").$node[\"Consulta Users na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"payment\"][\"type\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b7803f8d-7799-44f1-90a9-340c3f12cc13",
+      "name": "Segue Nomenclatura da Hotmart",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        860,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1N-O2fDUHUjoBpgUBc8K1eH48yRjWIFD0aJXueEMP0lo",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 455011098,
+          "mode": "list",
+          "cachedResultName": "[Geral] - Compra Cancelada",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N-O2fDUHUjoBpgUBc8K1eH48yRjWIFD0aJXueEMP0lo/edit#gid=455011098"
+        },
+        "columnToMatchOn": "ID DA TRANSAÇÃO",
+        "valueToMatchOn": "={{ $json[\"ID da Transação\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DA COMPRA",
+              "fieldValue": "={{ $json[\"Data da Compra\"] }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "column": "E-MAIL",
+              "fieldValue": "={{ $json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "column": "CÓDIGO DO ASSINANTE",
+              "fieldValue": "={{ $json[\"Código da Inscrição\"] }}"
+            },
+            {
+              "column": "OFERTA DA COMPRA",
+              "fieldValue": "={{ $json[\"Oferta da Compra\"] }}"
+            },
+            {
+              "column": "COMISSÃO GATEWAY",
+              "fieldValue": "={{ $json[\"Comissão Hotmart\"] }}"
+            },
+            {
+              "column": "PLANO",
+              "fieldValue": "={{ $json[\"Plano\"] }}"
+            },
+            {
+              "column": "VALOR DA COMPRA",
+              "fieldValue": "={{ $json[\"Valor da Compra\"] }}"
+            },
+            {
+              "column": "MOEDA DA COMPRA",
+              "fieldValue": "={{ $json[\"Moeda da Compra\"] }}"
+            },
+            {
+              "column": "FORMA DE PAGAMENTO",
+              "fieldValue": "={{ $json[\"Forma de Pagamento\"] }}"
+            },
+            {
+              "column": "NÚMERO DE PARCELAS",
+              "fieldValue": "={{ $json[\"Número de Parcelas\"] }}"
+            },
+            {
+              "column": "STATUS DA COMPRA",
+              "fieldValue": "={{ $json[\"Status da Compra\"] }}"
+            },
+            {
+              "column": "CPF/CNPJ",
+              "fieldValue": "={{ $json[\"CPF/CNPJ do Cliente\"] }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $json[\"Telefone do Cliente\"] }}"
+            },
+            {
+              "column": "PRODUTO",
+              "fieldValue": "={{    $json[\"Nome do Produto\"]    }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b7a74403-2775-4330-9c1d-ea5b21144fdb",
+      "name": "Atualiza BD - Compra Cancelada",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1360,
+        700
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "renLSoeRurwGxrLn",
+          "name": "[PRIGEO] - Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Link do Checkout do Produto com Desconto",
+              "value": "https://pay.hotmart.com/T68982469O?checkoutMode=10"
+            },
+            {
+              "name": "SRC de Compra Cancelada com WhatsApp",
+              "value": "=&src=whatsapp-rmkt-compracancelada&email={{ $node[\"Dados do Cancelamento\"].json[\"E-mail do Cliente\"] }}&phonenumber={{ $node[\"Dados do Cancelamento\"].json[\"Telefone do Cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5499c4f8-b5d6-4a96-8dd9-3c818f0be377",
+      "name": "Informações do Produto",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        4200,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Mensagem de Compra Cancelada com Desconto",
+              "value": "=Vish {{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].slice(0,1).toUpperCase() }}{{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].split(' ')[0].slice(1).toLowerCase() }}! Você quaaaase entrou no Evolua Podologia. 😩\n\nParece que houve um probleminha com seu cartão de crédito, e sua compra foi recusada.\n\nPor isso, recomendo fortemente que entre novamente no checkout, e compre com um outro cartão, Pix, ou Boleto. Afinal, é menos de 1 pizza por mês para estar no maior Curso de Podologia do Brasil! 🤩\n\nSegue o Link do Checkout para você realizar sua compra novamente, {{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].slice(0,1).toUpperCase() }}{{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].split(' ')[0].slice(1).toLowerCase() }}:\n\n{{ $node[\"Informações do Produto\"].json[\"Link do Checkout do Produto com Desconto\"] }}{{ $node[\"Informações do Produto\"].json[\"SRC de Compra Cancelada com WhatsApp\"] }}\n\nPS.: Conto contigo para se manter conosco, {{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].slice(0,1).toUpperCase() }}{{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].split(' ')[0].slice(1).toLowerCase() }}!"
+            },
+            {
+              "name": "Fluxo de Compra Cancelada",
+              "value": "1514784"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d61917e6-3767-4ea9-87c6-6be6da3912d5",
+      "name": "Mensagens",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        3260,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "boolean": [
+            {
+              "name": "Dá desconto para compras canceladas?"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1e49fdc4-2825-4ff8-8aeb-2c9b202d7b5a",
+      "name": "Condições",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        3700,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $node[\"Condições\"].json[\"Dá desconto para compras canceladas?\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "7b87829a-d04e-451e-aa03-bfadbe15bc6d",
+      "name": "Dá desconto para compras canceladas",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        3920,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Link do Checkout do Produto",
+              "value": "https://pay.hotmart.com/T68982469O?checkoutMode=10"
+            },
+            {
+              "name": "SRC de Compra Cancelada com WhatsApp",
+              "value": "=&src=whatsapp-rmkt-compracancelada&email={{ $node[\"Dados do Cancelamento\"].json[\"E-mail do Cliente\"] }}&phonenumber={{ $node[\"Dados do Cancelamento\"].json[\"Telefone do Cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "88e87b69-6d71-4823-800a-da11432abfa4",
+      "name": "Informações do Produto1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        4200,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Mensagem de Compra Cancelada",
+              "value": "={{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].slice(0,1).toUpperCase() }}{{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].split(' ')[0].slice(1).toLowerCase() }}, tudo bem? Aqui é a PriGeo\n\nParece que houve um probleminha com seu cartão de crédito e sua compra foi cancelada.\n\nPor isso, recomendo fortemente que entre novamente no checkout e compre com um outro cartão, Pix ou Boleto. Afinal, é quase o preço de uma pizza para ter acesso a inúmeras atividades e jogos prontos que irão encantar seus alunos e economizar o seu tempo🤩\n\nSegue o Link do Checkout para você realizar sua compra novamente, {{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].slice(0,1).toUpperCase() }}{{ $item(\"0\").$node[\"Dados do Cancelamento\"].json[\"Nome do Cliente\"].split(' ')[0].slice(1).toLowerCase() }}:\n\n{{ $node[\"Informações do Produto1\"].json[\"Link do Checkout do Produto\"] }}{{ $node[\"Informações do Produto1\"].json[\"SRC de Compra Cancelada com WhatsApp\"] }}\n\nGrande abraço"
+            },
+            {
+              "name": "Fluxo de Compra Cancelada",
+              "value": "1020521"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "43a61bd2-3523-4779-b006-cc220377bbf6",
+      "name": "Mensagens1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        4420,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência3\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Compra Cancelada\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Fluxo de Compra Cancelada",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3480,
+        700
+      ],
+      "id": "9f71d1f2-a4e9-4e22-a816-cf4b1fec5b39",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência3\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens1\"].json[\"Fluxo de Compra Cancelada\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Fluxo de Compra Cancelada1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4640,
+        1040
+      ],
+      "id": "37726fbb-61e8-490e-882a-013a56b71565",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "gH1eUtgMl91jy1fn"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
+    },
+    {
+      "createdAt": "2024-05-03T20:05:33.257Z",
+      "updatedAt": "2024-05-03T20:05:33.257Z",
+      "id": "1RzcPkfrhtHE1fUx",
+      "name": "TABUADA"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-05-03T20:05:49.831Z",
+  "versionId": "cea72582-f25c-4e50-ab35-603e9203d6b9"
+}
