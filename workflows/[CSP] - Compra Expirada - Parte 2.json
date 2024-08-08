@@ -1,0 +1,456 @@
+{
+  "active": true,
+  "connections": {
+    "chega_da_fila": {
+      "main": [
+        [
+          {
+            "node": "segundo_ou_mais_erro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_bd": {
+      "main": [
+        [
+          {
+            "node": "cadastrar_contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cadastrar_contato": {
+      "main": [
+        [
+          {
+            "node": "add_email_compra_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "segundo_ou_mais_erro": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "atualiza_bd",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add_email_compra_bc": {
+      "main": [
+        [
+          {
+            "node": "add_id_transacao_bc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add_id_transacao_bc": {
+      "main": [
+        [
+          {
+            "node": "envia_fluxo_compra_expirada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-01T15:38:57.365Z",
+  "id": "kYfONXfz5FIEresl",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[CSP] - Compra Expirada - Parte 2",
+  "nodes": [
+    {
+      "parameters": {
+        "queue": "Compra Expirada - CSP",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": "={{ true }}",
+          "parallelMessages": 3
+        }
+      },
+      "id": "8a73fc81-465d-424c-9236-4527998dadc2",
+      "name": "chega_da_fila",
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        60,
+        660
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "v10PciJKjFB8gCKb",
+          "name": "[PRIGEO] - RabbitMQ"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1N-O2fDUHUjoBpgUBc8K1eH48yRjWIFD0aJXueEMP0lo",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1088612741,
+          "mode": "list",
+          "cachedResultName": "[Geral] - Compra Expirada",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N-O2fDUHUjoBpgUBc8K1eH48yRjWIFD0aJXueEMP0lo/edit#gid=1088612741"
+        },
+        "columnToMatchOn": "ID DA TRANSAÇÃO",
+        "valueToMatchOn": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"ID da Transação\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DA COMPRA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Data da Compra\"] }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Nome do Cliente\"] }}"
+            },
+            {
+              "column": "E-MAIL",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            },
+            {
+              "column": "CÓDIGO DO ASSINANTE",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"].json[\"Código da Inscrição\"] }}"
+            },
+            {
+              "column": "OFERTA DA COMPRA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Oferta da Compra\"] }}"
+            },
+            {
+              "column": "COMISSÃO GATEWAY",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Comissão Hotmart\"] }}"
+            },
+            {
+              "column": "PLANO",
+              "fieldValue": "={{ $json[\"Plano\"] }}"
+            },
+            {
+              "column": "VALOR DA COMPRA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Valor da Compra\"] }}"
+            },
+            {
+              "column": "MOEDA DA COMPRA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Moeda da Compra\"] }}"
+            },
+            {
+              "column": "FORMA DE PAGAMENTO",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Forma de Pagamento\"] }}"
+            },
+            {
+              "column": "NÚMERO DE PARCELAS",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Número de Parcelas\"] }}"
+            },
+            {
+              "column": "STATUS DA COMPRA",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Status da Compra\"] }}"
+            },
+            {
+              "column": "CPF/CNPJ",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"CPF/CNPJ do Cliente\"] }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente\"] }}"
+            },
+            {
+              "column": "PRODUTO",
+              "fieldValue": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Nome do Produto\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "id": "08f647f5-8b1b-4cc3-8512-56556d5964c4",
+      "name": "atualiza_bd",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        460,
+        660
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "renLSoeRurwGxrLn",
+          "name": "[PRIGEO] - Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "=+{{ $node[\"chega_da_fila\"].json[\"content\"][\"Telefone do Cliente\"] }}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Nome do Cliente\"].split(' ')[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"Nome do Cliente\"].split(\" \").slice(1).join(\" \")\n }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "cadastrar_contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        660,
+        660
+      ],
+      "id": "04fadafc-a667-472c-a529-197e6103d73b"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"fields\"][\"redelivered\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "976ba7d1-8dff-4810-b2e7-2dde03142cc6",
+      "name": "segundo_ou_mais_erro",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        260,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "An error ocurred!"
+      },
+      "id": "396c9d77-f8ad-4564-a0ef-c7496d8d10a4",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"id_fluxo_compra_expirada\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "envia_fluxo_compra_expirada",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        660
+      ],
+      "id": "59b05f65-2672-462e-9440-3d4dcfb0f270"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_email_transacao\"] }}/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"E-mail do Cliente\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "add_email_compra_bc",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        880,
+        660
+      ],
+      "id": "651633d7-101a-47ae-959c-2da437f210c7",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"cadastrar_contato\"].json[\"id\"] }}/custom_fields/{{ $node[\"chega_da_fila\"].json[\"content\"][\"id_campo_id_transacao\"] }}/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"ID da Transação\"] }}"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "API-KEY",
+              "value": "={{ $node[\"chega_da_fila\"].json[\"content\"][\"API-KEY\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "add_id_transacao_bc",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        660
+      ],
+      "id": "06a77b39-e9f5-4a0b-8335-e80d29b8b37d",
+      "continueOnFail": true
+    }
+  ],
+  "pinData": {
+    "chega_da_fila": [
+      {
+        "json": {
+          "fields": {
+            "consumerTag": "amq.ctag-Dw3qQt74t4C2HJMM91cjcg",
+            "deliveryTag": 1,
+            "redelivered": false,
+            "exchange": "",
+            "routingKey": "Compra Expirada - CSP"
+          },
+          "properties": {
+            "headers": {}
+          },
+          "content": {
+            "Valor da Compra": 97,
+            "Data da Compra": "10/09/2023",
+            "Comissão Hotmart": 10.6,
+            "Número de Parcelas": 1,
+            "Nome do Produto": "Kit Língua Portuguesa Prigeo - Jogos e atividades prontas",
+            "Nome do Cliente": "Gabriel Amaral Mota",
+            "E-mail do Cliente": "amaral@automagicbots.com.br",
+            "Telefone do Cliente": "553185711260",
+            "CPF/CNPJ do Cliente": null,
+            "ID da Transação": "HP0331049964",
+            "Oferta da Compra": "yau709j6",
+            "Moeda da Compra": "BRL",
+            "Forma de Pagamento": "PIX",
+            "Status da Compra": "Compra Expirada",
+            "DDD": "96",
+            "id_campo_id_transacao": "1290192",
+            "id_campo_email_transacao": "1271599",
+            "API-KEY": "6f2ad020-2909-475d-bcc6-a2b9e6cd9131",
+            "id_fluxo_compra_expirada": "2290516"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "gH1eUtgMl91jy1fn"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
+    },
+    {
+      "createdAt": "2024-05-03T20:20:38.896Z",
+      "updatedAt": "2024-05-03T20:20:38.896Z",
+      "id": "vkeEqzmarx4BYIBt",
+      "name": "CSP"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-05-03T20:23:17.396Z",
+  "versionId": "69a6918b-658f-4cfe-826b-613972e8eee4"
+}
