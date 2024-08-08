@@ -1,0 +1,814 @@
+{
+  "active": false,
+  "connections": {
+    "Formulário Preenchido": {
+      "main": [
+        [
+          {
+            "node": "Dados do Contrato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cálculo de Dia de Vencimento da Primeira Parcela": {
+      "main": [
+        [
+          {
+            "node": "Formatação do Dia de Vencimento da Primeira Parcela",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatação do Dia de Vencimento da Primeira Parcela": {
+      "main": [
+        [
+          {
+            "node": "Me avisa no WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatação do Dia de Hoje": {
+      "main": [
+        [
+          {
+            "node": "Cálculo de Dia de Vencimento da Primeira Parcela",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dados do Contrato": {
+      "main": [
+        [
+          {
+            "node": "Formatação do Dia de Hoje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cálculo do Dia de Vencimento da Cobrança": {
+      "main": [
+        [
+          {
+            "node": "Formatação da Data de Vencimento da Cobrança",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatação da Data de Vencimento da Cobrança": {
+      "main": [
+        [
+          {
+            "node": "Juntar Dados da Cobrança",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Juntar Dados da Cobrança": {
+      "main": [
+        [
+          {
+            "node": "Cria Cobrança no Asaas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Juntar Dados do Cliente": {
+      "main": [
+        [
+          {
+            "node": "Cria Cliente no Asaas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Busca e-mail do Destinatário do Contrato na Planilha do Formulário de Contratação - Integrações": {
+      "main": [
+        [
+          {
+            "node": "Juntar Dados do Cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chamado pelo Workflow de Contrato Assinado": {
+      "main": [
+        [
+          {
+            "node": "Busca e-mail do Destinatário do Contrato na Planilha do Formulário de Contratação - Integrações",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Me avisa no WhatsApp": {
+      "main": [
+        [
+          {
+            "node": "Duplica Contrato de FPA Parcelado - VPS AmarAds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cria Cliente no Asaas": {
+      "main": [
+        [
+          {
+            "node": "Cálculo do Dia de Vencimento da Cobrança",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Duplica Contrato de FPA Parcelado - VPS AmarAds": {
+      "main": [
+        [
+          {
+            "node": "Formatação do Contrato FPA - VPS AmarAds Parcelado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatação do Contrato FPA - VPS AmarAds Parcelado": {
+      "main": [
+        [
+          {
+            "node": "Criação da Task de Revisão do Contrato 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-01T19:21:58.926Z",
+  "id": "SOPQPOGDSp0X6lGf",
+  "meta": null,
+  "name": "[PG] - FPA - Formataçao de Contrato - Fixo Automática (1)",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ],
+      "id": "dfc85167-83d9-40f4-8886-fd33e3c7fb3e"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "fpa-prigeo",
+        "options": {}
+      },
+      "id": "d316513c-2360-4115-9608-704635890dc9",
+      "name": "Formulário Preenchido",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        760,
+        460
+      ],
+      "webhookId": "b50d1a36-3833-44c2-a0bc-46d49b396e23"
+    },
+    {
+      "parameters": {
+        "action": "calculate",
+        "value": "={{ $node[\"Formatação do Dia de Hoje\"].json[\"Dia de Hoje Formatado\"] }}",
+        "duration": 5,
+        "dataPropertyName": "Data Bruta de Vencimento da Primeira Parcela",
+        "options": {
+          "fromFormat": "DD/MM/YYYY"
+        }
+      },
+      "id": "6ee4e831-47ac-4660-bc21-444bbfc41a85",
+      "name": "Cálculo de Dia de Vencimento da Primeira Parcela",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "value": "={{ $json[\"Data Bruta de Vencimento da Primeira Parcela\"] }}",
+        "dataPropertyName": "Data Formatada de Vencimento da Primeira Parcela",
+        "custom": true,
+        "toFormat": "DD/MM/YYYY",
+        "options": {
+          "fromFormat": "YYYY-MM-DD"
+        }
+      },
+      "id": "e5a66dec-116c-45fc-a8fb-bd52d2bdff96",
+      "name": "Formatação do Dia de Vencimento da Primeira Parcela",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"Dia de hoje\"] }}",
+        "dataPropertyName": "Dia de Hoje Formatado",
+        "custom": true,
+        "toFormat": "DD/MM/YYYY",
+        "options": {
+          "fromFormat": "YYYY-MM-DD"
+        }
+      },
+      "name": "Formatação do Dia de Hoje",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        460
+      ],
+      "retryOnFail": true,
+      "alwaysOutputData": true,
+      "id": "dfa02c89-7160-4b8a-b1a6-71d03f4bf2b5",
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "E-mail",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"E-mail\"] }}"
+            },
+            {
+              "name": "Telefone",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"Telefone\"] }}"
+            },
+            {
+              "name": "Nome da Empresa",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"Nome da Empresa\"] }}"
+            },
+            {
+              "name": "CNPJ da Empresa",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"CNPJ da Empresa\"] }}"
+            },
+            {
+              "name": "Nome Completo do Representante Legal",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"Nome Completo do Representante Legal\"] }}"
+            },
+            {
+              "name": "RG do Representante Legal",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"RG do Representante Legal\"] }}"
+            },
+            {
+              "name": "CPF do Representante Legal",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"CPF do Representante Legal\"] }}"
+            },
+            {
+              "name": "Endereço do Representante Legal",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"Endereço do Representante Legal\"] }}"
+            },
+            {
+              "name": "CEP do Representante Legal",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"CEP do Representante Legal\"] }}"
+            },
+            {
+              "name": "Prazo do contrato (em dias ou por duração de projeto)",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"Prazo do contrato (em dias ou por duração de projeto)\"] }}"
+            },
+            {
+              "name": "Valor fixo combinado",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"Valor fixo combinado\"] }}"
+            },
+            {
+              "name": "Dia de hoje",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"Dia de hoje\"] }}"
+            },
+            {
+              "name": "Dia de hoje (por extenso)",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"Dia de hoje (por extenso)\"] }}"
+            },
+            {
+              "name": "Dia de vencimento do contrato",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"Dia de vencimento do contrato\"] }}"
+            },
+            {
+              "name": "CEP da Sede da Empresa",
+              "value": "={{ $node[\"Formulário Preenchido\"].json[\"body\"][\"CEP da Sede da Empresa\"] }}"
+            },
+            {
+              "name": "Endereço da Empresa",
+              "value": "={{ $json[\"body\"][\"Endereço da Empresa\"] }}"
+            },
+            {
+              "name": "Número de Parcelas Desejado",
+              "value": "={{ $json[\"body\"][\"Número de Parcelas Desejado\"] }}"
+            },
+            {
+              "name": "Máquina Desejada",
+              "value": "={{ $json[\"body\"][\"Você deseja hospedar as integrações numa Máquina Virtual da sua propriedade, ou em uma Máquina Virtual da AmarAds, destinado exclusivamente para você?\"] }}"
+            },
+            {
+              "name": "Ferramenta 1",
+              "value": "={{ $json[\"body\"][\"Quais ferramentas você deseja integrar?\"].split(',')[0] }}"
+            },
+            {
+              "name": "Ferramenta 2",
+              "value": "={{ $json[\"body\"][\"Quais ferramentas você deseja integrar?\"].split(',')[1] }}"
+            },
+            {
+              "name": "Ferramenta 3",
+              "value": "={{ $json[\"body\"][\"Quais ferramentas você deseja integrar?\"].split(',')[2] }}"
+            },
+            {
+              "name": "Ferramenta 4",
+              "value": "={{ $json[\"body\"][\"Quais ferramentas você deseja integrar?\"].split(',')[3] }}"
+            },
+            {
+              "name": "Ferramenta 5",
+              "value": "={{ $json[\"body\"][\"Quais ferramentas você deseja integrar?\"].split(',')[4] }}"
+            },
+            {
+              "name": "Ferramenta 6",
+              "value": "={{ $json[\"body\"][\"Quais ferramentas você deseja integrar?\"].split(',')[5] }}"
+            },
+            {
+              "name": "Ferramenta 7",
+              "value": "={{ $json[\"body\"][\"Quais ferramentas você deseja integrar?\"].split(',')[6] }}"
+            },
+            {
+              "name": "Serviço Contratado",
+              "value": "Funil de Perpétuo Automatizado"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "name": "Dados do Contrato",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        980,
+        460
+      ],
+      "retryOnFail": true,
+      "id": "cd9b7561-486c-4a76-b226-6aa789d033ea"
+    },
+    {
+      "parameters": {
+        "action": "calculate",
+        "value": "={{ $node[\"Busca e-mail do Destinatário do Contrato na Planilha do Formulário de Contratação - Integrações\"].json[\"Dia de hoje\"] }}",
+        "duration": 5,
+        "dataPropertyName": "Dia de Vencimento da Cobrança sem Formatar",
+        "options": {
+          "fromFormat": "DD/MM/YYYY"
+        }
+      },
+      "id": "901ad5e4-e9ac-4224-8b57-48dfa3f83fe2",
+      "name": "Cálculo do Dia de Vencimento da Cobrança",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "value": "={{ $json[\"Dia de Vencimento da Cobrança sem Formatar\"] }}",
+        "dataPropertyName": "Data de Vencimento da Cobrança Formatada",
+        "custom": true,
+        "toFormat": "YYYY-MM-DD",
+        "options": {}
+      },
+      "id": "7a1b85db-8f16-4af1-8354-69f208999a31",
+      "name": "Formatação da Data de Vencimento da Cobrança",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.asaas.com/api/v3/payments",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "raw",
+        "body": "=    {\n        \"customer\": \"{{ $json[\"ID do Cliente no Asaas\"] }}\",\n        \"billingType\": \"{{ $json[\"Método de Pagamento\"] }}\",\n        \"dueDate\": \"{{ $json[\"Prazo da Cobrança\"] }}\",\n        \"value\": \"{{ $json[\"Valor da Cobrança\"] }}\",\n        \"description\": \"{{ $json[\"Descrição da Cobrança\"] }}\",\n        \"postalService\": false\n    }",
+        "options": {}
+      },
+      "id": "931ef2b9-4789-4ba8-a024-02954be6f8ab",
+      "name": "Cria Cobrança no Asaas",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2040,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "ID do Cliente no Asaas",
+              "value": "={{ $node[\"Cria Cliente no Asaas\"].json[\"id\"] }}"
+            },
+            {
+              "name": "Método de Pagamento",
+              "value": "PIX"
+            },
+            {
+              "name": "Prazo da Cobrança",
+              "value": "={{ $json[\"Data de Vencimento da Cobrança Formatada\"] }}"
+            },
+            {
+              "name": "Descrição da Cobrança",
+              "value": "Integrar Ferramentas via API"
+            }
+          ],
+          "number": [
+            {
+              "name": "Valor da Cobrança",
+              "value": "={{ parseInt($node[\"Juntar Dados do Cliente\"].json[\"Valor da Cobranca\"].split('.')[0]) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d4b6f83b-abae-4c16-8efc-af8be45d2e2b",
+      "name": "Juntar Dados da Cobrança",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Primeiro Nome",
+              "value": "={{ $json[\"Nome Completo do Representante Legal\"].split(' ')[0] }}"
+            },
+            {
+              "name": "Nome da Empresa",
+              "value": "={{ $json[\"Nome da Empresa\"] }}"
+            },
+            {
+              "name": "E-mail",
+              "value": "={{ $json[\"E-mail\"] }}"
+            },
+            {
+              "name": "Telefone",
+              "value": "={{ $json[\"Telefone\"].toString() }}"
+            },
+            {
+              "name": "CNPJ da Empresa",
+              "value": "={{ $json[\"CNPJ da Empresa\"].slice(0,2) }}{{ $json[\"CNPJ da Empresa\"].slice(3,6) }}{{ $json[\"CNPJ da Empresa\"].slice(7,10) }}{{ $json[\"CNPJ da Empresa\"].slice(11,15) }}{{ $json[\"CNPJ da Empresa\"].slice(16,18) }}"
+            },
+            {
+              "name": "CEP da Sede da Empresa Formatado",
+              "value": "={{ $json[\"CEP da Sede da Empresa\"].toString().slice(0,5) }}-{{ $json[\"CEP da Sede da Empresa\"].toString().slice(5) }}"
+            },
+            {
+              "name": "Numero do Endereco da Empresa",
+              "value": "={{ $json[\"Endereço da Empresa\"].split(',')[1].replace(' ','') }}"
+            },
+            {
+              "name": "Modelo de Negocio",
+              "value": "={{ $json[\"Qual é o Segmento da sua Empresa?\"] }}"
+            }
+          ],
+          "number": [
+            {
+              "name": "Valor da Cobranca",
+              "value": "={{ $node[\"Busca e-mail do Destinatário do Contrato na Planilha do Formulário de Contratação - Integrações\"].json[\"Valor fixo combinado\"] }}.00"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c157ab45-0edc-4436-b577-69b91d989022",
+      "name": "Juntar Dados do Cliente",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        980,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "team": "3135484",
+        "space": "55168085",
+        "folder": "115155196",
+        "list": "199198507",
+        "name": "={{ $node[\"Dados do Contrato\"].json[\"Nome da Empresa\"] }} | {{ $node[\"Dados do Contrato\"].json[\"Serviço Contratado\"] }} - R${{ $node[\"Dados do Contrato\"].json[\"Valor fixo combinado\"] }}",
+        "additionalFields": {
+          "assignees": [
+            3246423
+          ],
+          "content": "=Link do Contrato: https://docs.google.com/document/d/{{ $node[\"Formatação do Contrato FPA - VPS AmarAds Parcelado\"].json[\"documentId\"] }}/edit\n\nOBSERVAÇÃO - Se o Cliente colocar o Valor do Pagamento errado, é só ajustar o Valor manualmente na Planilha para onde vão as respostas do Google Forms, antes de enviar o Contrato. Para gerar a Cobrança no Asaas automaticamente, os dados são extraídos da Planilha no momento da Assinatura do Contrato.",
+          "dueDate": "={{ $node[\"Cálculo de Dia de Vencimento da Primeira Parcela\"].json[\"Data Bruta de Vencimento da Primeira Parcela\"] }}",
+          "priority": 2,
+          "status": "revisar contrato"
+        }
+      },
+      "id": "0a3f413e-0637-4579-b044-8280b42a5255",
+      "name": "Criação da Task de Revisão do Contrato 2",
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Krw8klqHgrxVkdEyQIryNYSOjtaeSxN2qFl90qmAkJw",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 243449585,
+          "mode": "list",
+          "cachedResultName": "Respostas ao formulário 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Krw8klqHgrxVkdEyQIryNYSOjtaeSxN2qFl90qmAkJw/edit#gid=243449585"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "E-mail",
+              "lookupValue": "={{ $json[\"body\"][\"partes[1][email]\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b47c5878-a886-49c8-b933-3e66633a2913",
+      "name": "Busca e-mail do Destinatário do Contrato na Planilha do Formulário de Contratação - Integrações",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        740,
+        820
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "renLSoeRurwGxrLn",
+          "name": "[PRIGEO] - Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "3669c6be-bd31-4f98-a7b0-02fbfb0238e4",
+      "name": "Chamado pelo Workflow de Contrato Assinado",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        500,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.asaas.com/api/v3/customers",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "raw",
+        "body": "=    {\n        \"name\": \"{{ $node[\"Juntar Dados do Cliente\"].json[\"Primeiro Nome\"] }} - {{ $node[\"Juntar Dados do Cliente\"].json[\"Nome da Empresa\"] }}\",\n        \"email\": \"{{ $node[\"Juntar Dados do Cliente\"].json[\"E-mail\"] }}\",\n        \"mobilePhone\": \"{{ $node[\"Juntar Dados do Cliente\"].json[\"Telefone\"] }}\",\n        \"cpfCnpj\": \"{{ $node[\"Juntar Dados do Cliente\"].json[\"CNPJ da Empresa\"] }}\",\n        \"postalCode\": \"{{ $node[\"Juntar Dados do Cliente\"].json[\"CEP da Sede da Empresa Formatado\"] }}\",\n        \"addressNumber\": \"{{ $node[\"Juntar Dados do Cliente\"].json[\"Numero do Endereco da Empresa\"] }}\",\n        \"notificationDisabled\": false,\n        \"groupName\": \"{{ $node[\"Juntar Dados do Cliente\"].json[\"Modelo de Negocio\"] }}\"\n    }",
+        "options": {}
+      },
+      "id": "7e05a4f0-e002-4df1-8123-00115bad5b36",
+      "name": "Cria Cliente no Asaas",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1200,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/103841396/send_message/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "value",
+              "value": "=O cliente {{ $node[\"Dados do Contrato\"].json[\"Nome Completo do Representante Legal\"] }}, da empresa {{ $node[\"Dados do Contrato\"].json[\"Nome da Empresa\"] }}, acaba de preencher o formulário de FPA.\n\nEle preencheu o valor de Implementação de R${{ $node[\"Dados do Contrato\"].json[\"Valor fixo combinado\"] }} no Formulário, e o valor de Suporte de {{ $node[\"Dados do Contrato\"].json[\"body\"][\"Valor de Suporte combinado\"] }} e disse que o prazo do contrato é de {{ $node[\"Dados do Contrato\"].json[\"Prazo do contrato (em dias ou por duração de projeto)\"] }}.\n\nPreencheu que o projeto será dividido em {{ $node[\"Dados do Contrato\"].json[\"Número de Parcelas Desejado\"] }}. A primeira parcela de pagamento vencerá no dia {{ $node[\"Formatação do Dia de Vencimento da Primeira Parcela\"].json[\"Data Formatada de Vencimento da Primeira Parcela\"] }}."
+            }
+          ]
+        }
+      },
+      "name": "Me avisa no WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1820,
+        460
+      ],
+      "id": "43027089-1a79-444a-90cc-41229f3136f0",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1_Om9UNHKWf7As7hqGz191ksHCJzx6t1ZEDURnEIXPhw",
+          "mode": "id"
+        },
+        "options": {
+          "name": "=Contrato de Automações - Funil de Perpétuo Automatizado - {{ $node[\"Dados do Contrato\"].json[\"Nome da Empresa\"] }}",
+          "parents": [
+            "1Oz2caPzuee0EKvKM1KgWL-W3dPkfcvyU"
+          ]
+        }
+      },
+      "name": "Duplica Contrato de FPA Parcelado - VPS AmarAds",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        460
+      ],
+      "id": "26a1613c-af0f-4be0-b944-3b5de4a56201"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "documentURL": "={{ $node[\"Duplica Contrato de FPA Parcelado - VPS AmarAds\"].json[\"id\"] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{{NOMEDAEMPRESA}}",
+              "replaceText": "={{ $node[\"Dados do Contrato\"].json[\"Nome da Empresa\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CNPJDAEMPRESA}}",
+              "replaceText": "={{ $node[\"Dados do Contrato\"].json[\"CNPJ da Empresa\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENDEREÇODAEMPRESA}}",
+              "replaceText": "={{ $node[\"Dados do Contrato\"].json[\"Endereço da Empresa\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NOMEDOREPRESENTANTELEGAL}}",
+              "replaceText": "={{ $node[\"Dados do Contrato\"].json[\"Nome Completo do Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{RGDOREPRESENTANTE}}",
+              "replaceText": "={{ $node[\"Dados do Contrato\"].json[\"RG do Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CPFDOREPRESENTANTE}}",
+              "replaceText": "={{ $node[\"Dados do Contrato\"].json[\"CPF do Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{ENDEREÇOREPRESENTANTE}}",
+              "replaceText": "={{ $node[\"Dados do Contrato\"].json[\"Endereço do Representante Legal\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{VALORDOCONTRATO}}",
+              "replaceText": "={{ $node[\"Dados do Contrato\"].json[\"Valor fixo combinado\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DIADEHOJE}}",
+              "replaceText": "={{ $node[\"Formatação do Dia de Hoje\"].json[\"Dia de Hoje Formatado\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{PERÍODODECONTRATO}}",
+              "replaceText": "={{ $node[\"Formatação do Dia de Hoje\"].json[\"Prazo do contrato (em dias ou por duração de projeto)\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DIADEHOJEEXTENSO}}",
+              "replaceText": "={{ $node[\"Formatação do Dia de Hoje\"].json[\"Dia de hoje (por extenso)\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{DIADEVENCIMENTO}}",
+              "replaceText": "={{ $node[\"Formatação do Dia de Vencimento da Primeira Parcela\"].json[\"Data Formatada de Vencimento da Primeira Parcela\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{CEPDAEMPRESA}}",
+              "replaceText": "={{ $node[\"Dados do Contrato\"].json[\"CEP da Sede da Empresa\"] }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "{{NUMERODEPARCELAS}}",
+              "replaceText": "={{ $node[\"Dados do Contrato\"].json[\"Número de Parcelas Desejado\"] }}",
+              "matchCase": true
+            }
+          ]
+        }
+      },
+      "name": "Formatação do Contrato FPA - VPS AmarAds Parcelado",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        460
+      ],
+      "id": "5315d76b-d117-467a-9e10-98377588a5b8",
+      "continueOnFail": true
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "gH1eUtgMl91jy1fn"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-05-01T19:22:48.963Z",
+  "versionId": "2ff23728-31a9-4811-afb9-99e0ba251657"
+}
