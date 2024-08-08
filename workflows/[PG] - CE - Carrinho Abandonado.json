@@ -1,0 +1,624 @@
+{
+  "active": true,
+  "connections": {
+    "Carrinho Abandonado": {
+      "main": [
+        [
+          {
+            "node": "Formatação da Data de Abandono do Carrinho",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dados do Carrinho Abandonado": {
+      "main": [
+        [
+          {
+            "node": "Atualiza BD - Carrinho Abandonado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar DDD>28": {
+      "main": [
+        [
+          {
+            "node": "Sem nono dígito",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nono dígito",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sem nono dígito": {
+      "main": [
+        [
+          {
+            "node": "Dados validados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nono dígito": {
+      "main": [
+        [
+          {
+            "node": "Dados validados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dados validados": {
+      "main": [
+        [
+          {
+            "node": "Verificar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar na audiência": {
+      "main": [
+        [
+          {
+            "node": "Contato existe?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contato existe?": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cadastrar contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cadastrar contato": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar na audiência": {
+      "main": [
+        [
+          {
+            "node": "Informações do Produto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualiza BD - Carrinho Abandonado": {
+      "main": [
+        [
+          {
+            "node": "Verificar DDD>28",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagens": {
+      "main": [
+        [
+          {
+            "node": "Enviar Fluxo de Carrinho Abandonado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Informações do Produto": {
+      "main": [
+        [
+          {
+            "node": "Mensagens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatação da Data de Abandono do Carrinho": {
+      "main": [
+        [
+          {
+            "node": "Dados do Carrinho Abandonado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-01T16:30:45.758Z",
+  "id": "kBdUPnrj32HHb2ob",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[PG] - CE - Carrinho Abandonado",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ce-carrinho-abandonado",
+        "options": {}
+      },
+      "id": "64551b07-ec6c-44d4-8128-c875fe63470d",
+      "name": "Carrinho Abandonado",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -760,
+        720
+      ],
+      "webhookId": "36348cab-6a8f-4f15-b19c-5ef77c770b63"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Produto",
+              "value": "={{ $json[\"body\"][\"data\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $json[\"body\"][\"data\"][\"buyer\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $json[\"body\"][\"data\"][\"buyer\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente",
+              "value": "={{ $json[\"body\"][\"data\"][\"buyer\"][\"phone\"] }}"
+            },
+            {
+              "name": "DDD",
+              "value": "={{ $json[\"body\"][\"data\"][\"buyer\"][\"phone\"].slice(2,4) }}"
+            },
+            {
+              "name": "Data de Abandono do Carrinho",
+              "value": "={{ $json[\"Data de Abandono do Carrinho\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "745ea842-90c3-4d51-ad4c-b75518057471",
+      "name": "Dados do Carrinho Abandonado",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $item(\"0\").$node[\"Dados do Carrinho Abandonado\"].json[\"DDD\"] }}",
+              "operation": "larger",
+              "value2": 28
+            }
+          ]
+        }
+      },
+      "name": "Verificar DDD>28",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        200,
+        720
+      ],
+      "id": "b6f12aa4-379f-4abb-a45d-c6337f565eb1"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "whatsapp-sem-nono",
+              "value": "=+55{{ $json[\"DDD\"] }}{{ $json[\"Telefone do Cliente\"].slice(-8) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Sem nono dígito",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ],
+      "id": "505587ef-c456-4701-b090-3faea129b6b6"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "whatsapp-nono",
+              "value": "=+55{{ $json[\"DDD\"] }}{{ $json[\"Telefone do Cliente\"].slice(-9) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Nono dígito",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        460,
+        740
+      ],
+      "id": "09fae1ed-86e3-4658-862a-8f2ce2e48a2c"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "whatsapp-formatado",
+              "value": "={{ $node[\"Sem nono dígito\"].runIndex >= 0      ?   $node[\"Sem nono dígito\"].json[\"whatsapp-sem-nono\"] : $node[\"Nono dígito\"].json[\"whatsapp-nono\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Dados validados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        780,
+        740
+      ],
+      "id": "1c8293e5-5b77-4a70-8062-afb207905dc1"
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Dados validados\"].json[\"whatsapp-formatado\"]}}/",
+        "options": {}
+      },
+      "name": "Verificar na audiência",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        740
+      ],
+      "id": "05faf662-5112-4dc9-8fa9-ccc70b1a8c57",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"id\"]}}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "name": "Contato existe?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        740
+      ],
+      "id": "6766b327-ba5d-4bf0-976a-e6e8fead2492"
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "={{$node[\"Dados validados\"].json[\"whatsapp-formatado\"]}}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"Dados do Carrinho Abandonado\"].json[\"Nome do Cliente\"].split(' ')[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"Dados do Carrinho Abandonado\"].json[\"Nome do Cliente\"].split(' ')[1] }}"
+            }
+          ]
+        }
+      },
+      "name": "Cadastrar contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1560,
+        840
+      ],
+      "id": "cd30a0de-6d50-4621-92cf-7553a1793e9b",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Dados validados\"].json[\"whatsapp-formatado\"]}}/",
+        "options": {}
+      },
+      "name": "Buscar na audiência",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        720
+      ],
+      "id": "e81f6573-63e7-4f6d-85b9-047084ddfce9",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1N-O2fDUHUjoBpgUBc8K1eH48yRjWIFD0aJXueEMP0lo",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 308595670,
+          "mode": "list",
+          "cachedResultName": "[Geral] - Carrinhos Abandonados",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N-O2fDUHUjoBpgUBc8K1eH48yRjWIFD0aJXueEMP0lo/edit#gid=308595670"
+        },
+        "columnToMatchOn": "TELEFONE",
+        "valueToMatchOn": "={{ $item(\"0\").$node[\"Dados do Carrinho Abandonado\"].json[\"Telefone do Cliente\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $item(\"0\").$node[\"Dados do Carrinho Abandonado\"].json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "column": "E-MAIL",
+              "fieldValue": "={{ $item(\"0\").$node[\"Dados do Carrinho Abandonado\"].json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "column": "STATUS DA COMPRA",
+              "fieldValue": "=Carrinho Abandonado"
+            },
+            {
+              "column": "DATA DE ABANDONO DO CARRINHO",
+              "fieldValue": "={{ $node[\"Dados do Carrinho Abandonado\"].json[\"Data de Abandono do Carrinho\"] }}"
+            },
+            {
+              "column": "PRODUTO",
+              "fieldValue": "={{     $node[\"Dados do Carrinho Abandonado\"].json[\"Nome do Produto\"]     }}"
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "id": "06fdeded-ac8e-41f9-869b-4f6549f44ced",
+      "name": "Atualiza BD - Carrinho Abandonado",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        -80,
+        720
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "renLSoeRurwGxrLn",
+          "name": "[PRIGEO] - Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Validado",
+        "height": 299.687331536388,
+        "width": 608.3113646178872
+      },
+      "id": "a011a015-248b-4364-b145-b3cf70cfd56d",
+      "name": "Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"ID do Flow de Carrinho Abandonado\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Fluxo de Carrinho Abandonado",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2460,
+        720
+      ],
+      "id": "f39d9a5f-789a-49f5-b420-5a7a772ec3fb",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID do Flow de Carrinho Abandonado",
+              "value": "1011371"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8a42a964-4512-4b18-a7f1-f9f3085bb207",
+      "name": "Mensagens",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Link do Checkout do Produto",
+              "value": "https://pay.hotmart.com/K56483731D?checkoutMode=10"
+            },
+            {
+              "name": "SRC de Carrinho Abandonado com WhatsApp",
+              "value": "=&src=whatsapp-rmkt-carrinhoabandonado&email={{ $node[\"Dados do Carrinho Abandonado\"].json[\"E-mail do Cliente\"] }}&phonenumber={{ $node[\"Dados do Carrinho Abandonado\"].json[\"Telefone do Cliente\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cb4c101d-565c-44e3-b8d7-d5b1cb3f72c4",
+      "name": "Informações do Produto",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "value": "={{ $json[\"body\"][\"creation_date\"]/1000 }}",
+        "dataPropertyName": "Data de Abandono do Carrinho",
+        "custom": true,
+        "toFormat": "DD/MM/YYYY",
+        "options": {}
+      },
+      "id": "43aa94c6-077a-45b7-ae70-7c3a37c08f88",
+      "name": "Formatação da Data de Abandono do Carrinho",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        -540,
+        720
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "gH1eUtgMl91jy1fn"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
+    },
+    {
+      "createdAt": "2024-05-03T20:48:47.883Z",
+      "updatedAt": "2024-05-03T20:48:47.883Z",
+      "id": "YU6gVyrnmykMQycr",
+      "name": "CE"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-05-03T21:27:08.661Z",
+  "versionId": "e1ee23e7-54f7-4c5c-b912-fe25a865605d"
+}
