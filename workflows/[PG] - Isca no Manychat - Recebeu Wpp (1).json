@@ -1,0 +1,170 @@
+{
+  "active": true,
+  "connections": {
+    "Dados do Cliente": {
+      "main": [
+        [
+          {
+            "node": "Adiciona Dados na Planilha",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chamado do Manychat 2": {
+      "main": [
+        [
+          {
+            "node": "Dados do Cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-01T16:02:59.176Z",
+  "id": "Joju8KPLdIqLYedR",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[PG] - Isca no Manychat - Recebeu Wpp (1)",
+  "nodes": [
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID do Manychat",
+              "value": "={{ $json[\"body\"][\"ID_manychat\"] }}"
+            },
+            {
+              "name": "Recebeu Wpp",
+              "value": "={{ $json[\"body\"][\"recebeu\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9fee00de-9926-41f5-ad16-c34b2c7a079f",
+      "name": "Dados do Cliente",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        680,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1Ol7914Zihnkq26wXOF7sR5X6Rx6EgM61X3OhCteMLMI",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1292197698,
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Ol7914Zihnkq26wXOF7sR5X6Rx6EgM61X3OhCteMLMI/edit#gid=1292197698"
+        },
+        "columnToMatchOn": "ID MANYCHAT",
+        "valueToMatchOn": "={{ $json[\"ID do Manychat\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "RECEBEU WPP",
+              "fieldValue": "={{ $json[\"Recebeu Wpp\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "id": "cda308bc-a9ac-4747-83a5-db85fe621c4d",
+      "name": "Adiciona Dados na Planilha",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        900,
+        460
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "renLSoeRurwGxrLn",
+          "name": "[PRIGEO] - Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "pg-manychat-isca-kits-recebeu-wpp",
+        "options": {}
+      },
+      "id": "aa6efc15-58dd-441d-9ac8-dda49fafe03f",
+      "name": "Chamado do Manychat 2",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ],
+      "webhookId": "6400e0d7-af0b-4983-84b5-f052fd4f3e48"
+    }
+  ],
+  "pinData": {
+    "Chamado do Manychat 2": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8namarads.amarads.com.br",
+            "x-forwarded-for": "18.184.151.166",
+            "x-forwarded-host": "n8namarads.amarads.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-ssl": "on",
+            "connection": "close",
+            "content-length": "50",
+            "user-agent": "ManyChat",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "recebeu": "Não",
+            "ID_manychat": "1822112108"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "gH1eUtgMl91jy1fn"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
+    },
+    {
+      "createdAt": "2024-05-04T17:23:47.959Z",
+      "updatedAt": "2024-05-04T17:23:47.959Z",
+      "id": "k8MAPCc1oZec7tRH",
+      "name": "ISCA_MANYCHAT"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-05-22T18:22:12.277Z",
+  "versionId": "92bb19fa-7c14-4632-822f-1ca2ef3fb360"
+}
