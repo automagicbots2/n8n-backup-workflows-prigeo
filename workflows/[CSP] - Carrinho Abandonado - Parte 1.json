@@ -1,0 +1,235 @@
+{
+  "active": true,
+  "connections": {
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "dados_gerais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "carrinho_abandonado": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_gerais": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-01T14:56:01.199Z",
+  "id": "krq0lM6mVgNDKNVV",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[CSP] - Carrinho Abandonado - Parte 1",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// Acessando o objeto JSON do nó \"carrinho_abandonado\"\nconst carrinhoAbandonado = $node[\"carrinho_abandonado\"].json;\n\n// 1. Pegar a oferta da compra\nconst ofertaCompra = carrinhoAbandonado.body.data.offer.code || '';\n\n// 2. Pegar o nome do produto\nconst nomeProduto = carrinhoAbandonado.body.data.product.name || '';\n\n// 3. Pegar o telefone do cliente\nconst telefoneClienteOriginal = carrinhoAbandonado.body.data.buyer.phone || '';\n\n// 4. Pegar o nome do cliente\nconst nomeCliente = carrinhoAbandonado.body.data.buyer.name || '';\n\n// 5. Pegar o email do cliente\nconst emailCliente = carrinhoAbandonado.body.data.buyer.email || '';\n\n// Função para formatar data em dia/mês/ano\nfunction formatDate(timestamp) {\n  if (!timestamp) return '';\n  const date = new Date(timestamp * 1000);\n  const day = date.getDate().toString().padStart(2, '0');\n  const month = (date.getMonth() + 1).toString().padStart(2, '0');\n  const year = date.getFullYear();\n  return `${day}/${month}/${year}`;\n}\n\nconst dataFormatada = formatDate(carrinhoAbandonado.body.creation_date / 1000);\n\n// 7. Transformar o evento \"PURCHASE_OUT_OF_SHOPPING_CART\" em \"Carrinho Abandonado\"\nconst eventoFormatado = carrinhoAbandonado.body.event === 'PURCHASE_OUT_OF_SHOPPING_CART' ? 'Carrinho Abandonado' : carrinhoAbandonado.body.event;\n\n// 8. Formatar o telefone, adicionando ou não o nono dígito\n\nconst telefoneLimpo = telefoneClienteOriginal.replace(/\\D/g, '');\nconst DDI = telefoneLimpo.slice(0, 2);\nconst DDD = telefoneLimpo.slice(2, 4);\nif (parseInt(DDD) > 28) {\n  telefoneFinal = `${DDI}${DDD}${telefoneLimpo.slice(-8)}`;\n} else {\n  telefoneFinal = `${DDI}${DDD}${telefoneLimpo.slice(-9)}`;\n}\n\n// Saída das informações formatadas\nreturn {\n  \"oferta_da_compra\": ofertaCompra,\n  \"nome_produto\": nomeProduto,\n  \"telefone_cliente\": telefoneFinal,\n  \"nome_cliente\": nomeCliente,\n  \"email_cliente\": emailCliente,\n  \"data_formatada\": dataFormatada,\n  \"evento_formatado\": eventoFormatado\n};\n"
+      },
+      "id": "c0ee2051-fdf5-4360-b9f0-1462151bea42",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        640,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "csp-carrinho-abandonado",
+        "options": {}
+      },
+      "id": "492fde38-f153-4589-874c-cb48bcde316a",
+      "name": "carrinho_abandonado",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ],
+      "webhookId": "d6180414-7412-45d7-bc2b-62647a0c3efc"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Produto",
+              "value": "={{ $node[\"formata_dados\"].json[\"nome_produto\"] }}"
+            },
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"nome_cliente\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"email_cliente\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefone_cliente\"] }}"
+            },
+            {
+              "name": "Data de Abandono do Carrinho",
+              "value": "={{ $node[\"formata_dados\"].json[\"data_formatada\"] }}"
+            },
+            {
+              "name": "API-KEY",
+              "value": "6f2ad020-2909-475d-bcc6-a2b9e6cd9131"
+            },
+            {
+              "name": "ID do Fluxo",
+              "value": "2290510"
+            },
+            {
+              "name": "Evento",
+              "value": "={{ $node[\"formata_dados\"].json[\"evento_formatado\"] }}"
+            },
+            {
+              "name": "id_campo_email_bc",
+              "value": "1271599"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "id": "834e2d75-8ba4-4dcd-8849-5f8449c2d515",
+      "name": "dados_gerais",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        800,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Carrinho Abandonado - CSP",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "7299511e-7052-44a7-8763-0b81f512e8fc",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        980,
+        460
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "v10PciJKjFB8gCKb",
+          "name": "[PRIGEO] - RabbitMQ"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "carrinho_abandonado": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8nwebhookprigeo.amarads.com.br",
+            "user-agent": "Jodd HTTP",
+            "content-length": "448",
+            "content-type": "application/json",
+            "x-forwarded-for": "52.90.72.116",
+            "x-forwarded-host": "n8nwebhookprigeo.amarads.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "99d022a72141",
+            "x-hotmart-hottok": "C0M0zxU3tOxl79rtObW21JucfNTfa006c2cecc-32a6-4356-b7a6-4327bf1cd88c",
+            "x-real-ip": "52.90.72.116",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "data": {
+              "offer": {
+                "code": "aud7l0an"
+              },
+              "product": {
+                "name": "Combo de cursos Prigeo: Sala de Professores",
+                "id": 3301754
+              },
+              "checkout_country": {
+                "iso": "BR",
+                "name": "Brasil"
+              },
+              "buyer_ip": "187.2.13.115",
+              "affiliate": true,
+              "buyer": {
+                "phone": "5519982022213",
+                "name": "Vitor Queiroz de Almeida",
+                "email": "vitorrqueiroztrafego@gmail.com"
+              }
+            },
+            "id": "e6982dcf-56de-4df1-8880-df80ec5f6db1",
+            "creation_date": 1694537021901,
+            "event": "PURCHASE_OUT_OF_SHOPPING_CART",
+            "version": "2.0.0"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "gH1eUtgMl91jy1fn"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
+    },
+    {
+      "createdAt": "2024-05-03T20:20:38.896Z",
+      "updatedAt": "2024-05-03T20:20:38.896Z",
+      "id": "vkeEqzmarx4BYIBt",
+      "name": "CSP"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-05-03T20:24:12.345Z",
+  "versionId": "c4ed76cf-3080-4a20-bdb2-e6feb0b5c9de"
+}
