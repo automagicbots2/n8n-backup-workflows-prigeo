@@ -1,0 +1,400 @@
+{
+  "active": true,
+  "connections": {
+    "compra_expirada": {
+      "main": [
+        [
+          {
+            "node": "consulta_users_hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_users_hotmart": {
+      "main": [
+        [
+          {
+            "node": "formata_dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formata_dados": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dados_gerais": {
+      "main": [
+        [
+          {
+            "node": "entra_na_fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "dados_gerais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-01T15:38:13.991Z",
+  "id": "hMyIKbg6y13dIvF6",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[CSP] - Compra Expirada - Parte 1",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "csp-compra-expirada",
+        "options": {}
+      },
+      "id": "1f95e805-53f9-4d56-ae2e-b4cf60455203",
+      "name": "compra_expirada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ],
+      "webhookId": "acb51177-a9eb-4f36-b657-d7aab179fe39"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Acessando o objeto JSON do webhook \"compra_cancelada\"\nconst compraExpirada = $node[\"compra_expirada\"].json;\nconst consultaUsers = $node[\"consulta_users_hotmart\"].json;\n\nfunction formatarDataMilissegundos(dataMilissegundos) {\n  const data = new Date(dataMilissegundos);\n  const dia = String(data.getDate()).padStart(2, '0');\n  const mes = String(data.getMonth() + 1).padStart(2, '0');\n  const ano = data.getFullYear();\n  return `${dia}/${mes}/${ano}`;\n}\n\n// Função para formatar o nome com a primeira letra de cada parte em maiúscula\nfunction formatName(str) {\n  return str\n    .split(' ')\n    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())\n    .join(' ');\n}\n\nconst nomeClienteOriginal = consultaUsers?.items?.[0]?.users?.[1]?.user?.name || '';\nconst nomeClienteFormatado = formatName(nomeClienteOriginal);\nconst emailCliente = consultaUsers?.items?.[0]?.users?.[1]?.user?.email.toLowerCase().replace(/\\s/g, '') || '';\n\n// Tratamento do número de telefone\nconst telefoneClienteOriginal = consultaUsers?.items?.[0]?.users?.[1]?.user?.phone || '';\nconst telefoneLimpo = telefoneClienteOriginal.replace(/\\D/g, \"\");\nconst DDI = '55';\nconst DDD = telefoneLimpo.slice(0, 2);\n\n// Determinar o número de telefone final\nlet telefoneFinal;\nif (parseInt(DDD) > 28) {\n  telefoneFinal = `${DDI}${DDD}${telefoneLimpo.slice(-8)}`;\n} else {\n  telefoneFinal = `${DDI}${DDD}${telefoneLimpo.slice(-9)}`;\n}\n\nconst moedaCompra = compraExpirada.body.data.purchase.original_offer_price.currency_value || '';\n\n// Mapeamento das formas de pagamento em inglês para PT-BR\nconst formasPagamento = {\n  CREDIT_CARD: \"Cartão de Crédito\",\n  PIX: \"PIX\",\n  BILLET: \"Boleto\",\n  PAYPAL: \"PayPal\",\n  WALLET: \"Carteira da Hotmart\",\n  FINANCED_BILLET: \"Boleto Parcelado\",\n  CASH_PAYMENT: \"Dinheiro Vivo\",\n  DIRECT_BANK_TRANSFER: \"Transferência Bancária\",\n  DIRECT_DEBIT: \"Débito Direto\",\n  FINANCED_INSTALLMENT: \"Parcelamento Financiado\",\n  GOOGLE_PAY: \"Google Pay\",\n  HOTCARD: \"Cartão da Hotmart\",\n  HYBRID: \"Híbrido\",\n  MANUAL_TRANSFER: \"Transferência Manual\",\n  PAYPAL_INTERNACIONAL: \"PayPal Internacional\",\n  PICPAY: \"PicPay\",\n};\n\n// Mapeamento dos status de compra em inglês para PT-BR\nconst statusCompra = {\n  APPROVED: 'Compra Aprovada',\n  BLOCKED: 'Compra Bloqueada',\n  CANCELLED: 'Compra Cancelada',\n  CHARGEBACK: 'Chargeback',\n  COMPLETE: 'Compra Completa',\n  EXPIRED: 'Compra Expirada',\n  OVERDUE: 'Compra Atrasada',\n  NO_FUNDS: 'Sem Fundos',\n  PRINTED_BILLET: 'Boleto Gerado',\n  PARTIALLY_REFUNDED: 'Parcialmente Reembolsada',\n  PROCESSING_TRANSACTION: 'Processando Transação',\n  PRE_ORDER: 'Compra Reservada',\n  STARTED: 'Compra Iniciada',\n  PROTESTED: 'Compra Reclamada',\n  REFUNDED: 'Compra Reembolsada',\n  WAITING_PAYMENT: 'Aguardando Pagamento',\n  UNDER_ANALISYS: 'Em Análise',\n  CANCELED: \"Compra Cancelada\"\n};\n\n// Obtendo os dados formatados\nconst nomeProduto = compraExpirada.body.data.product.name || '';\nconst comissaoGateway = compraExpirada.body.data.commissions[0]?.value || '';\nconst ofertaCompra = compraExpirada.body.data.purchase.offer.code || '';\nconst valorCompra = compraExpirada.body.data.purchase.price.value || '';\nconst numeroParcelas = compraExpirada.body.data.purchase.payment.installments_number || '';\nconst metodoPagamento = formasPagamento[compraExpirada.body.data.purchase.payment.type] || '';\nconst idTransacao = compraExpirada.body.data.purchase.transaction || '';\nconst statusCompraFormatado = statusCompra[compraExpirada.body.data.purchase.status] || '';\nconst dataPedidoFormatada = formatarDataMilissegundos(compraExpirada.body.data.purchase.order_date);\n\n// Encontre o valor do documento (CPF ou CNPJ) do comprador onde o 'role' é 'BUYER'\nlet cpfcnpj_cliente = null;\nconst users = $node[\"consulta_users_hotmart\"].json[\"items\"][0][\"users\"];\n\nif (users) {\n  const buyer = users.find(user => user.role === 'BUYER');\n  if (buyer) {\n    cpfcnpj_cliente = buyer.user.documents[0]?.value || null;\n  }\n}\n\nif (cpfcnpj_cliente) {\n  if (cpfcnpj_cliente.length === 11) {\n    // Formatar CPF (11 dígitos) XXX.XXX.XXX-XX\n    cpfcnpj_cliente = cpfcnpj_cliente.replace(/(\\d{3})(\\d{3})(\\d{3})(\\d{2})/, '$1.$2.$3-$4');\n  } else if (cpfcnpj_cliente.length === 14) {\n    // Formatar CNPJ (14 dígitos) XX.XXX.XXX/0001-XX\n    cpfcnpj_cliente = cpfcnpj_cliente.replace(/(\\d{2})(\\d{3})(\\d{3})(\\d{4})(\\d{2})/, '$1.$2.$3/$4-$5');\n  }\n}\n\n// Resultado\nconst dadosFormatados = {\n  nomeProduto,\n  comissaoGateway,\n  ofertaCompra,\n  valorCompra,\n  numeroParcelas,\n  metodoPagamento,\n  idTransacao,\n  statusCompraFormatado,\n  dataPedidoFormatada,\n  nomeClienteFormatado,\n  emailCliente,\n  telefoneFinal,\n  cpfcnpj_cliente,\n  moedaCompra\n};\n\n// Saída dos dados formatados\nreturn dadosFormatados;\n"
+      },
+      "id": "3983e0cc-f003-4894-b136-3be6b0e054a1",
+      "name": "formata_dados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        860,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://developers.hotmart.com/payments/api/v1/sales/users",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "transaction",
+              "value": "={{ $node[\"compra_expirada\"].json[\"body\"][\"data\"][\"purchase\"][\"transaction\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e7d0096a-9444-4b4b-887a-fe0355e0cf36",
+      "name": "consulta_users_hotmart",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        660,
+        460
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "CHJqRANFoJRHVfE2",
+          "name": "[PRIGEO] - Hotmart"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Produto",
+              "value": "={{ $node[\"formata_dados\"].json[\"nomeProduto\"] }}"
+            },
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"nomeClienteFormatado\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"emailCliente\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefoneFinal\"] }}"
+            },
+            {
+              "name": "CPF/CNPJ do Cliente",
+              "value": "={{ $node[\"formata_dados\"].json[\"cpfcnpj_cliente\"] }}"
+            },
+            {
+              "name": "ID da Transação",
+              "value": "={{ $node[\"formata_dados\"].json[\"idTransacao\"] }}"
+            },
+            {
+              "name": "Oferta da Compra",
+              "value": "={{ $node[\"formata_dados\"].json[\"ofertaCompra\"] }}"
+            },
+            {
+              "name": "Moeda da Compra",
+              "value": "={{ $node[\"formata_dados\"].json[\"moedaCompra\"] }}"
+            },
+            {
+              "name": "Código da Inscrição",
+              "value": "={{ $node[\"compra_expirada\"].json[\"body\"][\"data\"][\"subscription\"][\"subscriber\"][\"code\"] }}"
+            },
+            {
+              "name": "Plano",
+              "value": "={{ $node[\"compra_expirada\"].json[\"body\"][\"data\"][\"subscription\"][\"plan\"][\"name\"] }}"
+            },
+            {
+              "name": "Forma de Pagamento",
+              "value": "={{ $node[\"formata_dados\"].json[\"metodoPagamento\"] }}"
+            },
+            {
+              "name": "Status da Compra",
+              "value": "={{ $node[\"formata_dados\"].json[\"statusCompraFormatado\"] }}"
+            },
+            {
+              "name": "DDD",
+              "value": "={{ $node[\"formata_dados\"].json[\"telefoneFinal\"].slice('2', '4') }}"
+            },
+            {
+              "name": "id_campo_id_transacao",
+              "value": "1290192"
+            },
+            {
+              "name": "id_campo_email_transacao",
+              "value": "1271599"
+            },
+            {
+              "name": "API-KEY",
+              "value": "6f2ad020-2909-475d-bcc6-a2b9e6cd9131"
+            },
+            {
+              "name": "id_fluxo_compra_expirada",
+              "value": "2290516"
+            }
+          ],
+          "number": [
+            {
+              "name": "Valor da Compra",
+              "value": "={{ $node[\"formata_dados\"].json[\"valorCompra\"] }}"
+            },
+            {
+              "name": "Data da Compra",
+              "value": "={{ $node[\"formata_dados\"].json[\"dataPedidoFormatada\"] }}"
+            },
+            {
+              "name": "Comissão Hotmart",
+              "value": "={{ $node[\"formata_dados\"].json[\"comissaoGateway\"] }}"
+            },
+            {
+              "name": "Número de Parcelas",
+              "value": "={{ $node[\"formata_dados\"].json[\"numeroParcelas\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "id": "ddd864b2-3257-4ebc-a5a2-6fbc7ff7dd89",
+      "name": "dados_gerais",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "5ef1ab0d-1421-4d10-8eaf-81ffe0c7132e",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "queue": "Compra Expirada - CSP",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "durable": true
+        }
+      },
+      "id": "b1a0121c-df1a-4e2b-88ee-86b4c01d4eed",
+      "name": "entra_na_fila",
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        460
+      ],
+      "credentials": {
+        "rabbitmq": {
+          "id": "v10PciJKjFB8gCKb",
+          "name": "[PRIGEO] - RabbitMQ"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "compra_expirada": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8neditorprigeo.amarads.com.br",
+            "user-agent": "Jodd HTTP",
+            "content-length": "1413",
+            "content-type": "application/json",
+            "x-forwarded-for": "3.95.248.235",
+            "x-forwarded-host": "n8neditorprigeo.amarads.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "99d022a72141",
+            "x-hotmart-hottok": "C0M0zxU3tOxl79rtObW21JucfNTfa006c2cecc-32a6-4356-b7a6-4327bf1cd88c",
+            "x-real-ip": "3.95.248.235",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "data": {
+              "product": {
+                "has_co_production": true,
+                "name": "Kit Língua Portuguesa Prigeo - Jogos e atividades prontas",
+                "id": 2957087,
+                "ucode": "1c9d9948-c68d-4043-ae49-a2092162a362"
+              },
+              "commissions": [
+                {
+                  "currency_value": "BRL",
+                  "source": "MARKETPLACE",
+                  "value": 10.6
+                },
+                {
+                  "currency_value": "BRL",
+                  "source": "PRODUCER",
+                  "value": 69.12
+                }
+              ],
+              "purchase": {
+                "offer": {
+                  "code": "yau709j6"
+                },
+                "order_date": 1694374785000,
+                "original_offer_price": {
+                  "currency_value": "BRL",
+                  "value": 97
+                },
+                "price": {
+                  "currency_value": "BRL",
+                  "value": 97
+                },
+                "checkout_country": {
+                  "iso": "BR",
+                  "name": "Brasil"
+                },
+                "buyer_ip": "186.216.178.77",
+                "order_bump": {
+                  "is_order_bump": false
+                },
+                "payment": {
+                  "pix_qrcode": "https://customer-local-latam.ebanx.com/pix/checkout?hash=64fe1b807714063eae33791f2c88b2831da9a19b66fe56be",
+                  "pix_expiration_date": 1694547585000,
+                  "installments_number": 1,
+                  "type": "PIX",
+                  "pix_code": "00020101021226740014br.gov.bcb.pix2552pix.ebanx.com/qr/v2/409D108A87FD0A5F2D24BBDF7C6F15AF5204000053039865802BR5924Launch Pad Tecnologia Se6014BELO HORIZONTE62070503***630480B7"
+                },
+                "full_price": {
+                  "currency_value": "BRL",
+                  "value": 97
+                },
+                "transaction": "HP0331049964",
+                "status": "EXPIRED"
+              },
+              "affiliates": [
+                {
+                  "affiliate_code": "",
+                  "name": ""
+                }
+              ],
+              "producer": {
+                "name": "Prigeo Ensino e Tecnologia"
+              },
+              "buyer": {
+                "name": "Pamella Picanço Neves",
+                "checkout_phone": "96991858201",
+                "email": "pamellapicanco30@gmail.com"
+              }
+            },
+            "id": "99749ab9-77cc-44a2-9114-4430419df4f8",
+            "creation_date": 1694548499519,
+            "event": "PURCHASE_EXPIRED",
+            "version": "2.0.0"
+          }
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "gH1eUtgMl91jy1fn"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
+    },
+    {
+      "createdAt": "2024-05-03T20:20:38.896Z",
+      "updatedAt": "2024-05-03T20:20:38.896Z",
+      "id": "vkeEqzmarx4BYIBt",
+      "name": "CSP"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-05-03T20:25:08.471Z",
+  "versionId": "733d61e1-b75a-4b9f-b5a7-2b2895d30838"
+}
