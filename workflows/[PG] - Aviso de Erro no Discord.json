@@ -1,0 +1,59 @@
+{
+  "active": false,
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-01T15:43:35.096Z",
+  "id": "gH1eUtgMl91jy1fn",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[PG] - Aviso de Erro no Discord",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "d10ef332-c639-4586-bd90-a869563a9098",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "webhookUri": "https://discord.com/api/webhooks/1051557732941058118/bR9saqZ3PRvvbYzTDR9odD1sIKwiWkTnK_hx84LUjs2_wgbDThYfwaxIO4EoU-o-yzRU",
+        "text": "=🚨 **Workflow com erro no N8N da PriGeo**\n\nO Workflow **{{ $json[\"workflow\"][\"name\"] }}**, do **ID {{ $json[\"workflow\"][\"id\"] }}**, acabou de apresentar um erro.\n\nAssim que puder, dê uma conferida e ajuste o erro apresentado.",
+        "options": {}
+      },
+      "id": "82cd7d86-e650-49c9-8861-c24a20821031",
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 1,
+      "position": [
+        680,
+        460
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-05-01T15:43:35.096Z",
+  "versionId": "2cc0d83e-6655-4433-b284-6d88491195f3"
+}
