@@ -1,17 +1,6 @@
 {
   "active": true,
   "connections": {
-    "Carrinho Abandonado": {
-      "main": [
-        [
-          {
-            "node": "Formatação da Data de Abandono do Carrinho",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Dados do Carrinho Abandonado": {
       "main": [
         [
@@ -168,6 +157,17 @@
           }
         ]
       ]
+    },
+    "Carrinho Abandonado": {
+      "main": [
+        [
+          {
+            "node": "Formatação da Data de Abandono do Carrinho",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-01T19:36:13.066Z",
@@ -177,22 +177,6 @@
   },
   "name": "[PG] - KMJAP - Carrinho Abandonado",
   "nodes": [
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "kmjap-carrinho-abandonado",
-        "options": {}
-      },
-      "id": "ac5bad1c-1ebc-4f3b-bdb8-679048886ccb",
-      "name": "Carrinho Abandonado",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        -760,
-        720
-      ],
-      "webhookId": "bb6e3cad-71e4-40aa-8aa8-3984460ae551"
-    },
     {
       "parameters": {
         "values": {
@@ -597,9 +581,74 @@
         -540,
         720
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "kmjap-carrinho-abandonado",
+        "options": {}
+      },
+      "id": "ac5bad1c-1ebc-4f3b-bdb8-679048886ccb",
+      "name": "Carrinho Abandonado",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -760,
+        720
+      ],
+      "webhookId": "bb6e3cad-71e4-40aa-8aa8-3984460ae551"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Carrinho Abandonado": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhook.prigeo.com.br",
+            "user-agent": "Jodd HTTP",
+            "content-length": "377",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.146.190.253",
+            "x-forwarded-host": "webhook.prigeo.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "65bf580ce34d",
+            "x-hotmart-hottok": "C0M0zxU3tOxl79rtObW21JucfNTfa006c2cecc-32a6-4356-b7a6-4327bf1cd88c",
+            "x-real-ip": "54.146.190.253",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "data": {
+              "offer": {
+                "code": "uk5uur4o"
+              },
+              "product": {
+                "name": "Kit Matemática (jogos e atividades prontas)",
+                "id": 2339995
+              },
+              "checkout_country": {
+                "iso": "BR",
+                "name": "Brasil"
+              },
+              "affiliate": true,
+              "buyer": {
+                "name": "neiva schmitz",
+                "email": "neiva.sch@gmail.com"
+              }
+            },
+            "id": "133bf99d-27f5-444d-bd6b-54bc4bf1bb42",
+            "creation_date": 1727741672607,
+            "event": "PURCHASE_OUT_OF_SHOPPING_CART",
+            "version": "2.0.0"
+          },
+          "webhookUrl": "https://webhook.prigeo.com.br/webhook/kmjap-carrinho-abandonado",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1",
     "saveManualExecutions": true,
@@ -622,6 +671,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-22T18:11:21.001Z",
-  "versionId": "37f7438e-3aca-4128-9dee-5c474cef19a0"
+  "updatedAt": "2024-10-10T20:37:32.955Z",
+  "versionId": "0a3977b2-dcd9-4ad0-be1c-7079c5fb07ed"
 }
