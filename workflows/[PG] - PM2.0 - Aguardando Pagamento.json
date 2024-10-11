@@ -1684,15 +1684,15 @@
           "headers": {
             "host": "webhook.prigeo.com.br",
             "user-agent": "Jodd HTTP",
-            "content-length": "1799",
+            "content-length": "1800",
             "content-type": "application/json",
-            "x-forwarded-for": "3.80.59.180",
+            "x-forwarded-for": "3.238.90.120",
             "x-forwarded-host": "webhook.prigeo.com.br",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
             "x-forwarded-server": "65bf580ce34d",
             "x-hotmart-hottok": "C0M0zxU3tOxl79rtObW21JucfNTfa006c2cecc-32a6-4356-b7a6-4327bf1cd88c",
-            "x-real-ip": "3.80.59.180",
+            "x-real-ip": "3.238.90.120",
             "accept-encoding": "gzip"
           },
           "params": {},
@@ -1714,14 +1714,14 @@
                 {
                   "currency_value": "BRL",
                   "source": "PRODUCER",
-                  "value": 505.8
+                  "value": 650.32
                 }
               ],
               "purchase": {
                 "offer": {
                   "code": "229e0ciw"
                 },
-                "order_date": 1716378889000,
+                "order_date": 1728413642000,
                 "original_offer_price": {
                   "currency_value": "BRL",
                   "value": 797
@@ -1739,18 +1739,18 @@
                   "is_order_bump": false
                 },
                 "payment": {
-                  "pix_qrcode": "https://live-us.adyen.com/hpp/generateQRCodeImage.shtml?url=00020101021226990014br.gov.bcb.pix2577pix.bpp.com.br%2F14796606%2Fqrs1%2Fv2%2F01tzKR8yQfsvFqCSauk0Nvu5TKwxzd0FmXwEMjCRdrSgg5204000053039865802BR5907Hotmart6009SAO+PAULO62070503***6304EFDD",
-                  "pix_expiration_date": 1716551689000,
+                  "pix_qrcode": "https://live-us.adyen.com/hpp/generateQRCodeImage.shtml?url=00020101021226900014br.gov.bcb.pix2568pix.adyen.com%2Fpixqrcodelocation%2Fpixloc%2Fv1%2Floc%2FJ82o_oUARRSxVEUphpSpBQ5204000053039865802BR5902HT6009SAO+PAULO62070503***6304009F",
+                  "pix_expiration_date": 1728586442000,
                   "installments_number": 1,
                   "type": "PIX",
-                  "pix_code": "00020101021226990014br.gov.bcb.pix2577pix.bpp.com.br/14796606/qrs1/v2/01tzKR8yQfsvFqCSauk0Nvu5TKwxzd0FmXwEMjCRdrSgg5204000053039865802BR5907Hotmart6009SAO PAULO62070503***6304EFDD"
+                  "pix_code": "00020101021226900014br.gov.bcb.pix2568pix.adyen.com/pixqrcodelocation/pixloc/v1/loc/J82o_oUARRSxVEUphpSpBQ5204000053039865802BR5902HT6009SAO PAULO62070503***6304009F"
                 },
                 "full_price": {
                   "currency_value": "BRL",
                   "value": 797
                 },
                 "invoice_by": "HOTMART",
-                "transaction": "HP2047089121",
+                "transaction": "HP3239260391",
                 "status": "BILLET_PRINTED"
               },
               "affiliates": [
@@ -1764,23 +1764,24 @@
               },
               "buyer": {
                 "address": {
-                  "zipcode": "29400000",
+                  "zipcode": "68909374",
                   "country": "Brasil",
-                  "address": "Rua Antão Ferreira ",
-                  "city": "Mimoso do Sul",
-                  "state": "ES",
-                  "neighborhood": "Centro",
-                  "complement": "casa",
+                  "number": "566",
+                  "address": "Avenida Petrópolis",
+                  "city": "Macapá",
+                  "state": "AP",
+                  "neighborhood": "Brasil Novo",
+                  "complement": "Residencial Bella Vista",
                   "country_iso": "BR"
                 },
-                "document": "01989067735",
-                "name": "VERONICA SOUZA RIBEIRO",
-                "checkout_phone": "28999637356",
-                "email": "veronica.sribeiro@educador.edu.es.gov.br"
+                "document": "63665239249",
+                "name": "Sergei Bittencourt Loureiro",
+                "checkout_phone": "96981131007",
+                "email": "sergeibittencourt@hotmail.com"
               }
             },
-            "id": "33538093-547e-4945-a847-9ea5802ceeb6",
-            "creation_date": 1716378893697,
+            "id": "53c2f609-6c7b-4302-acd0-96ead1ba01aa",
+            "creation_date": 1728413647151,
             "event": "PURCHASE_BILLET_PRINTED",
             "version": "2.0.0"
           },
@@ -1799,19 +1800,19 @@
   "staticData": null,
   "tags": [
     {
-      "createdAt": "2024-04-30T11:53:15.629Z",
-      "updatedAt": "2024-04-30T11:53:15.629Z",
-      "id": "H2161I9MxT1c0oWE",
-      "name": "[PRI GEO]"
-    },
-    {
       "createdAt": "2024-05-03T20:03:39.928Z",
       "updatedAt": "2024-05-03T20:03:39.928Z",
       "id": "5aLaCKE6gU2KHuDT",
       "name": "PM2.0"
+    },
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-22T18:18:43.721Z",
-  "versionId": "e43ddf4f-31d6-4daa-a6f3-a5daae1ca25a"
+  "updatedAt": "2024-10-10T19:55:18.049Z",
+  "versionId": "2b8cc9c6-6065-412a-838f-9935c4536dc5"
 }
