@@ -1,0 +1,56 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-04-02T02:04:45.782Z",
+  "id": "pfJGDVtH9ey6EI9z",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "bd527329-5d3a-4273-852f-8c9b3ce6ea9e",
+        "formTitle": "Amostras da PriGeo",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Qual seu nome?",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Qual o numero do WhatsApp que você vai receber as amostras?",
+              "fieldType": "number",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "respondWithOptions": {
+            "values": {
+              "formSubmittedText": "Obrigado pelas informações, logo te chamo no WhatsApp para enviar suas amostras "
+            }
+          }
+        }
+      },
+      "id": "a512cb08-17dd-4785-ae00-989d8a750a75",
+      "name": "n8n Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        540
+      ],
+      "webhookId": "bd527329-5d3a-4273-852f-8c9b3ce6ea9e"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-02T02:04:45.782Z",
+  "versionId": "ab61b0fa-a362-45d0-b98f-39c79d975e46"
+}
