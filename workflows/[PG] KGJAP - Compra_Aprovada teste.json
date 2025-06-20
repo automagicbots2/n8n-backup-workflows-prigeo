@@ -362,7 +362,7 @@
       "main": [
         [
           {
-            "node": "Espera 2 dias",
+            "node": "Espera 3 dias",
             "type": "main",
             "index": 0
           }
@@ -482,17 +482,6 @@
         ]
       ]
     },
-    "Espera 2 dias": {
-      "main": [
-        [
-          {
-            "node": "Buscar na audiência1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Dados validados": {
       "main": [
         [
@@ -509,102 +498,11 @@
         ]
       ]
     },
-    "Enviar Mensagem de Upsell": {
+    "When clicking \"Test workflow\"": {
       "main": [
         [
           {
-            "node": "Wait",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait": {
-      "main": [
-        [
-          {
-            "node": "Buscar na audiência2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Buscar na audiência2": {
-      "main": [
-        [
-          {
-            "node": "Possui tag \"Aluno_PEG\"1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Possui tag \"Aluno_PEG\"1": {
-      "main": [
-        [
-          {
-            "node": "Não faz Upsell1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Enviar Mensagem de Upsell1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait1": {
-      "main": [
-        [
-          {
-            "node": "Buscar na audiência3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Buscar na audiência3": {
-      "main": [
-        [
-          {
-            "node": "Possui tag \"Aluno_PEG\"2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Possui tag \"Aluno_PEG\"2": {
-      "main": [
-        [
-          {
-            "node": "Não faz Upsell2",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Enviar Mensagem de Upsell2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Enviar Mensagem de Upsell1": {
-      "main": [
-        [
-          {
-            "node": "Wait1",
+            "node": "Edit Fields",
             "type": "main",
             "index": 0
           }
@@ -622,11 +520,77 @@
         ]
       ]
     },
-    "When clicking \"Test workflow\"": {
+    "Enviar Mensagem de Upsell": {
       "main": [
         [
           {
-            "node": "Edit Fields",
+            "node": "Espera 7 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem de Upsell1": {
+      "main": [
+        [
+          {
+            "node": "Espera 15 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 3 dias": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 7 dias": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem de Upsell1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem de Upsell2": {
+      "main": [
+        [
+          {
+            "node": "Espera 30 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 15 dias": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem de Upsell2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 30 dias": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem de Upsell3",
             "type": "main",
             "index": 0
           }
@@ -634,8 +598,8 @@
       ]
     }
   },
-  "createdAt": "2025-06-19T01:59:22.462Z",
-  "id": "qSfan70ZUGMtHigy",
+  "createdAt": "2025-06-19T19:50:57.679Z",
+  "id": "Z1bKGnEv8b2DSW6W",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -649,7 +613,7 @@
         "toFormat": "DD/MM/YYYY",
         "options": {}
       },
-      "id": "da39c531-32f9-4807-a46c-dbbce55308f4",
+      "id": "605217ad-510f-4f69-8f51-9d9857c13a3e",
       "name": "Formatação da Data do Pedido",
       "type": "n8n-nodes-base.dateTime",
       "typeVersion": 1,
@@ -676,7 +640,7 @@
         900,
         1060
       ],
-      "id": "7316672f-b5d9-48ff-b0c2-43b2d09c79cd"
+      "id": "337b73e7-96ba-4c03-87d5-fdc81e690d5f"
     },
     {
       "parameters": {
@@ -697,7 +661,7 @@
         40,
         820
       ],
-      "id": "a2d451ec-ff6c-4f38-9c09-c8b9626dc991"
+      "id": "46e4f427-431d-4802-a3c4-f00f127cebb1"
     },
     {
       "parameters": {
@@ -718,7 +682,7 @@
         40,
         1060
       ],
-      "id": "f292c8e1-5be9-4cb1-a8c0-b91722e67354"
+      "id": "f384fb82-b73a-4f70-bcd1-c1655ad5ac3c"
     },
     {
       "parameters": {
@@ -734,7 +698,7 @@
         620,
         1060
       ],
-      "id": "063e34ac-23ca-4801-a5df-8b44d93a0daf",
+      "id": "b100db44-e368-492e-83ed-d3767cda5a64",
       "credentials": {
         "httpHeaderAuth": {
           "id": "mQO9PTGS7RIfTBXX",
@@ -774,7 +738,7 @@
         1140,
         1160
       ],
-      "id": "b2e57f41-5f63-4746-af92-ef3ff662ad76",
+      "id": "a96f1683-1a02-40d5-b5cf-69eccd117390",
       "credentials": {
         "httpHeaderAuth": {
           "id": "mQO9PTGS7RIfTBXX",
@@ -796,7 +760,7 @@
         1360,
         1040
       ],
-      "id": "1b61b57e-aaa2-49d6-a7d0-d901f3e04610",
+      "id": "198cb420-87bd-4a7d-a96b-b9304013f96e",
       "credentials": {
         "httpHeaderAuth": {
           "id": "mQO9PTGS7RIfTBXX",
@@ -821,7 +785,7 @@
         },
         "options": {}
       },
-      "id": "c2caebde-bed0-4977-8e42-6b17d15cf7f7",
+      "id": "4c4489b5-08c6-47ba-a466-0e3ef77d5577",
       "name": "Consulta Venda na Hotmart",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
@@ -852,7 +816,7 @@
         },
         "options": {}
       },
-      "id": "918d3c83-8af7-49c7-9626-0cee1e0e51f7",
+      "id": "1d286cd1-1232-400b-a008-c36e1deb5150",
       "name": "Consulta Users na Hotmart",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
@@ -875,7 +839,7 @@
         "toFormat": "DD/MM/YYYY",
         "options": {}
       },
-      "id": "b78827f5-6f4f-4b64-9733-0af132f2fbf4",
+      "id": "21ebb88d-2ef2-4474-8f27-5656239b636c",
       "name": "Formatação da Data da Garantia",
       "type": "n8n-nodes-base.dateTime",
       "typeVersion": 1,
@@ -890,7 +854,7 @@
         "height": 302.26975741239875,
         "width": 197.47474957688246
       },
-      "id": "eeb6b382-b61e-415d-99ad-a5b786bae053",
+      "id": "1759fb22-fe7a-4585-9a15-ca2bf1b137d8",
       "name": "Note1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -922,7 +886,7 @@
         },
         "fallbackOutput": 3
       },
-      "id": "f6099b45-2595-4d08-a104-8cad3ba054f4",
+      "id": "26ebb3a7-af35-49ea-b085-90ef1c222f5d",
       "name": "Nomeia Forma de Pagamento",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
@@ -933,7 +897,7 @@
     },
     {
       "parameters": {},
-      "id": "22efb671-465b-4c2f-93da-3023310ed649",
+      "id": "bc16e556-2803-49e5-8692-3abc0e1fc43f",
       "name": "Boleto",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
@@ -944,7 +908,7 @@
     },
     {
       "parameters": {},
-      "id": "8c38217e-0113-437c-8b99-b01efc0ced00",
+      "id": "0034c0b1-dcd6-4070-bae1-7b46d8f0bb26",
       "name": "Cartão de Crédito",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
@@ -955,7 +919,7 @@
     },
     {
       "parameters": {},
-      "id": "f8c14353-0606-48c2-80c0-39f82e324c35",
+      "id": "bfe8a509-e21a-45c3-948a-d07f8d1765d6",
       "name": "Paypal",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
@@ -981,7 +945,7 @@
         },
         "fallbackOutput": 3
       },
-      "id": "1cc84144-01de-4da4-a91a-72018a98ffcc",
+      "id": "483c37eb-1470-4bfc-ad3d-8651689fef30",
       "name": "Nomeia Forma de Pagamento1",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
@@ -992,7 +956,7 @@
     },
     {
       "parameters": {},
-      "id": "709b3bac-ba63-432a-9058-15e836f5a941",
+      "id": "2ca2e14f-8ae6-4b36-89c8-55961268f682",
       "name": "PIX",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
@@ -1003,7 +967,7 @@
     },
     {
       "parameters": {},
-      "id": "a194dcc1-fe5e-4827-821b-5929b02fa460",
+      "id": "9e9be146-ebb6-4c6e-abe8-bb482dab7880",
       "name": "Carteira da Hotmart",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
@@ -1014,7 +978,7 @@
     },
     {
       "parameters": {},
-      "id": "fdaaa8a6-810e-461e-9165-7859b41084fd",
+      "id": "b7cb4379-18bc-40d7-9930-ac1219fcec23",
       "name": "NoOp",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
@@ -1025,7 +989,7 @@
     },
     {
       "parameters": {},
-      "id": "2f655a22-388e-43f7-b415-3c493d38fb69",
+      "id": "320ff757-f82e-468c-8f60-7996be1cc75c",
       "name": "Outros",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
@@ -1046,7 +1010,7 @@
         },
         "options": {}
       },
-      "id": "b1f3ba02-2ec6-40bd-b183-10264b1c3048",
+      "id": "c4ac3cb0-cfe5-4bf9-8569-ee34812caccd",
       "name": "Nomeia Boleto",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
@@ -1067,7 +1031,7 @@
         },
         "options": {}
       },
-      "id": "75f0951a-61a0-4f67-b0b1-3a6188b2fc1a",
+      "id": "991d7626-0bc5-4928-b34b-0cf469c97324",
       "name": "Nomeia Cartão de Crédito",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
@@ -1088,7 +1052,7 @@
         },
         "options": {}
       },
-      "id": "5b842b47-c91e-47e0-a866-0bfb8cc4a10a",
+      "id": "3447998b-7d56-4102-98f3-7864ff44b37b",
       "name": "Nomeia Paypal",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
@@ -1109,7 +1073,7 @@
         },
         "options": {}
       },
-      "id": "bf7fec9c-8a6e-4b19-a91a-31d3f238c873",
+      "id": "960c6913-49ab-4123-a2ec-696408b47b48",
       "name": "Nomeia PIX",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
@@ -1130,7 +1094,7 @@
         },
         "options": {}
       },
-      "id": "c7353cc3-d996-42a0-8af9-1142f974b668",
+      "id": "fa51ca10-867f-409a-bb8e-acc7e7bf1c77",
       "name": "Nomeia Carteira da Hotmart",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
@@ -1151,7 +1115,7 @@
         },
         "options": {}
       },
-      "id": "bb1da853-c643-49e1-9bd1-54e46eaad9d9",
+      "id": "69452fee-7c8d-47ed-a842-b3083e6dde02",
       "name": "Segue Nomenclatura da Hotmart",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
@@ -1174,7 +1138,7 @@
         },
         "fallbackOutput": 1
       },
-      "id": "b9dcf03d-a0d3-4945-a49f-49b539dc0995",
+      "id": "f672ad2c-873a-447d-a42e-28eba95d8e87",
       "name": "Tem Manychat no SRC?",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
@@ -1211,7 +1175,7 @@
         2840,
         1040
       ],
-      "id": "60900634-461f-46a4-beaa-c2df3b978727",
+      "id": "cc383c0a-4494-463d-848e-5343d50705c7",
       "credentials": {
         "httpHeaderAuth": {
           "id": "mQO9PTGS7RIfTBXX",
@@ -1236,7 +1200,7 @@
         },
         "options": {}
       },
-      "id": "37922452-82db-41c9-8ad1-b425863e608f",
+      "id": "b4c54f0b-49c0-4c70-bf8b-d28858069a03",
       "name": "Informações do Produto",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
@@ -1261,7 +1225,7 @@
         },
         "options": {}
       },
-      "id": "5dedcce5-53d4-4b0a-a5f7-88e289293a82",
+      "id": "837fee26-7a29-47cf-918b-50a69ab0bec0",
       "name": "Mensagens",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
@@ -1274,7 +1238,7 @@
       "parameters": {
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Dados validados\"].json[\"whatsapp-formatado\"]}}/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/",
         "options": {}
       },
       "name": "Buscar na audiência1",
@@ -1284,7 +1248,7 @@
         3280,
         1040
       ],
-      "id": "f7026c42-cd6e-4cbd-aaf9-54c1f0f8fd1b",
+      "id": "f956cd2c-7aad-4895-bb7e-410bc7b16a25",
       "credentials": {
         "httpHeaderAuth": {
           "id": "mQO9PTGS7RIfTBXX",
@@ -1295,7 +1259,7 @@
     },
     {
       "parameters": {},
-      "id": "9be15c77-9302-4bfa-b368-08a3f61f4f93",
+      "id": "30fd0f07-ccfe-4734-8ed1-3226c416faa9",
       "name": "Não faz Upsell",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
@@ -1315,7 +1279,7 @@
           "parameter": [
             {
               "name": "flow",
-              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell\"] }}"
+              "value": "=7436085"
             }
           ]
         }
@@ -1327,7 +1291,7 @@
         3740,
         1160
       ],
-      "id": "3941ef92-014f-4f9f-a657-fb8aa4989026",
+      "id": "b4b0ffa8-4da7-4673-813f-1a7a6c4deda8",
       "credentials": {
         "httpHeaderAuth": {
           "id": "mQO9PTGS7RIfTBXX",
@@ -1373,7 +1337,7 @@
         },
         "options": {}
       },
-      "id": "0c1133cb-1f0d-43f3-937f-5be166549418",
+      "id": "58c60246-0769-442f-a129-efd6585594d4",
       "name": "Preenche Campo \"[KGJAP] - ID da Transação\"",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
@@ -1426,7 +1390,7 @@
         },
         "options": {}
       },
-      "id": "622ad779-a1b9-436c-94ee-2d9069185e76",
+      "id": "f2abfda0-46eb-43cb-848a-44e25a268f56",
       "name": "Preenche Campo \"[KGJAP] - E-mail da Compra\"",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
@@ -1446,7 +1410,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/tags/1827516/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/tags/1827516/",
         "options": {}
       },
       "name": "Adiciona Tag Aluno_KGJAP",
@@ -1456,7 +1420,7 @@
         1980,
         1040
       ],
-      "id": "e2d3c0e8-2646-41e2-a8e8-98f8658c71c1",
+      "id": "cdba9fc6-89cd-4899-9aa5-52f9d1db923c",
       "credentials": {
         "httpHeaderAuth": {
           "id": "mQO9PTGS7RIfTBXX",
@@ -1492,7 +1456,7 @@
         2400,
         1040
       ],
-      "id": "b9b74eef-cae9-456a-82bd-336117e2bc09",
+      "id": "e00e7cae-7550-4335-88cd-15a681a4aafa",
       "credentials": {
         "httpHeaderAuth": {
           "id": "mQO9PTGS7RIfTBXX",
@@ -1528,7 +1492,7 @@
         2620,
         1040
       ],
-      "id": "7db49e5c-236a-45f4-8dd1-d1631de1881f",
+      "id": "e4e23fd9-cd70-4e4a-a143-3c2076fe3b9d",
       "credentials": {
         "httpHeaderAuth": {
           "id": "mQO9PTGS7RIfTBXX",
@@ -1548,7 +1512,7 @@
           "parameter": [
             {
               "name": "flow",
-              "value": "=1010951"
+              "value": "=7434769"
             }
           ]
         }
@@ -1560,7 +1524,7 @@
         2180,
         1040
       ],
-      "id": "80d8a7dc-cee0-414a-8c21-3aa51bc6cf55",
+      "id": "f4b4998d-bee2-44f4-8b97-6d049099d531",
       "credentials": {
         "httpHeaderAuth": {
           "id": "mQO9PTGS7RIfTBXX",
@@ -1574,7 +1538,7 @@
         "height": 82.85484370337883,
         "width": 195.00515995872038
       },
-      "id": "b2eaa8b2-5372-4f3c-ad35-6f7a0212d12c",
+      "id": "29422299-572b-4810-8425-368cbc3615bf",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -1587,7 +1551,7 @@
       "parameters": {
         "content": "## Validado ☝🏻"
       },
-      "id": "901cdda9-95cd-4a2d-84ee-665381ca69c6",
+      "id": "574ad7c1-5b6f-40b0-ad3e-896149464b0f",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -1608,7 +1572,7 @@
           ]
         }
       },
-      "id": "91f00a32-b8c1-4bf8-941f-caa9c3464d17",
+      "id": "e01c6f4b-685c-4505-8184-298c5eeeb282",
       "name": "Possui tag \"Aluno_PEG\"",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
@@ -1636,7 +1600,7 @@
         -220,
         1040
       ],
-      "id": "9b18166f-c099-4edf-88ad-9245ea867a2a"
+      "id": "5d1a3822-4895-4411-884e-5f8ce3698f40"
     },
     {
       "parameters": {
@@ -1747,7 +1711,7 @@
           "cellFormat": "USER_ENTERED"
         }
       },
-      "id": "c0c2de7d-ae38-4ad1-b70b-53f454752c8e",
+      "id": "047153b9-eb7d-4af9-9056-f762c3db171b",
       "name": "Atualiza BD - Compra Aprovada",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
@@ -1858,7 +1822,7 @@
           "dotNotation": false
         }
       },
-      "id": "6e37f897-4050-4575-b09a-88d6943de517",
+      "id": "2535d62b-951b-453c-8b75-aef15ef5b5a5",
       "name": "Dados da Compra 1",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
@@ -1866,21 +1830,6 @@
         -700,
         1040
       ]
-    },
-    {
-      "parameters": {
-        "amount": 2,
-        "unit": "minutes"
-      },
-      "id": "0cf31ee1-d4c1-4b51-b874-6a9bd8b13f0c",
-      "name": "Espera 2 dias",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        3060,
-        1040
-      ],
-      "webhookId": "3e7fd69e-f50a-4555-aa85-c80251490567"
     },
     {
       "parameters": {
@@ -1901,222 +1850,31 @@
         360,
         1060
       ],
-      "id": "625a1820-be74-4115-a92e-0833020d1911"
-    },
-    {
-      "parameters": {
-        "amount": 2,
-        "unit": "minutes"
-      },
-      "id": "6d85b528-854b-461e-bc0e-e25fd43451cd",
-      "name": "Wait",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        3900,
-        1320
-      ],
-      "webhookId": "89f9dab9-0af8-43a2-bbfa-b79f6c95b1b1"
-    },
-    {
-      "parameters": {
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Dados validados\"].json[\"whatsapp-formatado\"]}}/",
-        "options": {}
-      },
-      "name": "Buscar na audiência2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        4040,
-        1480
-      ],
-      "id": "ad5ba4a1-686b-4892-b785-983575a987ab",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "mQO9PTGS7RIfTBXX",
-          "name": "[PRIGEO] - Bot conversa"
-        }
-      },
-      "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json[\"tags\"] }}",
-              "operation": "contains",
-              "value2": "Aluno_PEG"
-            }
-          ]
-        }
-      },
-      "id": "ea59431c-cca0-4010-99a1-6fc951fae1da",
-      "name": "Possui tag \"Aluno_PEG\"1",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        4200,
-        1660
-      ]
-    },
-    {
-      "parameters": {
-        "amount": 2,
-        "unit": "minutes"
-      },
-      "id": "83dcfbab-07a6-4e36-9f03-69a66a84601b",
-      "name": "Wait1",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        4520,
-        1880
-      ],
-      "webhookId": "89f9dab9-0af8-43a2-bbfa-b79f6c95b1b1"
+      "id": "a5f0fbdb-20ae-463c-87ba-0ca7838691df"
     },
     {
       "parameters": {},
-      "id": "ccd70fda-46cb-4467-8b6d-8e223c370cb7",
-      "name": "Não faz Upsell1",
-      "type": "n8n-nodes-base.noOp",
+      "id": "fd5ad5e5-4eb5-4a64-9fa0-270bfdb798ae",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        4340,
-        1520
+        -3080,
+        1040
       ]
-    },
-    {
-      "parameters": {
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Dados validados\"].json[\"whatsapp-formatado\"]}}/",
-        "options": {}
-      },
-      "name": "Buscar na audiência3",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        4720,
-        2040
-      ],
-      "id": "619f1a4b-d273-4340-b383-09929796612c",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "mQO9PTGS7RIfTBXX",
-          "name": "[PRIGEO] - Bot conversa"
-        }
-      },
-      "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json[\"tags\"] }}",
-              "operation": "contains",
-              "value2": "Aluno_PEG"
-            }
-          ]
-        }
-      },
-      "id": "672661f8-15d9-40d5-8e73-30f0e66e938a",
-      "name": "Possui tag \"Aluno_PEG\"2",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        4900,
-        2180
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "ea5a6550-297f-4ecc-bbda-b7c548926704",
-      "name": "Não faz Upsell2",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        5080,
-        2020
-      ]
-    },
-    {
-      "parameters": {
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "flow",
-              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "Enviar Mensagem de Upsell1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        4360,
-        1720
-      ],
-      "id": "86731a30-b339-4f51-981f-2f3d99280c92",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "mQO9PTGS7RIfTBXX",
-          "name": "[PRIGEO] - Bot conversa"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "flow",
-              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell\"] }}"
-            }
-          ]
-        }
-      },
-      "name": "Enviar Mensagem de Upsell2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        5080,
-        2320
-      ],
-      "id": "b9d64ffc-19e9-4423-ae3c-5417d22ad675",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "mQO9PTGS7RIfTBXX",
-          "name": "[PRIGEO] - Bot conversa"
-        }
-      }
     },
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "\n  {\n    \"headers\": {\n      \"host\": \"webhook.prigeo.com.br\",\n      \"user-agent\": \"Jodd HTTP\",\n      \"content-length\": \"1717\",\n      \"content-type\": \"application/json\",\n      \"x-forwarded-for\": \"54.80.49.226\",\n      \"x-forwarded-host\": \"webhook.prigeo.com.br\",\n      \"x-forwarded-port\": \"443\",\n      \"x-forwarded-proto\": \"https\",\n      \"x-forwarded-server\": \"65bf580ce34d\",\n      \"x-hotmart-hottok\": \"C0M0zxU3tOxl79rtObW21JucfNTfa006c2cecc-32a6-4356-b7a6-4327bf1cd88c\",\n      \"x-real-ip\": \"54.80.49.226\",\n      \"accept-encoding\": \"gzip\"\n    },\n    \"params\": {},\n    \"query\": {},\n    \"body\": {\n      \"data\": {\n        \"product\": {\n          \"has_co_production\": true,\n          \"name\": \"Kit Geografia - Jogos e Atividades Prontas \",\n          \"id\": 2013992,\n          \"ucode\": \"2c63ba95-87b4-45e2-9291-a73999e053c2\"\n        },\n        \"commissions\": [\n          {\n            \"currency_value\": \"BRL\",\n            \"source\": \"MARKETPLACE\",\n            \"value\": 12.3\n          },\n          {\n            \"currency_value\": \"BRL\",\n            \"source\": \"PRODUCER\",\n            \"value\": 79.03\n          }\n        ],\n        \"purchase\": {\n          \"original_offer_price\": {\n            \"currency_value\": \"BRL\",\n            \"value\": 127\n          },\n          \"subscription_anticipation_purchase\": false,\n          \"checkout_country\": {\n            \"iso\": \"BR\",\n            \"name\": \"Brasil\"\n          },\n          \"order_bump\": {\n            \"is_order_bump\": false\n          },\n          \"approved_date\": 1714586125000,\n          \"offer\": {\n            \"code\": \"iqy4d2qb\"\n          },\n          \"order_date\": 1714586019000,\n          \"price\": {\n            \"currency_value\": \"BRL\",\n            \"value\": 127\n          },\n          \"payment\": {\n            \"pix_qrcode\": \"https://customer-local-latam.ebanx.com/pix/checkout?hash=663281a3079355c0429448e8c4365a43dc645d558fa82955\",\n            \"pix_expiration_date\": 1714758820000,\n            \"installments_number\": 1,\n            \"type\": \"PIX\",\n            \"pix_code\": \"00020101021226740014br.gov.bcb.pix2552pix.ebanx.com/qr/v2/4C706E9545DF38561CC9F95EA361FEC15204000053039865802BR5924Launch Pad Tecnologia Se6014BELO HORIZONTE62070503***6304CD97\"\n          },\n          \"full_price\": {\n            \"currency_value\": \"BRL\",\n            \"value\": 127\n          },\n          \"invoice_by\": \"HOTMART\",\n          \"transaction\": \"HP3526536251\",\n          \"status\": \"APPROVED\"\n        },\n        \"affiliates\": [\n          {\n            \"affiliate_code\": \"\",\n            \"name\": \"\"\n          }\n        ],\n        \"producer\": {\n          \"name\": \"Prigeo Ensino e Tecnologia\"\n        },\n        \"buyer\": {\n          \"address\": {\n            \"zipcode\": \"25965190\",\n            \"country\": \"Brasil\",\n            \"number\": \"00\",\n            \"address\": \"Rua Nossa Senhora das Graças \",\n            \"city\": \"Teresópolis\",\n            \"state\": \"RJ\",\n            \"neighborhood\": \"Barra do Imbuí\",\n            \"complement\": \"Casa\",\n            \"country_iso\": \"BR\"\n          },\n          \"document\": \"03852189586\",\n          \"name\": \"Roberto Antonio da Silva Junior\",\n          \"checkout_phone\": \"21993740556\",\n          \"email\": \"robjunior88@outlook.com\"\n        }\n      },\n      \"id\": \"ebbe6c75-9e53-45ec-adb9-025d048f4a78\",\n      \"creation_date\": 1714586128125,\n      \"event\": \"PURCHASE_APPROVED\",\n      \"version\": \"2.0.0\"\n    },\n    \"webhookUrl\": \"https://webhook.prigeo.com.br/webhook/kgjap-compra-aprovada\",\n    \"executionMode\": \"production\"\n  }\n\n",
+        "jsonOutput": "  {\n    \"headers\": {\n      \"host\": \"webhook.prigeo.com.br\",\n      \"user-agent\": \"Jodd HTTP\",\n      \"content-length\": \"1717\",\n      \"content-type\": \"application/json\",\n      \"x-forwarded-for\": \"54.80.49.226\",\n      \"x-forwarded-host\": \"webhook.prigeo.com.br\",\n      \"x-forwarded-port\": \"443\",\n      \"x-forwarded-proto\": \"https\",\n      \"x-forwarded-server\": \"65bf580ce34d\",\n      \"x-hotmart-hottok\": \"C0M0zxU3tOxl79rtObW21JucfNTfa006c2cecc-32a6-4356-b7a6-4327bf1cd88c\",\n      \"x-real-ip\": \"54.80.49.226\",\n      \"accept-encoding\": \"gzip\"\n    },\n    \"params\": {},\n    \"query\": {},\n    \"body\": {\n      \"data\": {\n        \"product\": {\n          \"has_co_production\": true,\n          \"name\": \"Kit Geografia - Jogos e Atividades Prontas \",\n          \"id\": 2013992,\n          \"ucode\": \"2c63ba95-87b4-45e2-9291-a73999e053c2\"\n        },\n        \"commissions\": [\n          {\n            \"currency_value\": \"BRL\",\n            \"source\": \"MARKETPLACE\",\n            \"value\": 12.3\n          },\n          {\n            \"currency_value\": \"BRL\",\n            \"source\": \"PRODUCER\",\n            \"value\": 79.03\n          }\n        ],\n        \"purchase\": {\n          \"original_offer_price\": {\n            \"currency_value\": \"BRL\",\n            \"value\": 127\n          },\n          \"subscription_anticipation_purchase\": false,\n          \"checkout_country\": {\n            \"iso\": \"BR\",\n            \"name\": \"Brasil\"\n          },\n          \"order_bump\": {\n            \"is_order_bump\": false\n          },\n          \"approved_date\": 1714586125000,\n          \"offer\": {\n            \"code\": \"iqy4d2qb\"\n          },\n          \"order_date\": 1714586019000,\n          \"price\": {\n            \"currency_value\": \"BRL\",\n            \"value\": 127\n          },\n          \"payment\": {\n            \"pix_qrcode\": \"https://customer-local-latam.ebanx.com/pix/checkout?hash=663281a3079355c0429448e8c4365a43dc645d558fa82955\",\n            \"pix_expiration_date\": 1714758820000,\n            \"installments_number\": 1,\n            \"type\": \"PIX\",\n            \"pix_code\": \"00020101021226740014br.gov.bcb.pix2552pix.ebanx.com/qr/v2/4C706E9545DF38561CC9F95EA361FEC15204000053039865802BR5924Launch Pad Tecnologia Se6014BELO HORIZONTE62070503***6304CD97\"\n          },\n          \"full_price\": {\n            \"currency_value\": \"BRL\",\n            \"value\": 127\n          },\n          \"invoice_by\": \"HOTMART\",\n          \"transaction\": \"HP3526536251\",\n          \"status\": \"APPROVED\"\n        },\n        \"affiliates\": [\n          {\n            \"affiliate_code\": \"\",\n            \"name\": \"\"\n          }\n        ],\n        \"producer\": {\n          \"name\": \"Prigeo Ensino e Tecnologia\"\n        },\n        \"buyer\": {\n          \"address\": {\n            \"zipcode\": \"25965190\",\n            \"country\": \"Brasil\",\n            \"number\": \"00\",\n            \"address\": \"Rua Nossa Senhora das Graças\",\n            \"city\": \"Teresópolis\",\n            \"state\": \"RJ\",\n            \"neighborhood\": \"Barra do Imbuí\",\n            \"complement\": \"Casa\",\n            \"country_iso\": \"BR\"\n          },\n          \"document\": \"219670064\",\n          \"name\": \"Roberto Antonio da Silva Junior\",\n          \"checkout_phone\": \"21993740556\",\n          \"email\": \"robjunior88@outlook.com\"\n        }\n      },\n      \"id\": \"ebbe6c75-9e53-45ec-adb9-025d048f4a78\",\n      \"creation_date\": 1714586128125,\n      \"event\": \"PURCHASE_APPROVED\",\n      \"version\": \"2.0.0\"\n    },\n    \"webhookUrl\": \"https://webhook.prigeo.com.br/webhook/kgjap-compra-aprovada\",\n    \"executionMode\": \"production\"\n  }\n",
         "options": {}
       },
-      "id": "3f347588-aa0e-43e3-9649-57b6fd5a454e",
+      "id": "10e59cac-17dc-421b-aafc-2b80c1669d37",
       "name": "Edit Fields",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        -2960,
+        -2900,
         1040
       ]
     },
@@ -2126,27 +1884,165 @@
         "path": "kgjap-compra-aprovada",
         "options": {}
       },
-      "id": "b76db378-2672-4976-9a99-6439dd8ad428",
+      "id": "ff2ebd36-add8-4dce-b26a-0d3ecda68eb4",
       "name": "Compra Aprovada",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        -3100,
-        840
+        -2880,
+        760
       ],
-      "webhookId": "96e2ddf6-3639-481a-837b-f7304e398afc",
+      "webhookId": "8ff7edfc-f680-43c3-a1ba-6a9fe4a5b999",
       "disabled": true
     },
     {
-      "parameters": {},
-      "id": "eb62270e-f557-4acf-abd7-117a60918b01",
-      "name": "When clicking \"Test workflow\"",
-      "type": "n8n-nodes-base.manualTrigger",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "=7436761"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4100,
+        1160
+      ],
+      "id": "8fa49aa6-5dae-4f03-9d6a-271ead30cf83",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "=7436803"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4480,
+        1160
+      ],
+      "id": "f4b9e545-8553-4895-9e3f-8956feeb11f8",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "unit": "minutes"
+      },
+      "id": "68c39db6-d706-4977-a4f9-607918885f53",
+      "name": "Espera 3 dias",
+      "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        -3180,
+        3060,
         1040
-      ]
+      ],
+      "webhookId": "511985e1-45fd-4763-8752-7a68f37bedff"
+    },
+    {
+      "parameters": {
+        "unit": "minutes"
+      },
+      "id": "13026e34-385a-4f6c-a684-407c1088da3b",
+      "name": "Espera 7 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3900,
+        1160
+      ],
+      "webhookId": "511985e1-45fd-4763-8752-7a68f37bedff"
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "=7436820"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4840,
+        1160
+      ],
+      "id": "e563a07d-fb6a-42ff-9524-234455c136d6",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "unit": "minutes"
+      },
+      "id": "d3413f3b-1344-4b07-b706-7e1e1be086b0",
+      "name": "Espera 15 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4280,
+        1160
+      ],
+      "webhookId": "511985e1-45fd-4763-8752-7a68f37bedff"
+    },
+    {
+      "parameters": {
+        "unit": "minutes"
+      },
+      "id": "eb66a919-1e57-4d2b-b991-75f393259680",
+      "name": "Espera 30 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4660,
+        1160
+      ],
+      "webhookId": "511985e1-45fd-4763-8752-7a68f37bedff"
     }
   ],
   "pinData": {
@@ -2286,6 +2182,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-19T06:06:27.969Z",
-  "versionId": "b0f7babb-9120-4706-b0fe-a4e378ecef92"
+  "updatedAt": "2025-06-20T02:54:18.860Z",
+  "versionId": "2e03867a-bda8-4fcb-bd43-676a8b907fd9"
 }
