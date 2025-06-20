@@ -531,17 +531,6 @@
         ]
       ]
     },
-    "Enviar Mensagem de Upsell1": {
-      "main": [
-        [
-          {
-            "node": "Espera 15 dias",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Espera 3 dias": {
       "main": [
         [
@@ -557,18 +546,7 @@
       "main": [
         [
           {
-            "node": "Enviar Mensagem de Upsell1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Enviar Mensagem de Upsell2": {
-      "main": [
-        [
-          {
-            "node": "Espera 30 dias",
+            "node": "Enviar Mensagem de Upsell 2",
             "type": "main",
             "index": 0
           }
@@ -579,7 +557,7 @@
       "main": [
         [
           {
-            "node": "Enviar Mensagem de Upsell2",
+            "node": "Enviar Mensagem de Upsell 3",
             "type": "main",
             "index": 0
           }
@@ -590,7 +568,29 @@
       "main": [
         [
           {
-            "node": "Enviar Mensagem de Upsell3",
+            "node": "Enviar Mensagem de Upsell 4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem de Upsell 2": {
+      "main": [
+        [
+          {
+            "node": "Espera 15 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem de Upsell 3": {
+      "main": [
+        [
+          {
+            "node": "Espera 30 dias",
             "type": "main",
             "index": 0
           }
@@ -1215,11 +1215,23 @@
           "string": [
             {
               "name": "ID do Flow de Onboarding",
-              "value": "=1010951"
+              "value": "=7434769"
             },
             {
               "name": "Fluxo de Upsell",
-              "value": "=1148430"
+              "value": "=7436085"
+            },
+            {
+              "name": "Fluxo de Upsell 2",
+              "value": "7436761"
+            },
+            {
+              "name": "Fluxo de Upsell 3",
+              "value": "7436803"
+            },
+            {
+              "name": "Fluxo de Upsell 4",
+              "value": "7436820"
             }
           ]
         },
@@ -1279,7 +1291,7 @@
           "parameter": [
             {
               "name": "flow",
-              "value": "=7436085"
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell\"] }}"
             }
           ]
         }
@@ -1512,7 +1524,7 @@
           "parameter": [
             {
               "name": "flow",
-              "value": "=7434769"
+              "value": "={{ $node[\"Mensagens\"].json[\"ID do Flow de Onboarding\"] }}"
             }
           ]
         }
@@ -1897,68 +1909,6 @@
     },
     {
       "parameters": {
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "flow",
-              "value": "=7436761"
-            }
-          ]
-        }
-      },
-      "name": "Enviar Mensagem de Upsell1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        4100,
-        1160
-      ],
-      "id": "8fa49aa6-5dae-4f03-9d6a-271ead30cf83",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "mQO9PTGS7RIfTBXX",
-          "name": "[PRIGEO] - Bot conversa"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "flow",
-              "value": "=7436803"
-            }
-          ]
-        }
-      },
-      "name": "Enviar Mensagem de Upsell2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        4480,
-        1160
-      ],
-      "id": "f4b9e545-8553-4895-9e3f-8956feeb11f8",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "mQO9PTGS7RIfTBXX",
-          "name": "[PRIGEO] - Bot conversa"
-        }
-      }
-    },
-    {
-      "parameters": {
         "unit": "minutes"
       },
       "id": "68c39db6-d706-4977-a4f9-607918885f53",
@@ -1987,37 +1937,6 @@
     },
     {
       "parameters": {
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
-        "options": {},
-        "bodyParametersUi": {
-          "parameter": [
-            {
-              "name": "flow",
-              "value": "=7436820"
-            }
-          ]
-        }
-      },
-      "name": "Enviar Mensagem de Upsell3",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        4840,
-        1160
-      ],
-      "id": "e563a07d-fb6a-42ff-9524-234455c136d6",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "mQO9PTGS7RIfTBXX",
-          "name": "[PRIGEO] - Bot conversa"
-        }
-      }
-    },
-    {
-      "parameters": {
         "unit": "minutes"
       },
       "id": "d3413f3b-1344-4b07-b706-7e1e1be086b0",
@@ -2043,6 +1962,99 @@
         1160
       ],
       "webhookId": "511985e1-45fd-4763-8752-7a68f37bedff"
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 2\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell 2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4100,
+        1160
+      ],
+      "id": "8fa49aa6-5dae-4f03-9d6a-271ead30cf83",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 3\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell 3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4480,
+        1160
+      ],
+      "id": "f4b9e545-8553-4895-9e3f-8956feeb11f8",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 4\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell 4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4840,
+        1160
+      ],
+      "id": "e563a07d-fb6a-42ff-9524-234455c136d6",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
     }
   ],
   "pinData": {
@@ -2182,6 +2194,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-20T02:54:18.860Z",
-  "versionId": "2e03867a-bda8-4fcb-bd43-676a8b907fd9"
+  "updatedAt": "2025-06-20T04:44:10.962Z",
+  "versionId": "afbeb908-816c-4822-a89a-1f1e977f633c"
 }
