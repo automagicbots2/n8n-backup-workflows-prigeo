@@ -1445,7 +1445,7 @@
           "parameter": [
             {
               "name": "flow",
-              "value": "={{ $node[\"Mensagens_\"].json[\"ID do Flow de Onboarding\"] }}"
+              "value": "={{ $node[\"Mensagens\"].json[\"ID do Flow de Onboarding\"] }}"
             }
           ]
         }
@@ -1854,7 +1854,7 @@
           "parameter": [
             {
               "name": "flow",
-              "value": "={{ $node[\"Mensagens_\"].json[\"Fluxo de Upsell 2\"] }}"
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 2\"] }}"
             }
           ]
         }
@@ -1885,7 +1885,7 @@
           "parameter": [
             {
               "name": "flow",
-              "value": "={{ $node[\"Mensagens_\"].json[\"Fluxo de Upsell 3\"] }}"
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 3\"] }}"
             }
           ]
         }
@@ -1916,7 +1916,7 @@
           "parameter": [
             {
               "name": "flow",
-              "value": "={{ $node[\"Mensagens_\"].json[\"Fluxo de Upsell 4\"] }}"
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 4\"] }}"
             }
           ]
         }
@@ -1947,7 +1947,7 @@
           "parameter": [
             {
               "name": "flow",
-              "value": "={{ $node[\"Mensagens_\"].json[\"Fluxo de Upsell\"] }}"
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell\"] }}"
             }
           ]
         }
@@ -2199,6 +2199,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-20T18:43:30.568Z",
-  "versionId": "6080df52-f9a0-4658-8577-97719612ff5e"
+  "updatedAt": "2025-06-21T16:30:55.437Z",
+  "versionId": "54a60b38-14c1-4ab0-b423-dcd02b8d8f21"
 }
