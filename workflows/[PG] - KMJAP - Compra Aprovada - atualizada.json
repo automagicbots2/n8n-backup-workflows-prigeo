@@ -1919,7 +1919,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -1950,7 +1950,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -1981,7 +1981,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -2109,6 +2109,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-24T00:36:43.779Z",
-  "versionId": "4dc9cf3b-ded8-4521-a2ea-0f5a3c611e26"
+  "updatedAt": "2025-06-24T04:18:57.628Z",
+  "versionId": "674125ae-a06a-4e04-8342-57d5ae1307c8"
 }
