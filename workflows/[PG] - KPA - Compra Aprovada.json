@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Dados da Compra 1": {
       "main": [
@@ -1979,6 +1979,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-22T17:44:34.362Z",
+  "updatedAt": "2025-06-24T04:46:45.934Z",
   "versionId": "ea56576c-8afb-4e98-8628-84754c9e1adf"
 }
