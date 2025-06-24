@@ -1848,7 +1848,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -1879,7 +1879,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -1910,7 +1910,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -1941,7 +1941,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -2199,6 +2199,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-21T16:30:55.437Z",
-  "versionId": "54a60b38-14c1-4ab0-b423-dcd02b8d8f21"
+  "updatedAt": "2025-06-24T04:21:05.938Z",
+  "versionId": "04b25f6f-6f22-4fd9-902f-97f9f8ae90e6"
 }
