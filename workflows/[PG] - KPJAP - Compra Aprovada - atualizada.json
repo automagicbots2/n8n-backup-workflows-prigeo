@@ -407,7 +407,7 @@
       "main": [
         [
           {
-            "node": "Espera 2 dias",
+            "node": "Espera 3 dias",
             "type": "main",
             "index": 0
           }
@@ -459,17 +459,6 @@
         [
           {
             "node": "Enviar Mensagem de Upsell",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Espera 2 dias": {
-      "main": [
-        [
-          {
-            "node": "Buscar na audiência1",
             "type": "main",
             "index": 0
           }
@@ -580,6 +569,17 @@
         [
           {
             "node": "Espera 7 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 3 dias": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência1",
             "type": "main",
             "index": 0
           }
@@ -1775,21 +1775,6 @@
     },
     {
       "parameters": {
-        "amount": 2,
-        "unit": "days"
-      },
-      "id": "9f662773-2377-42d6-8eab-d05cb1d490f0",
-      "name": "Espera 2 dias",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        2900,
-        1080
-      ],
-      "webhookId": "763ee305-0d8b-4c68-80e0-ba54fbfcc577"
-    },
-    {
-      "parameters": {
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
@@ -1971,7 +1956,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -2002,7 +1987,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -2033,7 +2018,7 @@
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
-        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/751073600/send_flow/",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
         "options": {},
         "bodyParametersUi": {
           "parameter": [
@@ -2058,6 +2043,21 @@
           "name": "[PRIGEO] - Bot conversa"
         }
       }
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "days"
+      },
+      "id": "9f662773-2377-42d6-8eab-d05cb1d490f0",
+      "name": "Espera 3 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2900,
+        1080
+      ],
+      "webhookId": "763ee305-0d8b-4c68-80e0-ba54fbfcc577"
     }
   ],
   "pinData": {
@@ -2179,6 +2179,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-24T02:40:53.504Z",
-  "versionId": "cef67363-f571-482c-ab21-f8cfd824bcf5"
+  "updatedAt": "2025-06-24T04:17:47.088Z",
+  "versionId": "b8e2e864-6516-429e-b1d6-35e6dcc6bc13"
 }
