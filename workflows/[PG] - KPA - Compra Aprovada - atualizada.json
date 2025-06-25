@@ -396,7 +396,7 @@
       "main": [
         [
           {
-            "node": "Possui tag \"Aluno_CAC\"",
+            "node": "Possui tag \"Aluno_KINCL\"",
             "type": "main",
             "index": 0
           }
@@ -463,24 +463,6 @@
         [
           {
             "node": "Adiciona Tag Aluno_KPA",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Possui tag \"Aluno_CAC\"": {
-      "main": [
-        [
-          {
-            "node": "Não faz Upsell",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Enviar Mensagem de Upsell",
             "type": "main",
             "index": 0
           }
@@ -580,6 +562,24 @@
         [
           {
             "node": "Espera 7 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Possui tag \"Aluno_KINCL\"": {
+      "main": [
+        [
+          {
+            "node": "Não faz Upsell",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar Mensagem de Upsell",
             "type": "main",
             "index": 0
           }
@@ -1833,27 +1833,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json[\"tags\"] }}",
-              "operation": "contains",
-              "value2": "Aluno_CAC"
-            }
-          ]
-        }
-      },
-      "id": "2384d5b4-a717-4019-895f-14912d5bee2d",
-      "name": "Possui tag \"Aluno_CAC\"",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        3280,
-        1080
-      ]
-    },
-    {
-      "parameters": {
         "httpMethod": "POST",
         "path": "kpa-compra-aprovada",
         "options": {}
@@ -2057,6 +2036,27 @@
           "name": "[PRIGEO] - Bot conversa"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json[\"tags\"] }}",
+              "operation": "contains",
+              "value2": "Aluno_KINCL"
+            }
+          ]
+        }
+      },
+      "id": "2384d5b4-a717-4019-895f-14912d5bee2d",
+      "name": "Possui tag \"Aluno_KINCL\"",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        3280,
+        1080
+      ]
     }
   ],
   "pinData": {
@@ -2182,19 +2182,19 @@
   "staticData": null,
   "tags": [
     {
-      "createdAt": "2024-04-30T11:53:15.629Z",
-      "updatedAt": "2024-04-30T11:53:15.629Z",
-      "id": "H2161I9MxT1c0oWE",
-      "name": "[PRI GEO]"
-    },
-    {
       "createdAt": "2024-05-03T22:55:20.650Z",
       "updatedAt": "2024-05-03T22:55:20.650Z",
       "id": "Gb0ewU8FfQjXUIu3",
       "name": "KPA"
+    },
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-24T04:46:47.034Z",
-  "versionId": "77b0ad7d-45af-4f3b-a623-1df4cd4018e3"
+  "updatedAt": "2025-06-25T04:23:56.004Z",
+  "versionId": "7dfad90d-d608-4d26-a42a-61c9e0b6521b"
 }
