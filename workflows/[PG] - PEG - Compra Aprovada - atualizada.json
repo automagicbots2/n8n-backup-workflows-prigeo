@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Compra Aprovada": {
       "main": [
@@ -403,17 +403,6 @@
         ]
       ]
     },
-    "Mensagens": {
-      "main": [
-        [
-          {
-            "node": "Adiciona Tag Aluno_PEG",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Preenche Campo \"[PEG] - ID da Transação\"": {
       "main": [
         [
@@ -462,7 +451,7 @@
       "main": [
         [
           {
-            "node": "Possui tag \"Aluno_KGJAP\"",
+            "node": "Possui tag \"Aluno_KINCL\"",
             "type": "main",
             "index": 0
           }
@@ -557,7 +546,7 @@
         ]
       ]
     },
-    "Possui tag \"Aluno_KGJAP\"": {
+    "Possui tag \"Aluno_KINCL\"": {
       "main": [
         [
           {
@@ -569,6 +558,17 @@
         [
           {
             "node": "Enviar Mensagem de Upsell",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagens": {
+      "main": [
+        [
+          {
+            "node": "Adiciona Tag Aluno_PEG",
             "type": "main",
             "index": 0
           }
@@ -1490,27 +1490,6 @@
     },
     {
       "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "ID do Flow de Onboarding",
-              "value": "=1010951"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "a2c781cc-7462-47df-888c-30d5e03cbff7",
-      "name": "Mensagens",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 1,
-      "position": [
-        1360,
-        1080
-      ]
-    },
-    {
-      "parameters": {
         "content": "## Colocar credenciais corretas do cliente e ID dos Campos correspondentes na conta do Manychat do cliente",
         "height": 127.29293048830951,
         "width": 482.8690026954177
@@ -1991,17 +1970,54 @@
             {
               "value1": "={{ $json[\"tags\"] }}",
               "operation": "contains",
-              "value2": "Aluno_KGJAP"
+              "value2": "Aluno_KINCL"
             }
           ]
         }
       },
       "id": "11a7ab61-113c-42d8-b286-3ba7aa78b73e",
-      "name": "Possui tag \"Aluno_KGJAP\"",
+      "name": "Possui tag \"Aluno_KINCL\"",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
         3040,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID do Flow de Onboarding",
+              "value": "=7464336"
+            },
+            {
+              "name": "Fluxo de Upsell",
+              "value": "=7464344"
+            },
+            {
+              "name": "Fluxo de Upsell 2",
+              "value": "7464348"
+            },
+            {
+              "name": "Fluxo de Upsell 3",
+              "value": "7464354"
+            },
+            {
+              "name": "Fluxo de Upsell 4",
+              "value": "7464355"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e342b148-552a-4fa1-a8d8-739a92716777",
+      "name": "Mensagens",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1360,
         1080
       ]
     }
@@ -2029,6 +2045,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-24T05:16:49.320Z",
-  "versionId": "3e0d59bb-a4ae-4a4a-827a-74a2a8ad9fca"
+  "updatedAt": "2025-06-25T04:41:17.370Z",
+  "versionId": "6af9f1af-2488-4849-9fb3-77d5de51f84e"
 }
