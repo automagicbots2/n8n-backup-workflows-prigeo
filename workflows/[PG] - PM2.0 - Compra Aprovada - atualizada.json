@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Compra Aprovada": {
       "main": [
@@ -403,22 +403,11 @@
         ]
       ]
     },
-    "Mensagens": {
-      "main": [
-        [
-          {
-            "node": "Adiciona Tag Aluno_PM2.0",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Buscar na audiência1": {
       "main": [
         [
           {
-            "node": "Possui tag \"Aluno_CAC\"",
+            "node": "Enviar Mensagem de Upsell",
             "type": "main",
             "index": 0
           }
@@ -469,25 +458,73 @@
         ]
       ]
     },
-    "Possui tag \"Aluno_CAC\"": {
+    "Adiciona CPF/CNPJ": {
       "main": [
         [
           {
-            "node": "Não faz Upsell",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Enviar Mensagem de Upsell",
+            "node": "Enviar Fluxo de Onboarding",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Espera 2 dias": {
+    "Mensagens": {
+      "main": [
+        [
+          {
+            "node": "Adiciona Tag Aluno_PM2.0",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem de Upsell 2": {
+      "main": [
+        [
+          {
+            "node": "Espera 30 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem de Upsell 3": {
+      "main": [
+        [
+          {
+            "node": "Espera 60 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem de Upsell": {
+      "main": [
+        [
+          {
+            "node": "Espera 15 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Fluxo de Onboarding": {
+      "main": [
+        [
+          {
+            "node": "Espera 5 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 5 dias": {
       "main": [
         [
           {
@@ -498,11 +535,33 @@
         ]
       ]
     },
-    "Adiciona CPF/CNPJ": {
+    "Espera 60 dias": {
       "main": [
         [
           {
-            "node": "Enviar Fluxo de Onboarding",
+            "node": "Enviar Mensagem de Upsell 4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 30 dias": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem de Upsell 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 15 dias": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem de Upsell 2",
             "type": "main",
             "index": 0
           }
@@ -1407,31 +1466,6 @@
     },
     {
       "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "Fluxo de Onboarding",
-              "value": "=1163209"
-            },
-            {
-              "name": "Fluxo de Upsell",
-              "value": "=1148446"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "13a9f618-7398-4430-898a-394ebecc6bd4",
-      "name": "Mensagens",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 1,
-      "position": [
-        1540,
-        1080
-      ]
-    },
-    {
-      "parameters": {
         "content": "## Colocar credenciais corretas do cliente e ID dos Campos correspondentes na conta do Manychat do cliente",
         "height": 127.29293048830951,
         "width": 482.8690026954177
@@ -1456,7 +1490,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        2980,
+        2960,
         1080
       ],
       "id": "a271c2a1-a0a3-4527-a3bf-5aeaa2cab0fb",
@@ -1467,17 +1501,6 @@
         }
       },
       "continueOnFail": true
-    },
-    {
-      "parameters": {},
-      "id": "b425b1dc-c1d4-4074-8665-3974c9ba4a53",
-      "name": "Não faz Upsell",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        3440,
-        900
-      ]
     },
     {
       "parameters": {
@@ -1499,8 +1522,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        3440,
-        1200
+        3160,
+        1080
       ],
       "id": "e11bd001-79cb-4657-8906-c02232977d37",
       "credentials": {
@@ -1714,42 +1737,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json[\"tags\"] }}",
-              "operation": "contains",
-              "value2": "Aluno_CAC"
-            }
-          ]
-        }
-      },
-      "id": "638e9473-63bd-4ebc-8aef-2468299dcf04",
-      "name": "Possui tag \"Aluno_CAC\"",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        3200,
-        1080
-      ]
-    },
-    {
-      "parameters": {
-        "amount": 2,
-        "unit": "days"
-      },
-      "id": "58ef9f0d-1cc9-43d5-a0f7-bc577ecef139",
-      "name": "Espera 2 dias",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        2760,
-        1080
-      ],
-      "webhookId": "be1e41eb-e459-4c8d-8344-6e0d842ff12e"
-    },
-    {
-      "parameters": {
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "requestMethod": "POST",
@@ -1791,6 +1778,196 @@
         2700,
         880
       ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID do Flow de Onboarding",
+              "value": "=7470894"
+            },
+            {
+              "name": "Fluxo de Upsell",
+              "value": "=7470984"
+            },
+            {
+              "name": "Fluxo de Upsell 2",
+              "value": "7471018"
+            },
+            {
+              "name": "Fluxo de Upsell 3",
+              "value": "7471021"
+            },
+            {
+              "name": "Fluxo de Upsell 4",
+              "value": "7471024"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f4a96d24-8d4a-41d0-8317-921da3cc9838",
+      "name": "Mensagens",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 2\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell 2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3540,
+        1080
+      ],
+      "id": "2963550f-970f-49d6-b272-05880c746879",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 3\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell 3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3880,
+        1080
+      ],
+      "id": "7590c366-3e7d-4f71-894b-440870092855",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 4\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell 4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4220,
+        1080
+      ],
+      "id": "f130f8b3-ec34-4655-ab24-42b2b432bca1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "days"
+      },
+      "id": "58ef9f0d-1cc9-43d5-a0f7-bc577ecef139",
+      "name": "Espera 5 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        1080
+      ],
+      "webhookId": "be1e41eb-e459-4c8d-8344-6e0d842ff12e"
+    },
+    {
+      "parameters": {
+        "amount": 30,
+        "unit": "days"
+      },
+      "id": "7b85286a-4e86-437d-8311-3e01797f0f21",
+      "name": "Espera 60 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4040,
+        1080
+      ],
+      "webhookId": "511985e1-45fd-4763-8752-7a68f37bedff"
+    },
+    {
+      "parameters": {
+        "amount": 15,
+        "unit": "days"
+      },
+      "id": "9a994d95-670a-46de-8cd0-1fabe2221c31",
+      "name": "Espera 30 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3720,
+        1080
+      ],
+      "webhookId": "511985e1-45fd-4763-8752-7a68f37bedff"
+    },
+    {
+      "parameters": {
+        "amount": 10,
+        "unit": "days"
+      },
+      "id": "87818147-a288-48a1-ae80-61310204228a",
+      "name": "Espera 15 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3340,
+        1080
+      ],
+      "webhookId": "511985e1-45fd-4763-8752-7a68f37bedff"
     }
   ],
   "pinData": {
@@ -1862,19 +2039,19 @@
   "staticData": null,
   "tags": [
     {
-      "createdAt": "2024-04-30T11:53:15.629Z",
-      "updatedAt": "2024-04-30T11:53:15.629Z",
-      "id": "H2161I9MxT1c0oWE",
-      "name": "[PRI GEO]"
-    },
-    {
       "createdAt": "2024-05-03T20:03:39.928Z",
       "updatedAt": "2024-05-03T20:03:39.928Z",
       "id": "5aLaCKE6gU2KHuDT",
       "name": "PM2.0"
+    },
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-24T05:22:23.319Z",
-  "versionId": "2bc5dc9d-2844-47e2-a2fe-6fa2b608307e"
+  "updatedAt": "2025-06-26T00:13:13.640Z",
+  "versionId": "ecb8548f-d0bc-4000-b2ca-4d28b9ff4909"
 }
