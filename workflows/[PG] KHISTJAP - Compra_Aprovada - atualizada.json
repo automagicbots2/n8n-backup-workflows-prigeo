@@ -340,7 +340,7 @@
       "main": [
         [
           {
-            "node": "Possui tag \"Aluno_PEG\"",
+            "node": "Enviar Mensagem de Upsell1",
             "type": "main",
             "index": 0
           }
@@ -389,13 +389,7 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "Enviar Mensagem de Upsell1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Verificar DDD>": {
@@ -1422,9 +1416,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3500,
-        1040
-      ]
+        3400,
+        760
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -2194,6 +2189,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-07-03T04:58:50.340Z",
-  "versionId": "e495b67f-382f-4e60-b27a-71a97b255579"
+  "updatedAt": "2025-07-05T20:00:04.479Z",
+  "versionId": "1479de10-f88f-40a1-8088-e3d44096ef8f"
 }
