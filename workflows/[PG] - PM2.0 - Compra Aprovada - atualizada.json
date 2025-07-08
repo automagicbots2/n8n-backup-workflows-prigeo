@@ -1746,7 +1746,7 @@
           "parameter": [
             {
               "name": "flow",
-              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Onboarding\"] }}"
+              "value": "={{ $node[\"Mensagens\"].json[\"ID do Flow de Onboarding\"] }}"
             }
           ]
         }
@@ -2052,6 +2052,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-26T00:13:13.640Z",
-  "versionId": "ecb8548f-d0bc-4000-b2ca-4d28b9ff4909"
+  "updatedAt": "2025-07-08T04:10:40.565Z",
+  "versionId": "b791f65b-b5e3-4db3-9539-60ad1a932dd9"
 }
