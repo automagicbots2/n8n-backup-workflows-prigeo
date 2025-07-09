@@ -1,0 +1,2193 @@
+{
+  "active": true,
+  "connections": {
+    "Formatação da Data do Pedido": {
+      "main": [
+        [
+          {
+            "node": "Consulta Venda na Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contato existe?": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cadastrar contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sem nono dígito": {
+      "main": [
+        [
+          {
+            "node": "Dados validados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nono dígito": {
+      "main": [
+        [
+          {
+            "node": "Dados validados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar na audiência": {
+      "main": [
+        [
+          {
+            "node": "Contato existe?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cadastrar contato": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar na audiência": {
+      "main": [
+        [
+          {
+            "node": "Informações do Produto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consulta Venda na Hotmart": {
+      "main": [
+        [
+          {
+            "node": "Formatação da Data da Garantia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consulta Users na Hotmart": {
+      "main": [
+        [
+          {
+            "node": "Nomeia Forma de Pagamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatação da Data da Garantia": {
+      "main": [
+        [
+          {
+            "node": "Consulta Users na Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Forma de Pagamento": {
+      "main": [
+        [
+          {
+            "node": "Boleto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cartão de Crédito",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Paypal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nomeia Forma de Pagamento1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Boleto": {
+      "main": [
+        [
+          {
+            "node": "Nomeia Boleto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cartão de Crédito": {
+      "main": [
+        [
+          {
+            "node": "Nomeia Cartão de Crédito",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Paypal": {
+      "main": [
+        [
+          {
+            "node": "Nomeia Paypal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Forma de Pagamento1": {
+      "main": [
+        [
+          {
+            "node": "PIX",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Carteira da Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoOp",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Outros",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PIX": {
+      "main": [
+        [
+          {
+            "node": "Nomeia PIX",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carteira da Hotmart": {
+      "main": [
+        [
+          {
+            "node": "Nomeia Carteira da Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outros": {
+      "main": [
+        [
+          {
+            "node": "Segue Nomenclatura da Hotmart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Boleto": {
+      "main": [
+        [
+          {
+            "node": "Dados da Compra 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Cartão de Crédito": {
+      "main": [
+        [
+          {
+            "node": "Dados da Compra 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Paypal": {
+      "main": [
+        [
+          {
+            "node": "Dados da Compra 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia PIX": {
+      "main": [
+        [
+          {
+            "node": "Dados da Compra 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nomeia Carteira da Hotmart": {
+      "main": [
+        [
+          {
+            "node": "Dados da Compra 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Segue Nomenclatura da Hotmart": {
+      "main": [
+        [
+          {
+            "node": "Dados da Compra 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tem Manychat no SRC?": {
+      "main": [
+        [
+          {
+            "node": "Preenche Campo \"[KGJAP] - ID da Transação\"",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Informações do Produto": {
+      "main": [
+        [
+          {
+            "node": "Mensagens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar na audiência1": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem de Upsell1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Adiciona CPF/CNPJ": {
+      "main": [
+        [
+          {
+            "node": "Espera 3 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preenche Campo \"[KGJAP] - ID da Transação\"": {
+      "main": [
+        [
+          {
+            "node": "Preenche Campo \"[KGJAP] - E-mail da Compra\"",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Fluxo de Onboarding": {
+      "main": [
+        [
+          {
+            "node": "Adiciona Email da Compra EmailArtes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Possui tag \"Aluno_PEG\"": {
+      "main": [
+        [
+          {
+            "node": "Não faz Upsell",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar DDD>": {
+      "main": [
+        [
+          {
+            "node": "Sem nono dígito",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nono dígito",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualiza BD - Compra Aprovada": {
+      "main": [
+        [
+          {
+            "node": "Verificar DDD>",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dados da Compra 1": {
+      "main": [
+        [
+          {
+            "node": "Atualiza BD - Compra Aprovada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dados validados": {
+      "main": [
+        [
+          {
+            "node": "Verificar na audiência",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 7 dias": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem de Upsell 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 15 dias": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem de Upsell 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 30 dias": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem de Upsell 4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem de Upsell 2": {
+      "main": [
+        [
+          {
+            "node": "Espera 15 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem de Upsell 3": {
+      "main": [
+        [
+          {
+            "node": "Espera 30 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem de Upsell1": {
+      "main": [
+        [
+          {
+            "node": "Espera 7 dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera 3 dias": {
+      "main": [
+        [
+          {
+            "node": "Buscar na audiência1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagens": {
+      "main": [
+        [
+          {
+            "node": "Adiciona Tag AlunoArtes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compra Aprovada": {
+      "main": [
+        [
+          {
+            "node": "Formatação da Data do Pedido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Adiciona Tag AlunoArtes": {
+      "main": [
+        [
+          {
+            "node": "Enviar Fluxo de Onboarding",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Adiciona Email da Compra EmailArtes": {
+      "main": [
+        [
+          {
+            "node": "Adiciona IDTransacaoKARTJAP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Adiciona IDTransacaoKARTJAP": {
+      "main": [
+        [
+          {
+            "node": "Adiciona CPF/CNPJ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-09T04:47:34.942Z",
+  "id": "ukUarOngEUheL9hB",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[PG] KARTJAP - Compra_Aprovada - atualizada",
+  "nodes": [
+    {
+      "parameters": {
+        "value": "={{ $json[\"body\"][\"data\"][\"purchase\"][\"approved_date\"]/1000 }}",
+        "dataPropertyName": "Data do Pedido Formatada",
+        "custom": true,
+        "toFormat": "DD/MM/YYYY",
+        "options": {}
+      },
+      "id": "0ee7f9a1-bf9e-4e62-9395-12151de716da",
+      "name": "Formatação da Data do Pedido",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        -2700,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"id\"]}}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "name": "Contato existe?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        900,
+        1060
+      ],
+      "id": "079df76c-9ab9-44b7-9e86-3ee9797e15ce"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "whatsapp-sem-nono",
+              "value": "=+55{{ $json[\"DDD\"] }}{{ $json[\"Telefone do Cliente\"].slice(-8) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Sem nono dígito",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        40,
+        820
+      ],
+      "id": "8c41776b-3ab7-4652-94e7-a24c1f2dcb9d"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "whatsapp-nono",
+              "value": "=+55{{ $json[\"DDD\"] }}{{ $json[\"Telefone do Cliente\"].slice(-9) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Nono dígito",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1060
+      ],
+      "id": "b9666bd3-ed0e-4c44-9cfe-0577301d743c"
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Dados validados\"].json[\"whatsapp-formatado\"]}}/",
+        "options": {}
+      },
+      "name": "Verificar na audiência",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        620,
+        1060
+      ],
+      "id": "97756c6a-e869-4f40-a03c-3ce4627e9b5f",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "={{$node[\"Dados validados\"].json[\"whatsapp-formatado\"]}}"
+            },
+            {
+              "name": "first_name",
+              "value": "={{ $node[\"Dados da Compra 1\"].json[\"Nome do Cliente\"].split(' ')[0] }}"
+            },
+            {
+              "name": "last_name",
+              "value": "={{ $node[\"Dados da Compra 1\"].json[\"Nome do Cliente\"].split(' ')[1] }}"
+            }
+          ]
+        }
+      },
+      "name": "Cadastrar contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        1160
+      ],
+      "id": "a052294c-bd6f-4485-9f52-4241905f1631",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Dados validados\"].json[\"whatsapp-formatado\"]}}/",
+        "options": {}
+      },
+      "name": "Buscar na audiência",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1360,
+        1040
+      ],
+      "id": "657fe469-0511-4cd0-9e15-f2a35394a1f4",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://developers.hotmart.com/payments/api/v1/sales/history",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "transaction",
+              "value": "={{ $node[\"Compra Aprovada\"].json[\"body\"][\"data\"][\"purchase\"][\"transaction\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "17920247-a571-4fe0-9e00-32526c5f34e7",
+      "name": "Consulta Venda na Hotmart",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        -2500,
+        1040
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "CHJqRANFoJRHVfE2",
+          "name": "[PRIGEO] - Hotmart"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://developers.hotmart.com/payments/api/v1/sales/users",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "transaction",
+              "value": "={{ $node[\"Compra Aprovada\"].json[\"body\"][\"data\"][\"purchase\"][\"transaction\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a6b0ec6b-2c99-4898-b77e-8a01044bcaf1",
+      "name": "Consulta Users na Hotmart",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        -2120,
+        1040
+      ],
+      "credentials": {
+        "oAuth2Api": {
+          "id": "CHJqRANFoJRHVfE2",
+          "name": "[PRIGEO] - Hotmart"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "value": "={{ $item(\"0\").$node[\"Consulta Venda na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"warranty_expire_date\"]/1000 }}",
+        "dataPropertyName": "Data da Garantia Formatada",
+        "custom": true,
+        "toFormat": "DD/MM/YYYY",
+        "options": {}
+      },
+      "id": "97876c13-3eb7-4d18-8f20-a7fa7cf417b7",
+      "name": "Formatação da Data da Garantia",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        -2300,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Substituir pelos Campos Correspondentes no AC",
+        "height": 302.26975741239875,
+        "width": 197.47474957688246
+      },
+      "id": "d4f5d73e-222d-47b6-b90b-d5a148f305a2",
+      "name": "Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $item(\"0\").$node[\"Consulta Venda na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"payment\"][\"type\"] }}",
+        "rules": {
+          "rules": [
+            {
+              "operation": "contains",
+              "value2": "BILLET"
+            },
+            {
+              "value2": "CREDIT_CARD",
+              "output": 1
+            },
+            {
+              "operation": "contains",
+              "value2": "PAYPAL",
+              "output": 2
+            }
+          ]
+        },
+        "fallbackOutput": 3
+      },
+      "id": "3fa95079-8a32-49f1-8ce4-9b9b9ada083e",
+      "name": "Nomeia Forma de Pagamento",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        -1900,
+        1040
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f910e9be-349e-438b-bbd9-b268aa27d465",
+      "name": "Boleto",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        800
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "4cbc7435-d833-4b44-b12f-ca9f9358a70e",
+      "name": "Cartão de Crédito",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        980
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "8fe43a9c-36ed-4ca6-89d4-d1369d729cfb",
+      "name": "Paypal",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $item(\"0\").$node[\"Consulta Venda na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"payment\"][\"type\"] }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "PIX"
+            },
+            {
+              "value2": "WALLET",
+              "output": 1
+            }
+          ]
+        },
+        "fallbackOutput": 3
+      },
+      "id": "cb8ed2a8-0d94-4ebd-a143-da974b21f145",
+      "name": "Nomeia Forma de Pagamento1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        -1740,
+        1460
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "180f5f82-6853-49c9-813a-e21338953369",
+      "name": "PIX",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1420,
+        1360
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ad2c0d27-c0de-4ba5-a713-28ec423e40e8",
+      "name": "Carteira da Hotmart",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1420,
+        1560
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "4208ef81-33f7-419c-ab13-31d05f30c524",
+      "name": "NoOp",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1420,
+        1740
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "04bea526-7230-465d-b3bd-f2b57adf7f9f",
+      "name": "Outros",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1420,
+        1920
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "Boleto"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "16be8f63-fa13-4123-ba4d-059171847697",
+      "name": "Nomeia Boleto",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -1380,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "Cartão de Crédito"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e7e6e1af-0b43-4f17-8742-4c4ab986e9ca",
+      "name": "Nomeia Cartão de Crédito",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -1380,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "Paypal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "43ada428-ed97-468a-8992-27779944052c",
+      "name": "Nomeia Paypal",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -1380,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "PIX"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "422634bb-cdb6-4b97-8b00-890683cd77c7",
+      "name": "Nomeia PIX",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -1200,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "Carteira da Hotmart"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8682bf7e-2783-497f-9e1a-3bfdb5581c51",
+      "name": "Nomeia Carteira da Hotmart",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -1200,
+        1560
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome da Forma de Pagamento",
+              "value": "={{ $item(\"0\").$node[\"Consulta Venda na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"payment\"][\"type\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d54167f6-7d95-46ea-ba51-ebecfcd7ef0b",
+      "name": "Segue Nomenclatura da Hotmart",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -1200,
+        1920
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json[\"Plataforma de Origem\"] }}",
+        "rules": {
+          "rules": [
+            {
+              "operation": "contains",
+              "value2": "manychat"
+            }
+          ]
+        },
+        "fallbackOutput": 1
+      },
+      "id": "67de20fc-17f4-4f9e-83c0-ed632990ccb4",
+      "name": "Tem Manychat no SRC?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        520,
+        840
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/631990/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"Dados da Compra 1\"].json[\"CPF/CNPJ do Cliente\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Adiciona CPF/CNPJ",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2840,
+        1040
+      ],
+      "id": "449e44c4-d80e-4e96-847e-474a9d5af76a",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Link do Checkout do Upsell",
+              "value": "https://pay.hotmart.com/T74232722I?checkoutMode=10"
+            },
+            {
+              "name": "SRC de Upsell com WhatsApp",
+              "value": "&src=whatsapp-upsellkitgeo-ofertapeg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1cfeb0d1-f3e5-492a-bfd1-b343646e180e",
+      "name": "Informações do Produto",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{$node[\"Dados validados\"].json[\"whatsapp-formatado\"]}}/",
+        "options": {}
+      },
+      "name": "Buscar na audiência1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3280,
+        1040
+      ],
+      "id": "468959c9-403d-4877-aa3e-203a95a2e962",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {},
+      "id": "ba80f1ca-5d18-426b-aed5-5ff9244f3df8",
+      "name": "Não faz Upsell",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3740,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.manychat.com/fb/subscriber/setCustomField",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "subscriber_id",
+              "value": "={{  $node[\"Dados da Compra 1\"].json[\"Temperatura do Público\"]  }}"
+            },
+            {
+              "name": "field_id",
+              "value": "=8925183"
+            },
+            {
+              "name": "field_value",
+              "value": "={{  $node[\"Dados da Compra 1\"].json[\"ID da Transação\"]  }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3a57db13-a5e4-419e-9062-00510cc53030",
+      "name": "Preenche Campo \"[KGJAP] - ID da Transação\"",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        740,
+        600
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "4VKTnFTcOLtmNWxN",
+          "name": "[PRIGEO] - Manychat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.manychat.com/fb/subscriber/setCustomField",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "subscriber_id",
+              "value": "={{  $node[\"Dados da Compra 1\"].json[\"Temperatura do Público\"]  }}"
+            },
+            {
+              "name": "field_id",
+              "value": "=8925184"
+            },
+            {
+              "name": "field_value",
+              "value": "={{  $node[\"Dados da Compra 1\"].json[\"E-mail do Cliente\"]  }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a3752d50-4a5d-41f3-af79-695fe72ca1ec",
+      "name": "Preenche Campo \"[KGJAP] - E-mail da Compra\"",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1000,
+        600
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "4VKTnFTcOLtmNWxN",
+          "name": "[PRIGEO] - Manychat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"ID do Flow de Onboarding\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Fluxo de Onboarding",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2180,
+        1040
+      ],
+      "id": "edaacba2-1a4a-41c8-b495-016d171c1e70",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Validado ☝🏻",
+        "height": 82.85484370337883,
+        "width": 195.00515995872038
+      },
+      "id": "875cae5a-ac81-4a8a-a3db-95b49ffd1fa4",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2140,
+        1260
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Validado ☝🏻"
+      },
+      "id": "162162ca-07b5-49f3-8fac-5e4b6c105023",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3420,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Validado ☝🏻"
+      },
+      "id": "76bdab0d-2857-4bf3-8910-c77888429e80",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3680,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json[\"tags\"] }}",
+              "operation": "contains",
+              "value2": "Aluno_PEG"
+            }
+          ]
+        }
+      },
+      "id": "5750332f-8cdf-4167-95f8-d7adc3628b1b",
+      "name": "Possui tag \"Aluno_PEG\"",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        3520,
+        860
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $node[\"Dados da Compra 1\"].json[\"DDD\"] }}",
+              "operation": "larger",
+              "value2": 28
+            }
+          ]
+        }
+      },
+      "name": "Verificar DDD>",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        1040
+      ],
+      "id": "465d6279-6cf5-4b72-a197-21825a7b32c1"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1N-O2fDUHUjoBpgUBc8K1eH48yRjWIFD0aJXueEMP0lo",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1292197698,
+          "mode": "list",
+          "cachedResultName": "[Geral] - Compra Aprovada",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N-O2fDUHUjoBpgUBc8K1eH48yRjWIFD0aJXueEMP0lo/edit#gid=1292197698"
+        },
+        "columnToMatchOn": "ID DA TRANSAÇÃO",
+        "valueToMatchOn": "={{ $json[\"ID da Transação\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DA COMPRA",
+              "fieldValue": "={{ $json[\"Data da Compra\"] }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $json[\"Nome do Cliente\"] }}"
+            },
+            {
+              "column": "E-MAIL",
+              "fieldValue": "={{ $json[\"E-mail do Cliente\"] }}"
+            },
+            {
+              "column": "CÓDIGO DO ASSINANTE",
+              "fieldValue": "={{ $json[\"Código da Inscrição\"] }}"
+            },
+            {
+              "column": "OFERTA DA COMPRA",
+              "fieldValue": "={{ $json[\"Oferta da Compra\"] }}"
+            },
+            {
+              "column": "COMISSÃO GATEWAY",
+              "fieldValue": "={{ $json[\"Comissão Hotmart\"] }}"
+            },
+            {
+              "column": "PLANO",
+              "fieldValue": "={{ $json[\"Plano\"] }}"
+            },
+            {
+              "column": "VALOR DA COMPRA",
+              "fieldValue": "={{ $json[\"Valor da Compra\"] }}"
+            },
+            {
+              "column": "MOEDA DA COMPRA",
+              "fieldValue": "={{ $json[\"Moeda da Compra\"] }}"
+            },
+            {
+              "column": "FORMA DE PAGAMENTO",
+              "fieldValue": "={{ $json[\"Forma de Pagamento\"] }}"
+            },
+            {
+              "column": "NÚMERO DE PARCELAS",
+              "fieldValue": "={{ $json[\"Número de Parcelas\"] }}"
+            },
+            {
+              "column": "STATUS DA COMPRA",
+              "fieldValue": "={{ $json[\"Status da Compra\"] }}"
+            },
+            {
+              "column": "CPF/CNPJ",
+              "fieldValue": "={{ $json[\"CPF/CNPJ do Cliente\"] }}"
+            },
+            {
+              "column": "PLATAFORMA DE ORIGEM",
+              "fieldValue": "={{ $json[\"Plataforma de Origem\"] }}"
+            },
+            {
+              "column": "TEMPERATURA DO PÚBLICO",
+              "fieldValue": "={{ $json[\"Temperatura do Público\"] }}"
+            },
+            {
+              "column": "PÚBLICO",
+              "fieldValue": "={{ $json[\"Público\"] }}"
+            },
+            {
+              "column": "POSICIONAMENTO",
+              "fieldValue": "={{ $json[\"Posicionamento\"] }}"
+            },
+            {
+              "column": "ANÚNCIO",
+              "fieldValue": "={{ $json[\"Anúncio\"] }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $json[\"Telefone do Cliente\"] }}"
+            },
+            {
+              "column": "DATA DE VENCIMENTO DA GARANTIA",
+              "fieldValue": "={{ $item(\"0\").$node[\"Dados da Compra 1\"].json[\"Data de Vencimento da Garantia\"] }}"
+            },
+            {
+              "column": "PRODUTO",
+              "fieldValue": "={{    $json[\"Nome do Produto\"]    }}"
+            }
+          ]
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED"
+        }
+      },
+      "id": "d7ab3764-87bd-4a6c-8d7a-d1bd948ea01b",
+      "name": "Atualiza BD - Compra Aprovada",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        -480,
+        1040
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "renLSoeRurwGxrLn",
+          "name": "[PRIGEO] - Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome do Produto",
+              "value": "={{ $json[\"items\"][\"0\"][\"product\"][\"name\"] }}"
+            },
+            {
+              "name": "Nome do Cliente",
+              "value": "={{ $json[\"items\"][\"0\"][\"users\"][\"1\"][\"user\"][\"name\"] }}"
+            },
+            {
+              "name": "E-mail do Cliente",
+              "value": "={{ $json[\"items\"][\"0\"][\"users\"][\"1\"][\"user\"][\"email\"] }}"
+            },
+            {
+              "name": "Telefone do Cliente",
+              "value": "={{ $node[\"Consulta Users na Hotmart\"].json[\"items\"][\"0\"][\"users\"][\"1\"][\"user\"][\"phone\"] }}"
+            },
+            {
+              "name": "CPF/CNPJ do Cliente",
+              "value": "={{ $json[\"items\"][\"0\"][\"users\"][\"1\"][\"user\"][\"documents\"][\"0\"][\"value\"] }}"
+            },
+            {
+              "name": "ID da Transação",
+              "value": "={{ $node[\"Compra Aprovada\"].json[\"body\"][\"data\"][\"purchase\"][\"transaction\"] }}"
+            },
+            {
+              "name": "Oferta da Compra",
+              "value": "={{ $node[\"Consulta Venda na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"offer\"][\"code\"] }}"
+            },
+            {
+              "name": "Moeda da Compra",
+              "value": "={{ $node[\"Compra Aprovada\"].json[\"body\"][\"data\"][\"purchase\"][\"original_offer_price\"][\"currency_value\"] }}"
+            },
+            {
+              "name": "Forma de Pagamento",
+              "value": "={{ $json[\"Nome da Forma de Pagamento\"]  }}"
+            },
+            {
+              "name": "Status da Compra",
+              "value": "=Aprovada"
+            },
+            {
+              "name": "DDD",
+              "value": "={{ $json[\"items\"][\"0\"][\"users\"][\"1\"][\"user\"][\"phone\"].slice(0,2)  }}"
+            },
+            {
+              "name": "Plataforma de Origem",
+              "value": "={{ $node[\"Consulta Venda na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"tracking\"][\"source\"].split('-')[0] }}"
+            },
+            {
+              "name": "Temperatura do Público",
+              "value": "={{ $node[\"Consulta Venda na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"tracking\"][\"source\"].split('-')[1] }}"
+            },
+            {
+              "name": "Público",
+              "value": "={{ $node[\"Consulta Venda na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"tracking\"][\"source\"].split('-')[2] }}"
+            },
+            {
+              "name": "Posicionamento",
+              "value": "={{ $node[\"Consulta Venda na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"tracking\"][\"source\"].split('-')[3] }}"
+            },
+            {
+              "name": "Anúncio",
+              "value": "={{ $node[\"Consulta Venda na Hotmart\"].json[\"items\"][\"0\"][\"purchase\"][\"tracking\"][\"source\"].split('-')[4] }}"
+            }
+          ],
+          "number": [
+            {
+              "name": "Valor da Compra",
+              "value": "={{ $node[\"Compra Aprovada\"].json[\"body\"][\"data\"][\"purchase\"][\"full_price\"][\"value\"] }}"
+            },
+            {
+              "name": "Data da Compra",
+              "value": "={{ $node[\"Formatação da Data do Pedido\"].json[\"Data do Pedido Formatada\"] }}"
+            },
+            {
+              "name": "Comissão Hotmart",
+              "value": "={{ $node[\"Compra Aprovada\"].json[\"body\"][\"data\"][\"commissions\"][\"0\"][\"value\"] }}"
+            },
+            {
+              "name": "Número de Parcelas",
+              "value": "={{ $node[\"Compra Aprovada\"].json[\"body\"][\"data\"][\"purchase\"][\"payment\"][\"installments_number\"] }}"
+            },
+            {
+              "name": "Data de Vencimento da Garantia",
+              "value": "={{ $item(\"0\").$node[\"Formatação da Data da Garantia\"].json[\"Data da Garantia Formatada\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "id": "09e45f85-bc50-4b21-a9b2-e4563a7e5332",
+      "name": "Dados da Compra 1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -700,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "whatsapp-formatado",
+              "value": "={{ $node[\"Sem nono dígito\"].runIndex >= 0      ?   $node[\"Sem nono dígito\"].json[\"whatsapp-sem-nono\"] : $node[\"Nono dígito\"].json[\"whatsapp-nono\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Dados validados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        360,
+        1060
+      ],
+      "id": "6ef826bd-73d3-43ec-826f-90df79062e42"
+    },
+    {
+      "parameters": {
+        "amount": 4,
+        "unit": "days"
+      },
+      "id": "0778b0a0-95df-47c1-8623-41aa254f6806",
+      "name": "Espera 7 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3980,
+        1160
+      ],
+      "webhookId": "7134b6cd-6106-42bf-bd15-f37d11755b83"
+    },
+    {
+      "parameters": {
+        "amount": 7,
+        "unit": "days"
+      },
+      "id": "79dde079-9cf9-44ed-aa3c-59c7485ecebc",
+      "name": "Espera 15 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4340,
+        1160
+      ],
+      "webhookId": "ea554c3f-1f30-4f3f-a526-ed9cc2ebde73"
+    },
+    {
+      "parameters": {
+        "amount": 15,
+        "unit": "days"
+      },
+      "id": "b9fd54d0-a5f3-424e-ac6f-00d48a96ce67",
+      "name": "Espera 30 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4660,
+        1160
+      ],
+      "webhookId": "edd23ac0-ab95-4f08-8d80-b6a42acc4e5a"
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 2\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell 2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4160,
+        1160
+      ],
+      "id": "5cb60d67-99b9-4ee9-aa74-a0cb5d530931",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 3\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell 3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4500,
+        1160
+      ],
+      "id": "829099fd-d835-4427-ba70-22d6bce017b0",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell 4\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell 4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        4840,
+        1160
+      ],
+      "id": "996c938e-da9a-48af-9521-3ce462c2b19c",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência1\"].json[\"id\"] }}/send_flow/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "flow",
+              "value": "={{ $node[\"Mensagens\"].json[\"Fluxo de Upsell\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Enviar Mensagem de Upsell1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        3800,
+        1160
+      ],
+      "id": "a802543e-a8b1-46c7-b032-404446a6eb0b",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID do Flow de Onboarding",
+              "value": "=1010951"
+            },
+            {
+              "name": "Fluxo de Upsell",
+              "value": "=1148430"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6b93b2a7-f3f9-4953-8e01-8c168fe13c69",
+      "name": "Mensagens_",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        840
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID do Flow de Onboarding",
+              "value": "=7548060"
+            },
+            {
+              "name": "Fluxo de Upsell",
+              "value": "=7548061"
+            },
+            {
+              "name": "Fluxo de Upsell 2",
+              "value": "7548062"
+            },
+            {
+              "name": "Fluxo de Upsell 3",
+              "value": "7548063"
+            },
+            {
+              "name": "Fluxo de Upsell 4",
+              "value": "7548064"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5e88f99c-d213-4cbd-976a-4d929e965a84",
+      "name": "Mensagens",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "days"
+      },
+      "id": "a36354d3-2404-4ecf-85c8-bde6c848f37b",
+      "name": "Espera 3 dias",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3060,
+        1040
+      ],
+      "webhookId": "fff6a4e5-c4df-42e1-9aa4-b15086b0509c"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "kartjap-compra-aprovada",
+        "options": {}
+      },
+      "id": "d688e22e-7680-44fc-88c8-105c2ee7271f",
+      "name": "Compra Aprovada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -2900,
+        1040
+      ],
+      "webhookId": "398aa636-51d9-45bd-bd20-f81a23e3868d"
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/tags/12483122/",
+        "options": {}
+      },
+      "name": "Adiciona Tag AlunoArtes",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1980,
+        1040
+      ],
+      "id": "767c465e-d927-4202-8e9e-04df706ae7b4",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/3462283/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"Dados da Compra 1\"].json[\"E-mail do Cliente\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Adiciona Email da Compra EmailArtes",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        1040
+      ],
+      "id": "8c0112dd-3a8d-4535-9691-da132b00958b",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "requestMethod": "POST",
+        "url": "=https://backend.botconversa.com.br/api/v1/webhook/subscriber/{{ $node[\"Buscar na audiência\"].json[\"id\"] }}/custom_fields/4216053/",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "type",
+              "value": "string"
+            },
+            {
+              "name": "value",
+              "value": "={{ $node[\"Dados da Compra 1\"].json[\"ID da Transação\"] }}"
+            }
+          ]
+        }
+      },
+      "name": "Adiciona IDTransacaoKARTJAP",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2620,
+        1040
+      ],
+      "id": "199e9b97-019a-44a0-ab81-6952d38a1307",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mQO9PTGS7RIfTBXX",
+          "name": "[PRIGEO] - Bot conversa"
+        }
+      },
+      "continueOnFail": true
+    }
+  ],
+  "pinData": {
+    "Compra Aprovada": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhook.prigeo.com.br",
+            "user-agent": "Jodd HTTP",
+            "content-length": "1717",
+            "content-type": "application/json",
+            "x-forwarded-for": "54.80.49.226",
+            "x-forwarded-host": "webhook.prigeo.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "65bf580ce34d",
+            "x-hotmart-hottok": "C0M0zxU3tOxl79rtObW21JucfNTfa006c2cecc-32a6-4356-b7a6-4327bf1cd88c",
+            "x-real-ip": "54.80.49.226",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "data": {
+              "product": {
+                "has_co_production": true,
+                "name": "Kit Geografia - Jogos e Atividades Prontas ",
+                "id": 2013992,
+                "ucode": "2c63ba95-87b4-45e2-9291-a73999e053c2"
+              },
+              "commissions": [
+                {
+                  "currency_value": "BRL",
+                  "source": "MARKETPLACE",
+                  "value": 12.3
+                },
+                {
+                  "currency_value": "BRL",
+                  "source": "PRODUCER",
+                  "value": 79.03
+                }
+              ],
+              "purchase": {
+                "original_offer_price": {
+                  "currency_value": "BRL",
+                  "value": 127
+                },
+                "subscription_anticipation_purchase": false,
+                "checkout_country": {
+                  "iso": "BR",
+                  "name": "Brasil"
+                },
+                "order_bump": {
+                  "is_order_bump": false
+                },
+                "approved_date": 1714586125000,
+                "offer": {
+                  "code": "iqy4d2qb"
+                },
+                "order_date": 1714586019000,
+                "price": {
+                  "currency_value": "BRL",
+                  "value": 127
+                },
+                "payment": {
+                  "pix_qrcode": "https://customer-local-latam.ebanx.com/pix/checkout?hash=663281a3079355c0429448e8c4365a43dc645d558fa82955",
+                  "pix_expiration_date": 1714758820000,
+                  "installments_number": 1,
+                  "type": "PIX",
+                  "pix_code": "00020101021226740014br.gov.bcb.pix2552pix.ebanx.com/qr/v2/4C706E9545DF38561CC9F95EA361FEC15204000053039865802BR5924Launch Pad Tecnologia Se6014BELO HORIZONTE62070503***6304CD97"
+                },
+                "full_price": {
+                  "currency_value": "BRL",
+                  "value": 127
+                },
+                "invoice_by": "HOTMART",
+                "transaction": "HP3526536251",
+                "status": "APPROVED"
+              },
+              "affiliates": [
+                {
+                  "affiliate_code": "",
+                  "name": ""
+                }
+              ],
+              "producer": {
+                "name": "Prigeo Ensino e Tecnologia"
+              },
+              "buyer": {
+                "address": {
+                  "zipcode": "47620000",
+                  "country": "Brasil",
+                  "number": "00",
+                  "address": "Rua São Pedro ",
+                  "city": "Gameleira da Lapa (Sítio do Mato)",
+                  "state": "BA",
+                  "neighborhood": "Centro",
+                  "complement": "Casa",
+                  "country_iso": "BR"
+                },
+                "document": "03852189586",
+                "name": "Lauana Menezes Leite Oliveira ",
+                "checkout_phone": "77981417903",
+                "email": "laumenezes-17@hotmail.com"
+              }
+            },
+            "id": "ebbe6c75-9e53-45ec-adb9-025d048f4a78",
+            "creation_date": 1714586128125,
+            "event": "PURCHASE_APPROVED",
+            "version": "2.0.0"
+          },
+          "webhookUrl": "https://webhook.prigeo.com.br/webhook/kgjap-compra-aprovada",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "gH1eUtgMl91jy1fn"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-04-30T11:53:15.629Z",
+      "updatedAt": "2024-04-30T11:53:15.629Z",
+      "id": "H2161I9MxT1c0oWE",
+      "name": "[PRI GEO]"
+    },
+    {
+      "createdAt": "2025-07-09T04:48:25.618Z",
+      "updatedAt": "2025-07-09T04:48:25.618Z",
+      "id": "Q1VC3CgR3NwEF6Z6",
+      "name": "KARTJAP"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-09T05:02:58.085Z",
+  "versionId": "006c5e23-e732-4cf6-b135-a8278959d5f7"
+}
