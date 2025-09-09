@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Informações do Produto3": {
       "main": [
@@ -1428,6 +1428,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-03T22:53:07.306Z",
+  "updatedAt": "2025-09-08T23:20:51.710Z",
   "versionId": "28c3579e-9abc-45a9-a3f8-233aab3ff540"
 }
