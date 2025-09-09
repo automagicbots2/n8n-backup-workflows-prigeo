@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "atualiza_bd": {
       "main": [
@@ -451,6 +451,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-03T20:23:05.042Z",
+  "updatedAt": "2025-09-08T23:21:35.817Z",
   "versionId": "1c997e1e-0f70-495b-aa6c-e8b440d65383"
 }
