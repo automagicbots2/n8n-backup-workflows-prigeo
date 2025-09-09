@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "formata_dados": {
       "main": [
@@ -230,6 +230,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-03T20:24:12.345Z",
+  "updatedAt": "2025-09-08T23:21:31.129Z",
   "versionId": "c4ed76cf-3080-4a20-bdb2-e6feb0b5c9de"
 }
