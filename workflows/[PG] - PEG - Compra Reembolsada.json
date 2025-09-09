@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Compra Reembolsada": {
       "main": [
@@ -542,6 +542,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-03T20:02:28.829Z",
+  "updatedAt": "2025-09-08T23:21:57.876Z",
   "versionId": "72defd1f-941d-43db-8db4-58f5a6638fee"
 }
