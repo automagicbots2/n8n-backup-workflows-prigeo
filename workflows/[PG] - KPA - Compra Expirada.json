@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Compra Expirada": {
       "main": [
@@ -1190,6 +1190,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-03T22:56:40.048Z",
+  "updatedAt": "2025-09-08T23:20:46.857Z",
   "versionId": "d5395096-f146-4cf4-bca9-b9eaa45fefdc"
 }
