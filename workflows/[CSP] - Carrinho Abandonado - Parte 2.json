@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "cadastrar_contato": {
       "main": [
@@ -354,6 +354,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-03T20:21:13.243Z",
+  "updatedAt": "2025-09-08T23:21:38.097Z",
   "versionId": "ef23b84f-beed-479d-81cf-858312db5993"
 }
