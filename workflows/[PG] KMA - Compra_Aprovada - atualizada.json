@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Formatação da Data do Pedido": {
       "main": [
@@ -2188,6 +2188,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-07-15T07:15:51.026Z",
+  "updatedAt": "2025-09-08T22:52:46.578Z",
   "versionId": "f6b4a6f9-a7b2-4e00-b6c2-799f9293cdcb"
 }
