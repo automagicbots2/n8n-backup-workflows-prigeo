@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Compra Aprovada": {
       "main": [
@@ -2118,6 +2118,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-07-09T03:53:43.447Z",
+  "updatedAt": "2025-09-08T22:52:53.427Z",
   "versionId": "8b40c239-39a6-4a3b-bca1-59f136899013"
 }
