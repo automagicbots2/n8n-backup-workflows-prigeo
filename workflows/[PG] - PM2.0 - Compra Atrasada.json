@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Compra Atrasada": {
       "main": [
@@ -1100,6 +1100,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-03T20:04:50.413Z",
+  "updatedAt": "2025-09-08T23:21:48.386Z",
   "versionId": "49b6a010-414a-48b0-9776-ae899824d78b"
 }
