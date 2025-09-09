@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Mensagens3": {
       "main": [
@@ -1396,6 +1396,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-03T20:04:35.797Z",
+  "updatedAt": "2025-09-08T23:21:50.067Z",
   "versionId": "f713b1d0-9448-4589-9075-a30fcf2dde9e"
 }
