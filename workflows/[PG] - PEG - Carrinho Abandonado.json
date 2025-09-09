@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Carrinho Abandonado": {
       "main": [
@@ -619,6 +619,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-03T20:02:56.304Z",
+  "updatedAt": "2025-09-08T23:21:53.700Z",
   "versionId": "c0854eab-de8d-48f6-b4a8-833fc08f9877"
 }
