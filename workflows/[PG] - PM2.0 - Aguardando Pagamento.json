@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Verificar DDD>1": {
       "main": [
@@ -1813,6 +1813,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-10-10T19:55:18.049Z",
+  "updatedAt": "2025-09-08T23:20:26.484Z",
   "versionId": "2b8cc9c6-6065-412a-838f-9935c4536dc5"
 }
