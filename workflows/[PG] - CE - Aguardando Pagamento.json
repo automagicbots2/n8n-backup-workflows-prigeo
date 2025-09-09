@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Aguardando Pagamento": {
       "main": [
@@ -1700,6 +1700,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-22T17:51:49.959Z",
+  "updatedAt": "2025-09-08T23:20:36.714Z",
   "versionId": "5b7be093-4f03-473d-984a-06496455aa99"
 }
