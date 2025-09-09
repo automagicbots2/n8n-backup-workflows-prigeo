@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Compra Cancelada": {
       "main": [
@@ -1356,6 +1356,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-05-03T22:54:15.976Z",
+  "updatedAt": "2025-09-08T23:20:50.445Z",
   "versionId": "dbb095f0-63fa-4fff-b5d9-45eaffa5a151"
 }
